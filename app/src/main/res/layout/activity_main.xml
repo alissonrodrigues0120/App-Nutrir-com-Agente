@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/Fuchsia"
+    android:background="@color/blue"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Entrar"
-            android:textColor="@color/Fuchsia"
+            android:textColor="@color/blue"
             android:textSize="18sp"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/black"
