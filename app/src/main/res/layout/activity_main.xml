@@ -5,10 +5,10 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/blue"
     android:fitsSystemWindows="true"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:openDrawer="start">
 
     <androidx.cardview.widget.CardView
@@ -55,9 +55,9 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_account_circle_24"
+            android:drawablePadding="8dp"
             android:hint="Usuário"
-            android:textColor="@color/Pearl"
-            android:drawablePadding="8dp"/>
+            android:textColor="@color/Pearl" />
 
         <EditText
             android:id="@+id/password"
@@ -66,19 +66,19 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_lock_24"
+            android:drawablePadding="8dp"
             android:hint="Senha"
-            android:textColor="@color/Pearl"
-            android:drawablePadding="8dp"/>
-        
-        
+            android:textColor="@color/Pearl" />
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/black"
             android:text="Entrar"
             android:textColor="@color/blue"
             android:textSize="18sp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/black"
 
     </LinearLayout>
 
