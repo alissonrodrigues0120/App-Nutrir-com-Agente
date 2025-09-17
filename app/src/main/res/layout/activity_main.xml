@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="Login"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -53,22 +53,24 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/custom_edittext"
+            android:background="@drawable/custom_edittexttwo"
             android:drawableLeft="@drawable/baseline_account_circle_24"
             android:drawablePadding="8dp"
             android:hint="Usuário"
-            android:textColor="@color/Pearl" />
+            android:textColorHint="@color/Pearl"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/custom_edittext"
+            android:background="@drawable/custom_edittexttwo"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="8dp"
             android:hint="Senha"
-            android:textColor="@color/Pearl" />
+            android:textColorHint="@color/Pearl"
+            android:textColor="@color/white" />
 
 
         <Button
@@ -77,7 +79,7 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/black"
             android:text="Entrar"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="18sp"
 
     </LinearLayout>

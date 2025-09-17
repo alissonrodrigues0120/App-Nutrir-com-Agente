@@ -10,4 +10,25 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="para_saber_mais">Para saber mais</string>
+    <string name="sobre_o_aplicativo">Sobre o Aplicativo</string>
+
+    <string name="about_objective">Tem como objetivo, fornecer orientações dos principais condutas e diretrizes cabíveis ao ACS no que se refere a amamentação e alimentação complementar, além de:</string>
+
+    <string name="about_bullet_empower_acs">• Empoderar os ACSS quanto aos conhecimentos;</string>
+    <string name="about_bullet_expand_skills">• Ampliar suas habilidades e atitudes acerca das estratégias nutricionais junto às famílias dessas crianças;</string>
+    <string name="about_bullet_contribute_indicators">• Contribuir a visualização dos indicadores para tomada de decisão.</string>
+
+    <string name="about_tech_strategy">Dessa forma, ele age como uma estratégia tecnológica de educação profissional em saúde através da auto instrução de conteúdos qualificados, linguagem acessível e prática.</string>
+
+    <string name="about_what_app_does_not_do_title"><![CDATA[É importante esclarecer que o aplicativo]]> <b>NÃO FAZ</b>:</string>
+
+    <string name="about_bullet_productivity">• Produtividade do ACS;</string>
+    <string name="about_bullet_georeferencing">• Georreferenciamento;</string>
+    <string name="about_bullet_evaluation">• Avaliação ou qualificação profissional.</string>
+
+    <string name="about_no_jobs_or_replacement">E por fim, <b>não</b> apresenta oportunidades de emprego e <b>não</b> substitui as consultas de puericultura ou nutricional.</string>
+
+    <string name="about_what_app_does">Por outro lado, ele <b>traz</b> orientações sobre <b>aleitamento materno</b> e <b>alimentação complementar</b>, dá suporte ao <b>ACS</b> para lidar com as <b>crenças e mitos</b> da família relacionado com alimentação, apresenta <b>classificação de escores alimentares</b>, possibilita o registro das crianças, orienta os ACSs sobre o uso de ferro e vitamina A, possibilita o acompanhamento do <b>calendário de puericultura</b> e apresenta ainda, espaço para dicas de saúde.</string>
+
 </resources>
