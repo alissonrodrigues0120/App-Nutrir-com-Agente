@@ -9,8 +9,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Fuchsia">#FF00FF</color>
     <color name="Pearl">#E2DFD2</color>
-    <color name="blue">#272643</color>
     <color name="pink">#FF4081</color>
     <color name="yellow">#FFC107</color>
     <color name="gray">#F1F4F8</color>
+
+    <!-- textBox background -->
+    <color name="powder_blue">#bae8e9</color>
+    <!-- appBar background -->
+    <color name="blue">#272643</color>
+    <!-- black text color -->
+    <color name="outer_space">#303c3c</color>
 </resources>
