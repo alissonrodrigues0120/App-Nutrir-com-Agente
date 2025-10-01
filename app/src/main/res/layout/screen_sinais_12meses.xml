@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue"
-        app:elevation="12dp">
+        app:elevation="8dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="16dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -50,8 +50,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="Água, chá e chupeta"
+                        android:layout_marginBottom="24dp"
+                        android:text="Sinais de fome e de saciedade"
                         android:textColor="@android:color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -59,42 +59,67 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:lineSpacingExtra="4dp"
-                        android:text="Durante os 6 primeiros meses de vida, água, chás e principalmente outros leites devem ser evitados, pois há evidências de que o seu uso está associado com desmame precoce e aumento da morbimortalidade infantil."
-                        android:textSize="16sp" />
+                        android:layout_marginBottom="8dp"
+                        android:text="Sinais de fome"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="24dp"
+                        android:layout_marginBottom="16dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="A chupeta também tem sido desaconselhada pela possibilidade de interferir negativamente na duração do aleitamento materno, entre outros malefícios."
+                        android:text="A criança combina palavras e gestos para expressar vontade por alimentos específicos, leva a pessoa que cuida ao local onde os alimentos estão, aponta para eles."
                         android:textSize="16sp" />
 
-                    <com.airbnb.lottie.LottieAnimationView
-                         android:id="@+id/glass_water"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                         app:lottie_rawRes="@raw/glass_water"
-                         app:lottie_autoPlay="true"
-                         app:lottie_loop="true" />
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="24dp"
+                        android:src="@drawable/bebê_com_fruta"
+                        android:contentDescription="Ilustração de um bebê comendo feliz" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Sinais de saciedade"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Balança a cabeça, diz que não quer, sai da mesa, brinca com o alimento, joga-o longe."
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="24dp"
+                        android:src="@drawable/bebe_se_negando"
+                        android:contentDescription="Ilustração de um bebê recusando comida" />
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FCE4EC"
+                        android:background="#F0F4FF"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="Não se deve ofertar água para criança menores de 6 meses que estejam em aleitamento materno exclusivo."
-                        android:textColor="#C73E6B"
+                        android:text="@string/importante_diferenciar_os_sinais_de_fome_de_outras_situa_es_de_desconforto_para_a_crian_a_como_sede_sono_frio_calor_ou_fraldas_sujas_nem_todo_choro_fome"
+                        android:textColor="#3F51B5"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
