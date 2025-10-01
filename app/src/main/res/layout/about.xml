@@ -16,6 +16,7 @@
             android:id="@+id/toolbar_about"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
             android:background="@color/blue"
             app:title="@string/sobre_o_aplicativo" />
 
