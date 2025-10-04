@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue"
+        android:background="@color/blue_toolbar"
         app:elevation="12dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="Nutrir com aGente"
+            app:title="@string/title_app"
             app:titleTextColor="@android:color/white"/>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="Água, chá e chupeta"
+                        android:text="@string/title_agua_e_cha"
                         android:textColor="@android:color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="Durante os 6 primeiros meses de vida, água, chás e principalmente outros leites devem ser evitados, pois há evidências de que o seu uso está associado com desmame precoce e aumento da morbimortalidade infantil."
+                        android:text="@string/water_six_months"
                         android:textSize="16sp" />
 
                     <TextView
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="A chupeta também tem sido desaconselhada pela possibilidade de interferir negativamente na duração do aleitamento materno, entre outros malefícios."
+                        android:text="@string/pacifier"
                         android:textSize="16sp" />
 
                     <com.airbnb.lottie.LottieAnimationView
@@ -87,7 +87,7 @@
                         android:background="#FCE4EC"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="Não se deve ofertar água para criança menores de 6 meses que estejam em aleitamento materno exclusivo."
+                        android:text="@string/no_water_six_months"
                         android:textColor="#C73E6B"
                         android:textStyle="bold" />
 
