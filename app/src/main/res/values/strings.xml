@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NutrirAGente</string>
+    <string name="app_name">Nutrir com AGente</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -32,6 +32,7 @@
     <string name="about_no_jobs_or_replacement">E por fim, <b>não</b> apresenta oportunidades de emprego e <b>não</b> substitui as consultas de puericultura ou nutricional.</string>
 
     <string name="about_what_app_does">Por outro lado, ele <b>traz</b> orientações sobre <b>aleitamento materno</b> e <b>alimentação complementar</b>, dá suporte ao <b>ACS</b> para lidar com as <b>crenças e mitos</b> da família relacionado com alimentação, apresenta <b>classificação de escores alimentares</b>, possibilita o registro das crianças, orienta os ACSs sobre o uso de ferro e vitamina A, possibilita o acompanhamento do <b>calendário de puericultura</b> e apresenta ainda, espaço para dicas de saúde.</string>
+
     <string name="dica_recusa_alimento">Se a criança recusar determinado alimento, procure oferecer novamente em outras refeições. Lembrar que são necessárias, em média, oito a dez exposições a um novo alimento para que ele seja aceito pela criança.</string>
 
     <string name="dica_nem_todo_choro_e_fome">É importante diferenciar os sinais de fome de outras situações de desconforto para a criança, como sede, sono, frio, calor ou fraldas sujas. Nem todo choro é fome!</string>
@@ -72,3 +73,4 @@
     <string name="sinais_de_fome">Sinais de fome</string>
     <string name="fome_e_saciedade">Sinais de fome e de saciedade</string>
 </resources>
+
