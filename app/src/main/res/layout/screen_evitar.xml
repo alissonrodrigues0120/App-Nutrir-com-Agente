@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue"
+        android:background="@color/blue_toolbar"
         app:elevation="8dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
-                        android:text="@string/alimentos_que_devem_ser_evitados"
+                        android:text="@string/titulo_alimentos_a_evitar"
                         android:textColor="@android:color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/deve_se_b_evitar_b_a_car_caf_enlatados_frituras_refrigerantes_balas_salgadinhos_e_outras_guloseimas_nos_primeiros_anos_de_vida"
+                        android:text="@string/alerta_evitar_industrializados"
                         android:textSize="16sp" />
 
                     <TextView
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/b_usar_sal_com_modera_o_b_o_sal_iodado_al_m_de_fornecer_o_iodo_importante_para_que_a_crian_a_se_adapte_alimenta_o_da_fam_lia_por_m_seu_uso_deve_ser_moderado_e_restrito_quele_adicionado_s_papas_salgadas"
+                        android:text="@string/dica_uso_moderado_sal"
                         android:textSize="16sp" />
 
 
@@ -80,16 +80,16 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="24dp"
                         android:src="@drawable/sorvete"
-                        android:contentDescription="Ilustração de um sorvete" />
+                        android:contentDescription="@string/ilustracao_sorvete" />
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_background_blue"
+                        android:background="@color/warn_blue"
                         android:padding="16dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/o_mel_b_totalmente_contraindicado_no_primeiro_ano_de_vida_b_e_s_o_dois_os_principais_motivos_cont_m_os_mesmos_componentes_do_a_car_o_que_j_justifica_evit_lo_al_m_disso_h_risco_de_contamina_o_por_uma_bact_ria_associada_ao_botulismo"
+                        android:text="@string/alerta_mel_contraindicado"
                         android:textColor="#01579B"
                         android:textSize="15sp" />
 
