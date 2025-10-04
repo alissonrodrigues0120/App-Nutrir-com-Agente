@@ -72,5 +72,56 @@
     <string name="dica_crianca_chora">A criança chora e se inclina para frente quando a colher está próxima, segura a mão da pessoa que está oferecendo a comida e abre a boca, pega ou aponta para a comida.</string>
     <string name="sinais_de_fome">Sinais de fome</string>
     <string name="fome_e_saciedade">Sinais de fome e de saciedade</string>
+
+    <string name="resultados_toolbar_title">Informações da Criança</string>
+    <string name="resultados_doctor_content_description">Ilustração de uma profissional de saúde</string>
+
+    <string name="resultados_status_title_adequate">Parabéns!</string>
+    <string name="resultados_status_description_adequate">Sua criança está com o peso adequado para a idade.</string>
+    <string name="resultados_status_title_underweight">Atenção!</string>
+    <string name="resultados_status_description_underweight">Sua criança está abaixo do peso adequado para a idade e precisa ser avaliada pela equipe de saúde para investigar possíveis causas do baixo peso, com atenção especial para a alimentação ofertada, doenças infecciosas e cuidados com a criança!</string>
+    <string name="resultados_status_title_overweight">Cuidado!</string>
+    <string name="resultados_status_description_overweight">Sua criança está acima do peso adequado para a idade e precisa ser avaliada pela equipe de saúde para investigar possíveis causas do peso elevado, com atenção especial para a alimentação ofertada e cuidados com a criança!</string>
+
+    <string name="resultados_label_name">Nome:</string>
+    <string name="resultados_label_age">Idade em meses:</string>
+    <string name="resultados_label_sex">Sexo:</string>
+    <string name="resultados_label_feeding">Aleitamento:</string>
+    <string name="resultados_label_weight">Peso em Kg:</string>
+
+    <string name="resultados_breastfeeding_tip">O aleitamento materno deve ser exclusivo até os seis meses de idade e complementado até os dois anos ou mais!</string>
+
+    <string name="resultados_button_orientations">Orientações</string>
+
+
+    <!-- Título da Tela -->
+    <string name="orientacoes_toolbar_title">Orientações</string>
+
+    <!-- Títulos dos Cards - Comuns a mais de um cenário -->
+    <string name="orientacoes_card_calendario_puericultura">Calendário de puericultura</string>
+    <string name="orientacoes_card_sinais_fome_saciedade">Sinais de fome e de saciedade</string>
+    <string name="orientacoes_card_alimentos_evitar">Alimentos que devem ser evitados</string>
+    <string name="orientacoes_card_deficiencia_ferro_vitaminas">Deficiência de ferro e vitaminas</string>
+    <string name="orientacoes_card_esquema_alimentar">Esquema alimentar</string>
+    <string name="orientacoes_card_aspecto_leite">Aspecto do leite</string>
+
+    <!-- Títulos dos Cards - Específicos do Peso Adequado -->
+    <string name="orientacoes_card_beneficios_crianca">Benefícios para a criança</string>
+    <string name="orientacoes_card_beneficios_mae">Benefícios para a mãe</string>
+    <string name="orientacoes_card_tecnica_inadequada">Técnica inadequada</string>
+    <string name="orientacoes_card_tecnica_amamentacao">Técnica de amamentação</string>
+    <string name="orientacoes_card_numero_mamadas">Número de mamadas ao dia</string>
+    <string name="orientacoes_card_agua_cha_chupeta">Água, chá e chupeta</string>
+    <string name="orientacoes_card_alimentacao_mae">Alimentação da mãe</string>
+
+    <!-- Títulos dos Cards - Específicos do Abaixo do Peso -->
+    <string name="orientacoes_card_alimentacao_complementar">Alimentação Complementar</string>
+    <string name="orientacoes_card_esquema_alimentar_6_meses">Esquema alimentar - 6 meses</string>
+    <string name="orientacoes_card_esquema_alimentar_7_11_meses">Esquema alimentar - 7 a 11 meses</string>
+    <string name="orientacoes_card_grupos_alimentos">Grupos de alimentos</string>
+    <string name="orientacoes_card_consistencia_alimento">Consistência do alimento</string>
+    <string name="orientacoes_card_horarios_ambiente">Horários e ambiente adequado para alimentação</string>
+    <string name="orientacoes_card_diversidade_alimentos">Diversidade de alimentos</string>
+    <string name="orientacoes_card_alimentos_ricos_ferro_vitaminas">Alimentos ricos em ferro e vitaminas</string>
 </resources>
 
