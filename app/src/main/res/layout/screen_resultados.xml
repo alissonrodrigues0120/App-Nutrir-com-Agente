@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".YourActivityName">
+
+    <!-- Barra de Título (Toolbar) -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_toolbar"
+        app:elevation="8dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_resultados"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/resultados_toolbar_title"
+            app:titleTextColor="@color/white"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Conteúdo da Tela com Rolagem -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Seção de Status: Doutora + Mensagem -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <!-- Card com a mensagem de status (Ex: Parabéns, Atenção, Cuidado) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_status_result"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:cardBackgroundColor="@color/warn_blue">
+
+                    <LinearLayout
+                        android:layout_width="264dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_status_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/resultados_status_title_adequate"
+                            android:textColor="@color/color_text_black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_status_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/resultados_status_description_adequate"
+                            android:textColor="@color/color_text_black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Imagem da Doutora -->
+
+                <!-- Linha guia para ajudar a posicionar o card -->
+                <ImageView
+                    android:id="@+id/iv_doctor_result"
+                    android:layout_width="105dp"
+                    android:layout_height="105dp"
+                    android:contentDescription="@string/resultados_doctor_content_description"
+                    android:src="@drawable/enfermeira_1"
+                    app:layout_constraintBottom_toBottomOf="@+id/card_status_result"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/card_status_result"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.30079156" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Card com as Informações da Criança -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Nome -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resultados_label_name"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_text_black"/>
+                    <TextView
+                        android:id="@+id/tv_child_name_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        tools:text="Nome da Criança"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Idade -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resultados_label_age"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_text_black"/>
+                    <TextView
+                        android:id="@+id/tv_child_age_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        tools:text="4"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Sexo -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resultados_label_sex"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_text_black"/>
+                    <TextView
+                        android:id="@+id/tv_child_sex_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        tools:text="Feminino"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Aleitamento -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resultados_label_feeding"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_text_black"/>
+                    <TextView
+                        android:id="@+id/tv_child_feeding_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        tools:text="Exclusivo"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Peso -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resultados_label_weight"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_text_black"/>
+                    <TextView
+                        android:id="@+id/tv_child_weight_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="10.5"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card de Dica sobre Aleitamento Materno -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/warn_blue">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="@string/resultados_breastfeeding_tip"
+                    android:textColor="@color/color_text_black"
+                    android:gravity="center"
+                    android:textSize="16sp"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Botão de Orientações -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_orientations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resultados_button_orientations"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/blue_toolbar"
+                app:cornerRadius="12dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
