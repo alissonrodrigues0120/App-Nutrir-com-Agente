@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nutrir com AGente</string>
+    <string name="app_name">Nutrir com aGente</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -83,5 +83,175 @@
     <string name="when_to_offer"><p>Os <b>alimentos ricos em vitamina C devem ser oferecidos junto à refeição principal</b> ou após a refeição para <b>aumentar a absorção do ferro</b>.</p></string>
     <!-- alimentos ricos em vitaminas -->
 
+    <!-- Tela esquema alimentar -->
+        <string name="scheme_title">Esquema alimentar 6 meses</string>
+        <string name="intro_text">Ao completar 6 meses, a criança deverá receber o seguinte esquema alimentar:</string>
+        <string name="items_list">- Leite Materno (Demanda Livre);\n- papa de fruta (2x/dia);\n- papa salgada (1x/dia/ almoço).</string>
+        <string name="img_desc">Imagem de comida</string>
+
+        <!-- Blue card -->
+        <string name="blue_card_title">Quantidade aproximada de alimento</string>
+    <string name="blue_card_text"><b>Almoço:</b> De 2 a 3 colheres de sopa no total, mas não deve ser seguida de forma rígida, uma vez que as características individuais da criança devem ser respeitadas.</string>
+
+        <!-- Yellow card -->
+        <string name="yellow_card_title">O consumo de suco natural deve ser limitado!</string>
+        <string name="text7m">
+            Os sucos <b>não devem ser utilizados como uma refeição ou lanche</b>, por conterem menor densidade energética que a fruta em pedaços e, se for oferecido, deve ser em pequena quantidade, após as refeições principais para ajudar a absorver melhor o ferro inorgânico.
+        </string>
+
+        <!-- Cian card -->
+        <string name="cian_card_title">Conheça a diferença entre papa de fruta e a papa salgada!</string>
+        <string name="cian_card_title7m">Consistência do alimento</string>
+        <string name="papa_de_fruta">"•<b>Papa de fruta</b>: essa expressão tem como objetivo enfatizar a consistência com que deve ser oferecido esse alimento, ou seja, <b>amassado</b> ou <b>raspado</b>;"</string>
+        <string name="textcian7">
+            <p><b>7 a 8 meses</b></p>
+<p>Ofereça alimentos menos amaçados do que antes ou bem picados, de acordo com a aceitação da criança.</p>
+<p><b>9 a 11 meses</b></p>
+<p>A criança já pode receber alimentos picados na mesma consistência dos alimentos da família. As carnes podem ser desfiadas.</p>
+        </string>
+
+    <string name="papa_salgada">"•<b>Papa salgada</b>: essa expressão é utilizada para os pais na orientação da composição da dieta da criança e para <b>diferenciá-la das papas de frutas</b>, contudo <b>NÃO</b> quer dizer que essa deve conter sal e temperos, e sim, um alimento de cada grupo."</string>
+    <!-- 7 a 11 meses -->
+        <string name="scheme_title_7_11">Esquema alimentar - 7 a 11 meses</string>
+        <string name="intro_text_7_11">Ao completar 7 meses, a criança deverá receber o seguinte esquema alimentar:</string>
+        <string name="items_list_7_11">- Leite Materno (Demanda Livre);\n- Lanche da manhã: fruta e leite materno;\n- Almoço e jantar:\n   - 1 alimento do grupo dos cereais ou raízes e tubérculos;\n   - 1 alimento do grupo dos feijões;\n   - 1 ou mais alimentos do grupo dos legumes e verduras;\n   - 1 alimento do grupo das carnes e ovos.</string>
+
+        <string name="blue_card_text_7_11">7 a 8 meses\n\n <b>Almoço e jantar</b> : De <b> 3 a 4 </b> colheres de sopa no total.\n\n</string>
+    <string name="blue_card_text_7_112"> 9 a 11 meses\n\n <b> Almoço e jantar</b>: De <b>4 a 5</b> colheres de sopa no total.\n\nMas não deve ser seguida de forma rígida, uma vez que as características individuais da criança devem ser respeitadas. </string>
+        <string name="feeding_scheme_12m">Esquema Alimentar - 12 meses</string>
+
+    <string name="feeding_intro_12m">
+        Aos 12 meses, recomenda-se que a criança faça três refeições principais (café da manhã, almoço e jantar) e dois lanches (frutas ou cereais/tubérculos).
+    </string>
+
+    <string name="breakfast">
+    • <b>Café da manhã</b>
+    </string>
+
+    <string name="breakfast_cont">
+    - Fruta e leite materno ou cereal (pão caseiro ou processado, aveia, cuscuz de milho) e leite materno ou raízes e tubérculos (aipim/macaxeira, batata-doce).
+    </string>
+
+    <string name = "mid_morning_snack">
+        • <b>Lanche da manhã</b>:
+    </string>
+
+    <string name = "mid_morning_snack_cont">
+    - Fruta e leite materno.
+    </string>
+
+    <string name="lunch_and_dinner">
+    • <b>Almoço e jantar</b>:
+    </string>
+
+    <string name="text6m">
+    Os sucos <b>não devem ser utilizados como uma refeição ou lanche</b>, por conterem menor densidade energética que a fruta em pedaços, e se for oferecido, deve ser em pequena quantidade, após as refeições principais para ajudar a absorver melhor o ferro.
+    </string>
+
+    <string name="lunch_and_dinnercont">
+    - 1 alimento do grupo dos cereais ou raízes e tubérculos;\n
+    - 1 alimento do grupo dos feijões;\n
+    - 1 ou mais alimentos do grupo dos legumes e verduras;\n
+    - 1 alimento do grupo das carnes e ovos.
+    </string>
+
+    <string name="beforesleeping">
+    • <b>Antes de dormir</b>:
+    </string>
+
+    <string name="beforesleepingcont">
+    - Leite materno.
+    </string>
+
+    <string name="afternoon_snack">
+    • <b>Lanche da tarde</b>:
+    </string>
+
+    <string name="almoçoejanta12">
+        <b>Almoço e jantar</b>: De 5 a 6 colheres de sopa no total, mas não deve ser seguida de forma rígida, uma vez que as características individuais da criança devem ser respeitadas.
+    </string>
+
+    <string name="goldentext">
+        É importante lembrar que as refeições, almoço e jantar, <b>não devem ser substituídas por refeições lácteas ou lanches</b>.
+    </string>
+
+    <string name="ciantext12">
+        Nessa idade, a criança deve ser encorajada a <b>fazer a refeição junto com a família</b>, já que esse hábito vai dar <b>mais autonomia</b> e incentivá-la a consumir os mesmos alimentos que a família.
+    </string>
+
+    <string name="mamadatext">
+        <p>É recomendado que a criança seja amamentada sem restrições de horários e de tempo de permanência na mama, chamamos isto de <b>livre demanda</b>.</p>
+    </string>
+
+    <string name="mamadatext2">
+    <p>Em geral, um bebê em aleitamento materno exclusivo <b>mama de 8 a 12 vezes ao dia</b>.</p>
+    </string>
+
+    <string name="mamadatext3">
+        Durante os <b> primeiros meses de vida </b> da criança o volume gástrico (tamanho do estômago) é <b>bem pequeno</b>. Além disso o leite materno é digerido em algumas horas, o que justifica uma <b> maior quantidade de mamadas </b> ao dia neste período.
+    </string>
+
+    <string name="mamadatext41">
+        • <b> 1 dia </b> - Tamanho de uma cereja (5 a 7 ml)\n
+    </string>
+
+    <string name="mamadatext42">
+        • <b> 3 dias </b> - Tamanho de uma noz (22 a 27 ml)\n
+    </string>
+
+    <string name="mamadatext43">
+        • <b> 7 dias </b> - Tamanho de um pêssego (46 a 60 ml)\n
+    </string>
+
+    <string name="mamadatext44">
+         • <b> 30 dias </b> - Tamanho de um ovo de galinha (80 a 150 ml)
+    </string>
+
+    <string name="tecmamamada">
+        Primeiramente a mãe deve escolher uma posição <b>adequada</b> e <b>confortável</b> para amamentar sua criança
+    </string>
+
+    <string name="tecmamada2">
+        A mãe deve segurar a <b>mama</b> de forma que a <b>aréola fique livre</b>, deixando a mão em <b>formato de “c”</b> como mostra a figura acima.
+    </string>
+
+    <string name="tecmamada3">
+        •   Rosto do bebê de frente para a mama, com nariz na altura do mamilo; \n
+        •   Corpo do bebê próximo ao da mãe; \n
+        •   Bebê com cabeça e tronco alinhados (pescoço não torcido); \n
+        •   Bebê bem apoiado. \n
+    </string>
+
+    <string name="tecmamada4">
+        •   Mais aréola visível acima da boca do bebê;  \n
+        •   Boca bem aberta;    \n
+        •   Lábio inferior virado para fora;    \n
+        •   Queixo tocando a mama.      \n
+    </string>
+
+    <string name="ntecnica">
+        Alguns indicativos podem mostrar que a técnica utilizada na amamentação está inadequada. <b>Fique atenta a estes sinais</b>:
+    </string>
+
+    <string name="ntecnica2">
+    •   Bochechas do bebê encovadas a cada sucção;  \n
+    •   Ruídos da língua;   \n
+    •   Mama aparentando estar esticada ou deformada durante a mamada;  \n
+    •   Mamilos com estrias vermelhas ou áreas esbranquiçadas ou achatadas quando o bebê solta a mama;  \n
+    •   Dor na amamentação.     \n
+    </string>
+
+    <string name="ntecnica3">
+        Quando a mama está <b>muito cheia</b>, a aréola pode estar tensa, endurecida, dificultando a pega. Antes da mamada, você pode <b>retirar manualmente um pouco de leite</b>, isto facilitará a pega.
+    </string>
+
+    <string name="afternoon_snackcont">
+    - Leite materno e fruta ou leite materno e cereal (pão caseiro, processado, aveia, cuscuz de milho) e raízes e tubérculos (aipim/macaxeira, batata-doce).
+    <string/>
+
+        
+</string>
+
+    <!-- Tela esquema alimentar -->
 
 </resources>
