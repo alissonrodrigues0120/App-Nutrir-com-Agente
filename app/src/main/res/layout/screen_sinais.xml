@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue_toolbar"
-        app:elevation="12dp">
+        app:elevation="8dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="16dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -50,8 +50,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="@string/title_agua_e_cha"
+                        android:layout_marginBottom="24dp"
+                        android:text="@string/fome_e_saciedade"
                         android:textColor="@android:color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -59,42 +59,65 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/sinais_de_fome"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/water_six_months"
+                        android:text="@string/dica_crianca_chora"
                         android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/sinais_de_saciedade"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/pacifier"
+                        android:text="@string/precaucao_vira_o_rosto"
                         android:textSize="16sp" />
 
-                    <com.airbnb.lottie.LottieAnimationView
-                         android:id="@+id/glass_water"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                         app:lottie_rawRes="@raw/glass_water"
-                         app:lottie_autoPlay="true"
-                         app:lottie_loop="true" />
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="24dp"
+                        android:src="@drawable/bebe_chorando"
+                        android:contentDescription="@string/ilustracao_bebe_chorando" />
 
-                    <TextView
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FCE4EC"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:text="@string/no_water_six_months"
-                        android:textColor="#C73E6B"
-                        android:textStyle="bold" />
+                        app:cardBackgroundColor="@color/warn_blue"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="16dp"
+                            android:text="@string/dica_recusa_alimento"
+                            android:textColor="@color/color_text_black"
+                            android:textStyle="bold" />
+
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
