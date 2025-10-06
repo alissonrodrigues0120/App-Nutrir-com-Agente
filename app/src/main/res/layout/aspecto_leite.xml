@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue_toolbar"
+        android:background="@color/blue"
         app:elevation="12dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/title_app"
+            app:title="Nutrir com aGente"
             app:titleTextColor="@android:color/white"/>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="@string/title_agua_e_cha"
+                        android:text="Aspecto do leite"
                         android:textColor="@android:color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -61,7 +61,23 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/water_six_months"
+                        android:text="O aspecto do leite varia ao longo de uma mamada e também com a dieta da mãe."
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="No início da mamada, pelo seu alto teor de água, tem aspecto semelhante ao da água de coco, porém, ele é muito rico em anticorpos."
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="No meio da mamada, tende a ter uma coloração branca opaca devido ao aumento da concentração de caseína, proteína essa que ajuda na sensação de saciedade por mais tempo, dentre outros benefícios."
                         android:textSize="16sp" />
 
                     <TextView
@@ -69,32 +85,31 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="@string/pacifier"
+                        android:text="No final da mamada, o chamado leite posterior, é mais amarelado devido a substâncias provenientes da dieta da mãe."
                         android:textSize="16sp" />
 
-                    <com.airbnb.lottie.LottieAnimationView
-                         android:id="@+id/glass_water"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                         app:lottie_rawRes="@raw/glass_water"
-                         app:lottie_autoPlay="true"
-                         app:lottie_loop="true" />
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="24dp"
+                        android:src="@drawable/mae_e_bebe"
+                        android:contentDescription="Ilustração de mãe amamentando bebê" />
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FCE4EC"
+                        android:background="#F0F4FF"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="@string/no_water_six_months"
-                        android:textColor="#C73E6B"
+                        android:text="O leite pode ter aspecto azulado ou esverdeado quando a mãe ingere grande quantidade de vegetais verdes e isto não interfere na qualidade do leite."
+                        android:textColor="#3F51B5"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

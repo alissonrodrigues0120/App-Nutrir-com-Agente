@@ -10,8 +10,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="para_saber_mais">Para saber mais</string>
-    <string name="sobre_o_aplicativo">Sobre o Aplicativo</string>
+    <string name="para_saber_mais">Saiba mais</string>
+    <string name="sobre_o_aplicativo">Sobre o App</string>
+    <string name="title_app">Nutrir com Agente</string>
 
     <string name="about_objective">Tem como objetivo, fornecer orientações dos principais condutas e diretrizes cabíveis ao ACS no que se refere a amamentação e alimentação complementar, além de:</string>
 
@@ -22,6 +23,7 @@
     <string name="about_tech_strategy">Dessa forma, ele age como uma estratégia tecnológica de educação profissional em saúde através da auto instrução de conteúdos qualificados, linguagem acessível e prática.</string>
 
     <string name="about_what_app_does_not_do_title"><![CDATA[É importante esclarecer que o aplicativo]]> <b>NÃO FAZ</b>:</string>
+    <string name="about_app">É um aplicativo para orientação nutricional de crianças de 0 a 2 anos, e será utilizado pelos Agentes Comunitários de Saúde (ACS) durante as visitas de rotina às famílias com crianças nesta faixa etária.</string>
 
     <string name="about_bullet_productivity">• Produtividade do ACS;</string>
     <string name="about_bullet_georeferencing">• Georreferenciamento;</string>
@@ -31,6 +33,45 @@
 
     <string name="about_what_app_does">Por outro lado, ele <b>traz</b> orientações sobre <b>aleitamento materno</b> e <b>alimentação complementar</b>, dá suporte ao <b>ACS</b> para lidar com as <b>crenças e mitos</b> da família relacionado com alimentação, apresenta <b>classificação de escores alimentares</b>, possibilita o registro das crianças, orienta os ACSs sobre o uso de ferro e vitamina A, possibilita o acompanhamento do <b>calendário de puericultura</b> e apresenta ainda, espaço para dicas de saúde.</string>
 
+    <string name="dica_recusa_alimento">Se a criança recusar determinado alimento, procure oferecer novamente em outras refeições. Lembrar que são necessárias, em média, oito a dez exposições a um novo alimento para que ele seja aceito pela criança.</string>
+
+    <string name="dica_nem_todo_choro_e_fome">É importante diferenciar os sinais de fome de outras situações de desconforto para a criança, como sede, sono, frio, calor ou fraldas sujas. Nem todo choro é fome!</string>
+
+    <string name="alerta_evitar_industrializados">Deve-se <b>evitar</b> açúcar, café, enlatados, frituras, refrigerantes, balas, salgadinhos e outras guloseimas, nos primeiros anos de vida.</string>
+
+    <string name="titulo_alimentos_a_evitar">Alimentos a evitar</string>
+
+    <string name="dica_uso_moderado_sal"><b>Usar sal com moderação</b>. O sal iodado, além de fornecer o iodo, é importante para que a criança se adapte à alimentação da família, porém seu uso deve ser moderado e restrito àquele adicionado às papas salgadas.</string>
+
+    <string name="alerta_mel_contraindicado">O mel é <b>totalmente contraindicado no primeiro ano de vida</b>, e são dois os principais motivos: contém os mesmos componentes do açúcar, o que já justifica evitá-lo. Além disso, há risco de contaminação por uma bactéria associada ao botulismo.</string>
+
+    <string name="app_bar_title">Nutrir com aGente</string>
+
+    <string name="main_title">Alimentos a evitar</string>
+
+    <string name="paragraph_1">Vale ressaltar que a criança <b>não deve comer alimentos industrializados, enlatados, embutidos e frituras</b>, pois estes alimentos contêm sal em excesso, aditivos e conservantes artificiais.</string>
+    <string name="paragraph_2">Oferecer alimentos não saudáveis (guloseimas, enlatados, frituras) além de tirar o apetite da criança e <b>competir</b> com os alimentos nutritivos, estão associados ao <b>surgimento de anemia, do excesso de peso e às alergias alimentares.</b></string>
+
+    <string name="ice_cream_icon_desc">Ícone de sorvete</string>
+
+    <string name="card_1_title">Evitar até 2 anos</string>
+    <string name="card_1_content_popcorn"><b>Pipoca:</b> Crianças com menos de 2 anos podem ter dificuldade para mastigá-la de forma segura, aumentando o risco de engasgo e sufocamento.</string>
+    <string name="card_1_content_noodles"><b>Macarrão Instantâneo:</b> O processo de fabricação envolve a fritura da massa, fazendo com que tenha gorduras e calorias em excesso, além de muito sódio (sal) e outros aditivos.</string>
+
+    <string name="card_2_content">Se a criança beber líquidos adoçados ou guloseimas próximo às refeições, ela pode não consumir a refeição principal que se aproxima (almoço e jantar).</string>
+    <string name="ilustracao_sorvete">Ilustração de um sorvete</string>
+    <string name="objective_app">Auxiliarnos os Agentes Comunitários de Saúde com orientações de condutos alimentares adequadas para crianças de 0 a 2 anos.</string>
+    <string name="version_app">v. 0.0.1</string>
+    <string name="title_agua_e_cha">Água, chá e chupeta</string>
+    <string name="water_six_months">Durante os 6 primeiros meses de vida, água, chás e principalmente outros leites devem ser evitados, pois há evidências de que o seu uso está associado com desmame precoce e aumento da morbimortalidade infantil.</string>
+    <string name="pacifier">A chupeta também tem sido desaconselhada pela possibilidade de interferir negativamente na duração do aleitamento materno, entre outros malefícios.</string>
+    <string name="no_water_six_months">Não se deve ofertar água para criança menores de 6 meses que estejam em aleitamento materno exclusivo.</string>
+    <string name="ilustracao_bebe_chorando">Ilustração de um bebê chorando ao ser alimentado</string>
+    <string name="precaucao_vira_o_rosto">Ela vira o rosto ou não quer mais abrir a boca, come mais devagar, fecha a boca e empurra o alimento, fica com a comida parada na boca sem engolir.</string>
+    <string name="sinais_de_saciedade">Sinais de saciedade</string>
+    <string name="dica_crianca_chora">A criança chora e se inclina para frente quando a colher está próxima, segura a mão da pessoa que está oferecendo a comida e abre a boca, pega ou aponta para a comida.</string>
+    <string name="sinais_de_fome">Sinais de fome</string>
+    <string name="fome_e_saciedade">Sinais de fome e de saciedade</string>
 
     <!-- Alimentação da mãe -->
     <string name="title_mother_feeding">Alimentação da mãe</string>

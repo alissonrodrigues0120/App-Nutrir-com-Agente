@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/blue_toolbar"
     android:gravity="top"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -35,7 +35,7 @@
         android:gravity="center"
         android:lineSpacingExtra="8sp"
         android:padding="16dp"
-        android:text="Auxiliarnos os Agentes Comunitários de Saúde com orientações de condutos alimentares adequadas para crianças de 0 a 2 anos."
+        android:text="@string/objective_app"
         android:textAlignment="center"
         android:textSize="18dp" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/sobreButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/blue_toolbar"
         app:strokeColor="@android:color/white"
         app:strokeWidth="2dp"
         android:text="@string/sobre_o_aplicativo"
@@ -59,7 +59,7 @@
         android:id="@+id/saberMaisButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/blue_toolbar"
         app:strokeColor="@android:color/white"
         app:strokeWidth="2dp"
         android:text="@string/para_saber_mais"
@@ -74,7 +74,7 @@
         android:gravity="center"
         android:lineSpacingExtra="8sp"
         android:padding="16dp"
-        android:text="v. 0.0.1"
+        android:text="@string/version_app"
         android:textAlignment="center"
         android:textSize="14dp" />
 

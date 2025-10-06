@@ -16,7 +16,8 @@
             android:id="@+id/toolbar_about"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/blue"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:background="@color/blue_toolbar"
             app:title="@string/sobre_o_aplicativo" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -48,7 +49,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nutrir com Agente"
+                        android:text="@string/title_app"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textColor="@android:color/black"
                         android:layout_marginBottom="16dp"/>
@@ -56,7 +57,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="É um aplicativo para orientação nutricional de crianças de 0 a 2 anos, e será utilizado pelos Agentes Comunitários de Saúde (ACS) durante as visitas de rotina às famílias com crianças nesta faixa etária."
+                        android:text="@string/about_app"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:lineSpacingExtra="4dp"
                         android:layout_marginBottom="16dp"/>
