@@ -73,6 +73,33 @@
     <string name="sinais_de_fome">Sinais de fome</string>
     <string name="fome_e_saciedade">Sinais de fome e de saciedade</string>
 
+    <string name="um_copo_de_agua">Ilustração de um copo de água</string>
+    <string name="profissional_da_saude">Ilustração de uma profissional de saúde</string>
+    <string name="puericultura_1">A puericultura consiste em um <b> acompanhamento periódico </b> visando a <b> promoção e proteção da saúde das crianças </b>, por meio de um acompanhamento integral em saúde.</string>
+
+
+    <string name="title_iron_deficiency">Deficiência de Ferro</string>
+    <string name="body_iron_deficiency">A falta de ferro pode provocar cansaço, fraqueza e falta de apetite. Para evitar a anemia, todas as crianças de 6 a 24 meses devem receber fontes extras de ferro de forma preventiva.</string>
+
+    <string name="title_vitamin_a_deficiency">Deficiência de Vitamina A</string>
+    <string name="body_vitamin_a_deficiency">A deficiência de vitamina A pode provocar problemas graves nos olhos da criança e levá-la à cegueira. Além de proteger a visão, a vitamina A diminui o risco de diarreia, de infecções respiratórias e ajuda no crescimento e desenvolvimento da criança.\n\nAs crianças de 6 meses a 5 anos que residem em área de risco para a deficiência de vitamina A devem ser suplementadas.</string>
+
+    <string name="title_supplementation">Suplementação</string>
+    <string name="footer_supplementation">As suplementações são ofertadas nas Unidades Básicas de Saúde.</string>
+
+    <string name="supplementation_details_html">
+        <b>Vitamina A:</b> Crianças de 6 meses a 11 meses de idade devem receber 1 megadose de vitamina A na concentração de 100.000 UI.<br/><br/>
+        <b>Ferro:</b> para crianças amamentadas exclusivamente a suplementação do ferro deve acontecer a partir do 6° mês de vida de acordo com a prescrição do profissional assistente.</string>
+    <string name="description_supplement_illustration">Ilustração de uma criança recebendo um suplemento vitamínico de um adulto.</string>
+    <string name="supplementation_details_12_to_59_months_html">
+        <b>Vitamina A:</b> Crianças de 12 meses a 59 meses de idade devem receber 1 megadose de vitamina A na concentração de 200.000 UI a cada 6 meses.<br/><br/>
+        <b>Ferro:</b> para crianças amamentadas exclusivamente a suplementação do ferro deve acontecer a partir do 6° mês de vida de acordo com a prescrição do profissional assistente até os 2 anos de idade.
+    </string>
+    <string name="footer_supplementation_bold_html">
+        <b>As suplementações são ofertadas nas Unidades Básicas de Saúde.</b>
+    </string>
+
+
     <!-- Alimentação da mãe -->
     <string name="title_mother_feeding">Alimentação da mãe</string>
     <string name="about_milk_production">É importante que a mãe saiba que para a produção de leite, é necessária ingestão de calorias e de líquidos além do habitual.</string>
@@ -294,5 +321,6 @@
 </string>
 
     <!-- Tela esquema alimentar -->
+
 
 </resources>
