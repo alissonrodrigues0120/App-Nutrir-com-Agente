@@ -87,10 +87,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/warn_blue"
+                        android:gravity="center"
                         android:padding="16dp"
                         android:lineSpacingExtra="4dp"
                         android:text="@string/alerta_mel_contraindicado"
-                        android:textColor="#01579B"
+                        android:textColor="@color/color_text_black"
                         android:textSize="15sp" />
 
                 </LinearLayout>
