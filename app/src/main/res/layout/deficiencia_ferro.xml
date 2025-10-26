@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
             android:background="@color/blue_toolbar"
-            app:title="Nutrir com AGente"
+            app:title="@string/title_app"
             app:titleTextColor="@android:color/white"/>
 
     </com.google.android.material.appbar.AppBarLayout>
