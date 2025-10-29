@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nutrir com AGente</string>
+    <string name="app_name">Nutrir com aGente</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -12,7 +12,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="para_saber_mais">Saiba mais</string>
     <string name="sobre_o_aplicativo">Sobre o App</string>
-    <string name="title_app">Nutrir com Agente</string>
+    <string name="title_app">Nutrir com aGente</string>
 
     <string name="about_objective">Tem como objetivo, fornecer orientações dos principais condutas e diretrizes cabíveis ao ACS no que se refere a amamentação e alimentação complementar, além de:</string>
 
@@ -73,6 +73,7 @@
     <string name="sinais_de_fome">Sinais de fome</string>
     <string name="fome_e_saciedade">Sinais de fome e de saciedade</string>
 
+
     <string name="resultados_toolbar_title">Informações da Criança</string>
     <string name="resultados_doctor_content_description">Ilustração de uma profissional de saúde</string>
 
@@ -123,5 +124,256 @@
     <string name="orientacoes_card_horarios_ambiente">Horários e ambiente adequado para alimentação</string>
     <string name="orientacoes_card_diversidade_alimentos">Diversidade de alimentos</string>
     <string name="orientacoes_card_alimentos_ricos_ferro_vitaminas">Alimentos ricos em ferro e vitaminas</string>
-</resources>
 
+
+    <string name="um_copo_de_agua">Ilustração de um copo de água</string>
+    <string name="profissional_da_saude">Ilustração de uma profissional de saúde</string>
+    <string name="puericultura_1">A puericultura consiste em um <b> acompanhamento periódico </b> visando a <b> promoção e proteção da saúde das crianças </b>, por meio de um acompanhamento integral em saúde.</string>
+
+
+    <string name="title_iron_deficiency">Deficiência de Ferro</string>
+    <string name="body_iron_deficiency">A falta de ferro pode provocar cansaço, fraqueza e falta de apetite. Para evitar a anemia, todas as crianças de 6 a 24 meses devem receber fontes extras de ferro de forma preventiva.</string>
+
+    <string name="title_vitamin_a_deficiency">Deficiência de Vitamina A</string>
+    <string name="body_vitamin_a_deficiency">A deficiência de vitamina A pode provocar problemas graves nos olhos da criança e levá-la à cegueira. Além de proteger a visão, a vitamina A diminui o risco de diarreia, de infecções respiratórias e ajuda no crescimento e desenvolvimento da criança.\n\nAs crianças de 6 meses a 5 anos que residem em área de risco para a deficiência de vitamina A devem ser suplementadas.</string>
+
+    <string name="title_supplementation">Suplementação</string>
+    <string name="footer_supplementation">As suplementações são ofertadas nas Unidades Básicas de Saúde.</string>
+
+    <string name="supplementation_details_html">
+        <b>Vitamina A:</b> Crianças de 6 meses a 11 meses de idade devem receber 1 megadose de vitamina A na concentração de 100.000 UI.<br/><br/>
+        <b>Ferro:</b> para crianças amamentadas exclusivamente a suplementação do ferro deve acontecer a partir do 6° mês de vida de acordo com a prescrição do profissional assistente.</string>
+    <string name="description_supplement_illustration">Ilustração de uma criança recebendo um suplemento vitamínico de um adulto.</string>
+    <string name="supplementation_details_12_to_59_months_html">
+        <b>Vitamina A:</b> Crianças de 12 meses a 59 meses de idade devem receber 1 megadose de vitamina A na concentração de 200.000 UI a cada 6 meses.<br/><br/>
+        <b>Ferro:</b> para crianças amamentadas exclusivamente a suplementação do ferro deve acontecer a partir do 6° mês de vida de acordo com a prescrição do profissional assistente até os 2 anos de idade.
+    </string>
+    <string name="footer_supplementation_bold_html">
+        <b>As suplementações são ofertadas nas Unidades Básicas de Saúde.</b>
+    </string>
+
+
+    <!-- Alimentação da mãe -->
+    <string name="title_mother_feeding">Alimentação da mãe</string>
+    <string name="about_milk_production">É importante que a mãe saiba que para a produção de leite, é necessária ingestão de calorias e de líquidos além do habitual.</string>
+    <string name="about_water_intake">A mãe deve beber no mínimo um litro de água filtrada e fervida, além da sua ingestão normal diária.</string>
+    <string name="about_food_intake">As mulheres que amamentam não necessitam evitar determinados alimentos. Entretanto, se elas perceberem algum efeito na criança, devem retirar o alimento da dieta por algum tempo e reintroduzi-lo, observando atentamente a reação da criança.</string>
+    <string name="healthy_food_box">A base da alimentação da mãe deve conter <b>alimentos saudáveis</b>, evitando óleos, gorduras, sal e açúcar. Os <b>alimentos ultraprocessados</b> (biscoitos recheados, salgadinhos “de pacote”, refrigerantes e macarrão “instantâneo”) <b>devem ser evitados</b>.</string>
+    <!-- Alimentação da mãe -->
+
+    <!-- Alimentação complementar -->
+    <string name="title_complementary_feeding">Alimentação complementar</string>
+    <string name="complementary_feeding"><p>A <b>introdução dos alimentos</b> deve ser <b>lenta e gradual</b>, e no início <b>a criança tende a rejeitar</b> as primeiras ofertas do(s) alimentos(s), <b>pois tudo é novo</b>.</p></string>
+    <string name="complementary_feeding_2"><p>Lembando que a <b>alimentação deve complementar</b> o leite materno e <b>não substituí-lo</b>.</p></string>
+    <string name="complementary_feeding_3"><p>No início, a quantidade de alimentos que a criança ingere pode ser pequena, com isso, <b>se demonstrar sinais de fome após a alimentação</b>, poderá ser <b>amamentada</b></p></string>
+    <string name="complementary_feeding_4"><p>A partir da introdução dos alimentos complementares é importante oferecer água (colher ou copo) à criança, a mais limpa possível (tratada, filtrada e fervida).</p></string>
+    <!-- Alimentação complementar -->
+
+    <!-- alimentos ricos em vitaminas -->
+    <string name="vitamin_rich_foods_title">Alimentos ricos em Ferro e Vitaminas A e C</string>">
+    <string name="about_rich_foods"><p>Os alimentos são importantes fontes de ferro e vitaminas, inserí-los na dieta da criança ajudará no crescimento e desenvolvimento adequado.</p></string>
+
+    <string name="iron_rich_foods">Alimentos ricos em Ferro</string>">
+    <string name="iron_rich_foods_list">
+        <![CDATA[
+        • Carnes de gado;\n
+        • Aves como frango ou galinha;\n
+        • Peixes;\n
+        • Fígado.
+        ]]>
+    </string>
+
+    <string name="vitamin_A_rich_foods">Alimentos ricos em Vitamina A</string>
+    <string name="vitamin_A_rich_foods_list">
+        <![CDATA[
+        • Fígado, gema de ovo e leite de vaca;\n
+        • Frutas e legumes amarelo-alaranjados como manga, pitanga, mamão, caqui, abóbora, cenoura e batata-doce;\n
+        • Vegetais amarelos e vegetais folhosos verdes como espinafre, couve e brócolis;\n
+        • Óleos e frutas oleaginosas como buriti, pupunha, dendê e pequi.
+        ]]>
+    </string>
+
+    <string name="vitamin_C_rich_foods">Alimentos ricos em Vitamina C</string>
+    <string name="vitamin_C_rich_foods_list">
+        <![CDATA[
+        • Laranja, limão e abacaxi;\n
+        • Tomate, acerola, goiaba, kiwi e manga.
+        ]]>
+    </string>
+
+    <string name="when_to_offer"><p>Os <b>alimentos ricos em vitamina C devem ser oferecidos junto à refeição principal</b> ou após a refeição para <b>aumentar a absorção do ferro</b>.</p></string>
+    <!-- alimentos ricos em vitaminas -->
+
+    <!-- Tela esquema alimentar -->
+        <string name="scheme_title">Esquema alimentar 6 meses</string>
+        <string name="intro_text">Ao completar 6 meses, a criança deverá receber o seguinte esquema alimentar:</string>
+        <string name="items_list">- Leite Materno (Demanda Livre);\n- papa de fruta (2x/dia);\n- papa salgada (1x/dia/ almoço).</string>
+        <string name="img_desc">Imagem de comida</string>
+
+        <!-- Blue card -->
+        <string name="blue_card_title">Quantidade aproximada de alimento</string>
+    <string name="blue_card_text"><b>Almoço:</b> De 2 a 3 colheres de sopa no total, mas não deve ser seguida de forma rígida, uma vez que as características individuais da criança devem ser respeitadas.</string>
+
+        <!-- Yellow card -->
+        <string name="yellow_card_title">O consumo de suco natural deve ser limitado!</string>
+        <string name="text7m">
+            Os sucos <b>não devem ser utilizados como uma refeição ou lanche</b>, por conterem menor densidade energética que a fruta em pedaços e, se for oferecido, deve ser em pequena quantidade, após as refeições principais para ajudar a absorver melhor o ferro inorgânico.
+        </string>
+
+        <!-- Cian card -->
+        <string name="cian_card_title">Conheça a diferença entre papa de fruta e a papa salgada!</string>
+        <string name="cian_card_title7m">Consistência do alimento</string>
+        <string name="papa_de_fruta">"•<b>Papa de fruta</b>: essa expressão tem como objetivo enfatizar a consistência com que deve ser oferecido esse alimento, ou seja, <b>amassado</b> ou <b>raspado</b>;"</string>
+        <string name="textcian7">
+            <p><b>7 a 8 meses</b></p>
+<p>Ofereça alimentos menos amaçados do que antes ou bem picados, de acordo com a aceitação da criança.</p>
+<p><b>9 a 11 meses</b></p>
+<p>A criança já pode receber alimentos picados na mesma consistência dos alimentos da família. As carnes podem ser desfiadas.</p>
+        </string>
+
+    <string name="papa_salgada">"•<b>Papa salgada</b>: essa expressão é utilizada para os pais na orientação da composição da dieta da criança e para <b>diferenciá-la das papas de frutas</b>, contudo <b>NÃO</b> quer dizer que essa deve conter sal e temperos, e sim, um alimento de cada grupo."</string>
+    <!-- 7 a 11 meses -->
+        <string name="scheme_title_7_11">Esquema alimentar - 7 a 11 meses</string>
+        <string name="intro_text_7_11">Ao completar 7 meses, a criança deverá receber o seguinte esquema alimentar:</string>
+        <string name="items_list_7_11">- Leite Materno (Demanda Livre);\n- Lanche da manhã: fruta e leite materno;\n- Almoço e jantar:\n   - 1 alimento do grupo dos cereais ou raízes e tubérculos;\n   - 1 alimento do grupo dos feijões;\n   - 1 ou mais alimentos do grupo dos legumes e verduras;\n   - 1 alimento do grupo das carnes e ovos.</string>
+
+        <string name="blue_card_text_7_11">7 a 8 meses\n\n <b>Almoço e jantar</b> : De <b> 3 a 4 </b> colheres de sopa no total.\n\n</string>
+    <string name="blue_card_text_7_112"> 9 a 11 meses\n\n <b> Almoço e jantar</b>: De <b>4 a 5</b> colheres de sopa no total.\n\nMas não deve ser seguida de forma rígida, uma vez que as características individuais da criança devem ser respeitadas. </string>
+        <string name="feeding_scheme_12m">Esquema Alimentar - 12 meses</string>
+
+    <string name="feeding_intro_12m">
+        Aos 12 meses, recomenda-se que a criança faça três refeições principais (café da manhã, almoço e jantar) e dois lanches (frutas ou cereais/tubérculos).
+    </string>
+
+    <string name="breakfast">
+    • <b>Café da manhã</b>
+    </string>
+
+    <string name="breakfast_cont">
+    - Fruta e leite materno ou cereal (pão caseiro ou processado, aveia, cuscuz de milho) e leite materno ou raízes e tubérculos (aipim/macaxeira, batata-doce).
+    </string>
+
+    <string name = "mid_morning_snack">
+        • <b>Lanche da manhã</b>:
+    </string>
+
+    <string name = "mid_morning_snack_cont">
+    - Fruta e leite materno.
+    </string>
+
+    <string name="lunch_and_dinner">
+    • <b>Almoço e jantar</b>:
+    </string>
+
+    <string name="text6m">
+    Os sucos <b>não devem ser utilizados como uma refeição ou lanche</b>, por conterem menor densidade energética que a fruta em pedaços, e se for oferecido, deve ser em pequena quantidade, após as refeições principais para ajudar a absorver melhor o ferro.
+    </string>
+
+    <string name="lunch_and_dinnercont">
+    - 1 alimento do grupo dos cereais ou raízes e tubérculos;\n
+    - 1 alimento do grupo dos feijões;\n
+    - 1 ou mais alimentos do grupo dos legumes e verduras;\n
+    - 1 alimento do grupo das carnes e ovos.
+    </string>
+
+    <string name="beforesleeping">
+    • <b>Antes de dormir</b>:
+    </string>
+
+    <string name="beforesleepingcont">
+    - Leite materno.
+    </string>
+
+    <string name="afternoon_snack">
+    • <b>Lanche da tarde</b>:
+    </string>
+
+    <string name="almoçoejanta12">
+        <b>Almoço e jantar</b>: De 5 a 6 colheres de sopa no total, mas não deve ser seguida de forma rígida, uma vez que as características individuais da criança devem ser respeitadas.
+    </string>
+
+    <string name="goldentext">
+        É importante lembrar que as refeições, almoço e jantar, <b>não devem ser substituídas por refeições lácteas ou lanches</b>.
+    </string>
+
+    <string name="ciantext12">
+        Nessa idade, a criança deve ser encorajada a <b>fazer a refeição junto com a família</b>, já que esse hábito vai dar <b>mais autonomia</b> e incentivá-la a consumir os mesmos alimentos que a família.
+    </string>
+
+    <string name="mamadatext">
+        <p>É recomendado que a criança seja amamentada sem restrições de horários e de tempo de permanência na mama, chamamos isto de <b>livre demanda</b>.</p>
+    </string>
+
+    <string name="mamadatext2">
+    <p>Em geral, um bebê em aleitamento materno exclusivo <b>mama de 8 a 12 vezes ao dia</b>.</p>
+    </string>
+
+    <string name="mamadatext3">
+        Durante os <b> primeiros meses de vida </b> da criança o volume gástrico (tamanho do estômago) é <b>bem pequeno</b>. Além disso o leite materno é digerido em algumas horas, o que justifica uma <b> maior quantidade de mamadas </b> ao dia neste período.
+    </string>
+
+    <string name="mamadatext41">
+        • <b> 1 dia </b> - Tamanho de uma cereja (5 a 7 ml)\n
+    </string>
+
+    <string name="mamadatext42">
+        • <b> 3 dias </b> - Tamanho de uma noz (22 a 27 ml)\n
+    </string>
+
+    <string name="mamadatext43">
+        • <b> 7 dias </b> - Tamanho de um pêssego (46 a 60 ml)\n
+    </string>
+
+    <string name="mamadatext44">
+         • <b> 30 dias </b> - Tamanho de um ovo de galinha (80 a 150 ml)
+    </string>
+
+    <string name="tecmamamada">
+        Primeiramente a mãe deve escolher uma posição <b>adequada</b> e <b>confortável</b> para amamentar sua criança
+    </string>
+
+    <string name="tecmamada2">
+        A mãe deve segurar a <b>mama</b> de forma que a <b>aréola fique livre</b>, deixando a mão em <b>formato de “c”</b> como mostra a figura acima.
+    </string>
+
+    <string name="tecmamada3">
+        •   Rosto do bebê de frente para a mama, com nariz na altura do mamilo; \n
+        •   Corpo do bebê próximo ao da mãe; \n
+        •   Bebê com cabeça e tronco alinhados (pescoço não torcido); \n
+        •   Bebê bem apoiado. \n
+    </string>
+
+    <string name="tecmamada4">
+        •   Mais aréola visível acima da boca do bebê;  \n
+        •   Boca bem aberta;    \n
+        •   Lábio inferior virado para fora;    \n
+        •   Queixo tocando a mama.      \n
+    </string>
+
+    <string name="ntecnica">
+        Alguns indicativos podem mostrar que a técnica utilizada na amamentação está inadequada. <b>Fique atenta a estes sinais</b>:
+    </string>
+
+    <string name="ntecnica2">
+    •   Bochechas do bebê encovadas a cada sucção;  \n
+    •   Ruídos da língua;   \n
+    •   Mama aparentando estar esticada ou deformada durante a mamada;  \n
+    •   Mamilos com estrias vermelhas ou áreas esbranquiçadas ou achatadas quando o bebê solta a mama;  \n
+    •   Dor na amamentação.     \n
+    </string>
+
+    <string name="ntecnica3">
+        Quando a mama está <b>muito cheia</b>, a aréola pode estar tensa, endurecida, dificultando a pega. Antes da mamada, você pode <b>retirar manualmente um pouco de leite</b>, isto facilitará a pega.
+    </string>
+
+    <string name="afternoon_snackcont">
+    - Leite materno e fruta ou leite materno e cereal (pão caseiro, processado, aveia, cuscuz de milho) e raízes e tubérculos (aipim/macaxeira, batata-doce).
+    <string/>
+
+        
+</string>
+
+    <!-- Tela esquema alimentar -->
+
+
+</resources>
