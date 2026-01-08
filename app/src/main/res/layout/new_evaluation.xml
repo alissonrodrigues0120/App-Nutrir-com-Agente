@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/new_evaluation"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".ui.avaliacao.NewEvaluationFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Avaliação"
+        app:titleTextColor="@android:color/white"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- CardView para Informações da Criança -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <!-- O conteúdo do CardView deve estar em um único container (LinearLayout) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/text_informacoes_crianca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Informações da criança"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:id="@+id/et_nome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nome da Criança"
+                        android:drawablePadding="8dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/et_data_nascimento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Data de nascimento (DD/MM/AAAA)"
+                        android:drawablePadding="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:drawableStartCompat="@drawable/ic_calendar"/>
+
+                    <TextView
+                        android:id="@+id/et_altura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Altura"
+                        android:drawablePadding="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:drawableStartCompat="@drawable/outline_conditions_24"/>
+
+                    <TextView
+                        android:id="@+id/et_peso"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Peso da criança em Kg - 3,2"
+                        android:drawablePadding="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:drawableStartCompat="@drawable/ic_list"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sexo:"
+                        android:layout_marginBottom="8dp"
+                        android:textStyle="bold"/>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+                        <RadioButton
+                            android:id="@+id/rb_feminino"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Feminino"
+                            android:checked="true"
+                            android:layout_marginEnd="16dp"/>
+                        <RadioButton
+                            android:id="@+id/rb_masculino"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Masculino"/>
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tipos de aleitamentos:"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"/>
+
+
+                    <!-- RadioButtons que estavam se sobrepondo -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="16dp">
+                        <RadioButton
+                            android:id="@+id/rb_ame"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aleitamento materno exclusivo"
+                            android:checked="true"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_amp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aleitamento materno predominante"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_am"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aleitamento materno"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_amc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aleitamento materno complementado"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_ammp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aleitamento materno misto ou parcial"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_aa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aleitamento artificial"/>
+                    </LinearLayout>
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- ALEITAMENTO MATERNO EXCLUSIVO -->
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                app:cardBackgroundColor="#E3F6F5"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="ALEITAMENTO MATERNO EXCLUSIVO"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:textColor="#272643"
+                                        android:paddingBottom="10dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#BAE8E8"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Quando a criança recebe somente leite materno, direto da mama ou ordenhado, ou leite humano de outra fonte, sem outros líquidos ou sólidos, com exceção de gotas ou xaropes contendo vitaminas, sais de reidratação oral, suplementos minerais ou medicamento."
+                                        android:gravity="center"
+                                        android:textColor="#2C698D"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="10dp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                app:cardBackgroundColor="#E3F6F5"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="ALEITAMENTO MATERNO PREDOMINANTE"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:textColor="#272643"
+                                        android:paddingBottom="10dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#BAE8E8"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Quando a criança recebe, além do leite materno, água ou bebidas à base de água (água adocicada, chás, infusões), sucos de frutas e fluidos rituais."
+                                        android:gravity="center"
+                                        android:textColor="#2C698D"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="10dp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                app:cardBackgroundColor="#E3F6F5"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="ALEITAMENTO MATERNO"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:textColor="#272643"
+                                        android:paddingBottom="10dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#BAE8E8"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Quando a criança recebe leite materno (direto da mama ou ordenhado), independentemente de receber ou não outros alimentos."
+                                        android:gravity="center"
+                                        android:textColor="#2C698D"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="10dp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                app:cardBackgroundColor="#E3F6F5"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="ALEITAMENTO MATERNO COMPLEMENTADO"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:textColor="#272643"
+                                        android:paddingBottom="10dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#BAE8E8"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Quando a criança recebe, além do leite materno, qualquer alimento sólido ou semissólido com a finalidade de complementá-lo, e não de substituí-lo."
+                                        android:gravity="center"
+                                        android:textColor="#2C698D"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="10dp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <!-- ALEITAMENTO MATERNO MISTO OU PARCIAL -->
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                app:cardBackgroundColor="#E3F6F5"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="ALEITAMENTO MATERNO MISTO OU PARCIAL"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:textColor="#272643"
+                                        android:paddingBottom="10dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#BAE8E8"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Quando a criança recebe leite materno e outros tipos de leite."
+                                        android:gravity="center"
+                                        android:textColor="#2C698D"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="10dp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <!-- ALEITAMENTO ARTIFICIAL -->
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                app:cardBackgroundColor="#E3F6F5"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="ALEITAMENTO ARTIFICIAL"
+                                        android:textStyle="bold"
+                                        android:gravity="center"
+                                        android:textColor="#272643"
+                                        android:paddingBottom="10dp"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#BAE8E8"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="É qualquer forma de ingestão de leite que não seja diretamente do seio materno."
+                                        android:gravity="center"
+                                        android:textColor="#2C698D"
+                                        android:paddingTop="5dp"
+                                        android:paddingBottom="10dp"/>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+
+                </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_check_24"
+                    app:tint="@color/white"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="24dp"
+                    app:backgroundTint="@color/blue_toolbar"
+                    android:contentDescription="Confirmar" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

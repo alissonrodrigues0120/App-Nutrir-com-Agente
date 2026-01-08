@@ -61,7 +61,7 @@
 
                         <!-- Texto principal -->
                         <TextView
-                            android:id="@+id/tvTextoPrincipal"
+                            android:id="@+id/tvTextoPrincipal1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mamadatext"
@@ -70,7 +70,7 @@
                             android:lineSpacingExtra="2dp"
                             android:layout_marginBottom="12dp"/>
                         <TextView
-                            android:id="@+id/tvTextoPrincipal"
+                            android:id="@+id/tvTextoPrincipal2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mamadatext2"
@@ -81,7 +81,7 @@
 
                         <!-- Texto secundário -->
                         <TextView
-                            android:id="@+id/tvTextoSecundario"
+                            android:id="@+id/tvTextoSecundario1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mamadatext3"
@@ -92,7 +92,7 @@
 
                         <!-- Card com fundo azul claro -->
                         <LinearLayout
-                            android:id="@+id/cardCapacidadeGastrica"
+                            android:id="@+id/cardCapacidadeGastrica1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
@@ -112,7 +112,7 @@
                                 android:layout_marginBottom="10dp"/>
 
                             <TextView
-                                android:id="@+id/tvCardLista"
+                                android:id="@+id/tvCardLista1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mamadatext41"
@@ -121,7 +121,7 @@
                                 android:lineSpacingExtra="3dp"/>
 
                             <TextView
-                                android:id="@+id/tvCardLista"
+                                android:id="@+id/tvCardLista2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mamadatext42"
@@ -130,7 +130,7 @@
                                 android:lineSpacingExtra="3dp"/>
 
                             <TextView
-                                android:id="@+id/tvCardLista"
+                                android:id="@+id/tvCardLista3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mamadatext43"
@@ -139,7 +139,7 @@
                                 android:lineSpacingExtra="3dp"/>
 
                             <TextView
-                                android:id="@+id/tvCardLista"
+                                android:id="@+id/tvCardLista4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mamadatext44"

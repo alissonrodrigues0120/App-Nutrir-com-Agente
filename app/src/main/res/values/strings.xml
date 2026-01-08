@@ -372,6 +372,15 @@
 
         
 </string>
+    <string name="adicionar">Adicionar_fragment_home</string>
+    <string name="nome">Nome</string>
+    <string name="idade">Idade</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="tina_home">Olá, eu sou a Tina! Vou te ajudar no acompanhamento e orientações alimentares das crianças entre 0 e 2 anos.</string>
+    <string name="ilustracao_tina">Ilustração Tina</string>
+    <string name="criancas_em_acompanhamento">Crianças em Acompanhamento</string>
+    <string name="reset">Informe seu e-mail cadastrado para receber o link de redefinição de senha.</string>
 
     <!-- Tela esquema alimentar -->
 

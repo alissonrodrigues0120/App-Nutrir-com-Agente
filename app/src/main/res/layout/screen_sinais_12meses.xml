@@ -78,7 +78,7 @@
                         android:layout_height="180dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="24dp"
-                        android:src="@drawable/bebê_com_fruta"
+                        android:src="@drawable/bebe_com_fruta"
                         android:contentDescription="Ilustração de um bebê comendo feliz" />
 
                     <TextView
@@ -113,7 +113,7 @@
                         android:background="#F0F4FF"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="@string/importante_diferenciar_os_sinais_de_fome_de_outras_situa_es_de_desconforto_para_a_crian_a_como_sede_sono_frio_calor_ou_fraldas_sujas_nem_todo_choro_fome"
+                        android:text="@string/dica_nem_todo_choro_e_fome"
                         android:textColor="#3F51B5"
                         android:textStyle="bold" />
 

@@ -105,7 +105,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:background="@color/powder_blue"
+                        android:background="@color/warn_blue"
                         android:padding="16dp"
                         android:text="@string/healthy_food_box"
                         android:textColor="@color/black"

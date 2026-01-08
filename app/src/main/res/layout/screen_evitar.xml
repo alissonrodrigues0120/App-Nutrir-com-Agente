@@ -21,7 +21,7 @@
             app:title="Nutrir com aGente"
             app:titleTextColor="@android:color/white"/>
 
-    </.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

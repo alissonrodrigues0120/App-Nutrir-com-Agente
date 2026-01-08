@@ -1,88 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_toolbar"
-    android:fitsSystemWindows="true"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:openDrawer="start">
+    tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/custom_edittext"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-
-        <ImageView
-            android:id="@+id/logopink"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:src="@drawable/logopink"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/loginText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="36sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/custom_edittexttwo"
-            android:drawableLeft="@drawable/baseline_account_circle_24"
-            android:drawablePadding="8dp"
-            android:hint="Usuário"
-            android:textColorHint="@color/Pearl"
-            android:textColor="@color/white" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/custom_edittexttwo"
-            android:drawableLeft="@drawable/baseline_lock_24"
-            android:drawablePadding="8dp"
-            android:hint="Senha"
-            android:textColorHint="@color/Pearl"
-            android:textColor="@color/white" />
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="@color/black"
-            android:text="Entrar"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

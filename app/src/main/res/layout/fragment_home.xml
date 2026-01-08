@@ -1,250 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
-    android:fillViewport="true">
+    tools:context=".ui.home.HomeFragment">
 
-    <LinearLayout
+
+
+
+       <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <!-- Barra Superior -->
-        <LinearLayout
-            android:layout_width="379dp"
-            android:layout_height="56dp"
-            android:background="#242342"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="16dp">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <!-- Botão de menu -->
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="Menu"
-                android:src="@drawable/baseline_menu_24" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/blue_toolbar"
+                app:navigationIcon="@drawable/baseline_menu_24"                
+                app:title="Nutrir com aGente"
+                app:titleTextColor="@android:color/white"/>
+        </com.google.android.material.appbar.AppBarLayout>
 
-            <!-- Título -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="Nutrir com aGente"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            android:fillViewport="true">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/custom_card_bg"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/custom_text_bg"
-                android:padding="12dp"
-                android:text="Olá, eu sou a Tina!\n Vou te ajudar no acompanhamento e orientações alimentares das crianças entre 0 e 2 anos."
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Ilustração Tina"
-                android:src="@drawable/enfermeira_2" />
-        </LinearLayout>
-
-        <!-- Card Crianças em acompanhamento -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/custom_card_bg"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Crianças em Acompanhamento"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/children_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="[Num List Items]"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <!-- Legenda -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_card_bg"
                 android:orientation="horizontal"
-                android:gravity="center"
                 android:padding="16dp">
 
-                <!-- Peso Ideal -->
-                <LinearLayout
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:background="@drawable/custom_text_bg"
+                    android:padding="12dp"
+                    android:text="@string/tina_home"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-                    <!-- Círculo colorido -->
-                    <View
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/circle_teal" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/ilustracao_tina"
+                    android:src="@drawable/enfermeira_2" />
+            </LinearLayout>
 
-                    <!-- Texto -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Peso Ideal\n[Num List Items]"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
 
-                <!-- Baixo Peso -->
-                <LinearLayout
-                    android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/criancas_em_acompanhamento"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/circle_pink" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Baixo Peso\n[Num List Items]"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-
-                <!-- Sobrepeso -->
-                <LinearLayout
-                    android:layout_width="0dp"
+                
+                <TextView
+                    android:id="@+id/txtTotalCriancas"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="0 crianças"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/circle_yellow" />
+                
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerCriancas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Sobrepeso\n[Num List Items]"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/circle_teal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Peso Ideal"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/txtQtdIdeal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/circle_pink" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Baixo Peso"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/txtQtdBaixoPeso"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/circle_yellow" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Sobrepeso"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/txtQtdSobrepeso"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_card_bg"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="Ícone bebê"
+                    android:src="@drawable/bebe_fruta_icone" />
+            </LinearLayout>
+
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Crianças com baixo peso"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBaixopeso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/custom_card_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Crianças com sobrepeso"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSobrepeso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
+
+   <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outline_add_24"
+        app:tint="@color/white"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        app:backgroundTint="@color/blue_toolbar"
+        android:contentDescription="@string/adicionar" />
+
+       </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-            <!-- Card com bebê -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/custom_card_bg"
-            android:orientation="horizontal"
-            android:padding="16dp">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"/>
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:contentDescription="Ícone bebê"
-                android:src="@drawable/bebe_fruta_icone" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="12dp"
-                android:text="[Num List Items]"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <!-- Lista Baixo Peso -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/custom_card_bg"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Crianças com baixo peso"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="[nome]" />
-        </LinearLayout>
-
-        <!-- Lista Sobrepeso -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:background="@drawable/custom_card_bg"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Crianças com sobrepeso"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="[nome]" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+</androidx.drawerlayout.widget.DrawerLayout>

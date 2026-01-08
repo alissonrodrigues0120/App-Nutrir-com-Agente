@@ -85,7 +85,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
                         android:contentDescription="Ilustração de criança recebendo suplemento"
-                        android:src="@drawable/vitamina_A" />
+                        android:src="@drawable/vitamina_a" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"

@@ -93,8 +93,8 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="24dp"
                         android:contentDescription="@string/profissional_da_saude"
-                        android:src="@drawable/Enfermeira_1"
-                        app:srcCompat="@drawable/Enfermeira_1" />
+                        android:src="@drawable/enfermeira_1"
+                        app:srcCompat="@drawable/enfermeira_1" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"

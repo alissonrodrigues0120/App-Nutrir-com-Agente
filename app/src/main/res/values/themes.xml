@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/Fuchsia</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnPrimaryFixedVariant">@color/blue</item>
+        <item name="colorOnPrimaryFixedVariant">@color/blue_toolbar</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
