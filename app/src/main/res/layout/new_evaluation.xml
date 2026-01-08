@@ -61,37 +61,37 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/et_nome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nome da Criança"
+                        android:hint="Nome da Criança"
                         android:drawablePadding="8dp"
                         android:layout_marginBottom="8dp"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/et_data_nascimento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Data de nascimento (DD/MM/AAAA)"
+                        android:hint="Data de nascimento (DD/MM/AAAA)"
                         android:drawablePadding="8dp"
                         android:layout_marginBottom="8dp"
                         app:drawableStartCompat="@drawable/ic_calendar"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/et_altura"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Altura"
+                        android:hint="Altura"
                         android:drawablePadding="8dp"
                         android:layout_marginBottom="8dp"
                         app:drawableStartCompat="@drawable/outline_conditions_24"/>
 
-                    <TextView
+                    <EditText
                         android:id="@+id/et_peso"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Peso da criança em Kg - 3,2"
+                        android:hint="Peso da criança em Kg - 3,2"
                         android:drawablePadding="8dp"
                         android:layout_marginBottom="16dp"
                         app:drawableStartCompat="@drawable/ic_list"/>
@@ -133,7 +133,7 @@
 
 
                     <!-- RadioButtons que estavam se sobrepondo -->
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -142,8 +142,7 @@
                             android:id="@+id/rb_ame"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aleitamento materno exclusivo"
-                            android:checked="true"/>
+                            android:text="Aleitamento materno exclusivo" />
 
                         <RadioButton
                             android:id="@+id/rb_amp"
@@ -174,7 +173,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Aleitamento artificial"/>
-                    </LinearLayout>
+                    </RadioGroup>
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nutriragente.MainActivity
 import com.example.nutriragente.R
@@ -90,7 +91,7 @@ class HomeFragment : Fragment() {
         val Addfab = view.findViewById<FloatingActionButton>(R.id.fab_add)
 
         Addfab.setOnClickListener{
-             (activity as MainActivity).hometoNewEvaluation() 
+            findNavController().navigate(R.id.action_home_to_new_evaluation)
          }
 
         
