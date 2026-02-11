@@ -11,14 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nutriragente.R
 import com.example.nutriragente.data.database.entities.Crianca
 
+object Diff : DiffUtil.ItemCallback<Crianca>() {
+    override fun areItemsTheSame(old: Crianca, newItem: Crianca) = old.id == newItem.id
+    override fun areContentsTheSame(old: Crianca, newItem: Crianca) = old == newItem
+}
 
 class CriancaAdapter : ListAdapter<Crianca, CriancaAdapter.ViewHolder>(Diff) {
-
-
-object Diff : DiffUtil.ItemCallback<Crianca>() {
-        override fun areItemsTheSame(old: Crianca, newItem: Crianca) = old.id == newItem.id
-        override fun areContentsTheSame(old: Crianca, newItem: Crianca) = old == newItem
-    }
 
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -58,6 +58,7 @@ class EvaluationViewModel(application: Application) : AndroidViewModel(applicati
             )
 
             repository.insertKids(crianca)
+            repository.updateKids(crianca)
 
             withContext(Dispatchers.Main) {
                 Toast.makeText(getApplication(), "Salvo: $status", Toast.LENGTH_LONG).show()

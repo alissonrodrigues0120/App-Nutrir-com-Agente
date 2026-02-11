@@ -1,24 +1,28 @@
 package com.example.nutriragente.ui.home
 
 import com.example.nutriragente.data.database.entities.Crianca
-import androidx.lifecycle.observe
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nutriragente.MainActivity
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
+import com.example.nutriragente.databinding.FragmentHomeBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class HomeFragment : Fragment() {
 
     private val vm: HomeViewModel by viewModels()
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +33,36 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val Addfab = view.findViewById<FloatingActionButton>(R.id.fab_add)
+        swipeRefreshLayout = view as SwipeRefreshLayout
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(Addfab) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            // Apply the insets as a margin to the view. This solution sets
+            // only the bottom, left, and right dimensions, but you can apply whichever
+            // insets are appropriate to your layout. You can also update the view padding
+            // if that's more appropriate.
+            v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                leftMargin = insets.left
+                bottomMargin = insets.bottom
+                rightMargin = insets.right
+            }
+
+            // Return CONSUMED if you don't want want the window insets to keep passing
+            // down to descendant views.
+            WindowInsetsCompat.CONSUMED
+        }
+
         super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentHomeBinding.bind(view)
+        binding.recyclerCriancas.adapter = CriancaAdapter()
+
+        swipeRefreshLayout.setOnRefreshListener {
+            vm.reloadData()
+        }
+
         GraphHistory.initialize(requireContext())
 
         // --- TEXTOS RESUMO ---
@@ -53,14 +86,17 @@ class HomeFragment : Fragment() {
         val adapterSobrepeso = CriancaAdapter()
         recyclerSobrepeso.adapter = adapterSobrepeso
 
-        vm.criancas.observe(viewLifecycleOwner) { lista : List <Crianca>  ->
 
 
 
-            adapterTodas.submitList(lista)
+        vm.criancas.observe(viewLifecycleOwner) { list : List <Crianca>  ->
+
+            swipeRefreshLayout.isRefreshing = false
+
+            adapterTodas.submitList(list)
 
         // Filtra com tipos explícitos
-            val listaParaImc = lista.filter { crianca : Crianca ->
+            val listaParaImc = list.filter { crianca : Crianca ->
                 crianca.idadeMeses >= 30
             }
 
@@ -77,7 +113,7 @@ class HomeFragment : Fragment() {
             }
 
             // Atualiza UI
-            txtTotal.text = "${lista.size} crianças"
+            txtTotal.text = "${list.size} crianças"
             txtIdeal.text = pesoAdequado.size.toString()
             txtBaixo.text = baixoPeso.size.toString()
             txtSobre.text = sobrepeso.size.toString()
@@ -88,12 +124,11 @@ class HomeFragment : Fragment() {
             
         }
 
-        val Addfab = view.findViewById<FloatingActionButton>(R.id.fab_add)
+
 
         Addfab.setOnClickListener{
             findNavController().navigate(R.id.action_home_to_new_evaluation)
          }
-
         
     }
 }

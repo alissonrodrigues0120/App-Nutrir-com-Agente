@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
@@ -17,6 +20,18 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val systemBars = insets.getInsets(
+                WindowInsetsCompat.Type.displayCutout()
+            )
+            v.updatePadding(
+                top = systemBars.top,
+                left = systemBars.left,
+                right = systemBars.right
+            )
+            insets
+        }
 
         auth = FirebaseAuth.getInstance()
 
@@ -35,7 +50,7 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
             auth.sendPasswordResetEmail(email)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Link enviado para seu e-mail!", Toast.LENGTH_SHORT).show()
-                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_resetPassword_to_login)
                 }
                 .addOnFailureListener {
                     Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
@@ -43,7 +58,7 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
         }
 
         backToLogin.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_resetPassword_to_login)
         }
     }
 }

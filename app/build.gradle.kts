@@ -10,12 +10,11 @@ plugins {
 
 android {
     namespace = "com.example.nutriragente"
-    compileSdk = 35 // O SDK 36 ainda é muito recente/experimental, o 35 é o atual estável
+    compileSdk = 36 // O SDK 36 ainda é muito recente/experimental, o 35 é o atual estável
 
     defaultConfig {
         applicationId = "com.example.nutriragente"
         minSdk = 28
-        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -55,7 +54,10 @@ android {
 
 dependencies {
     val room_version = "2.6.1" // Use uma versão estável compatível com KSP 2.0.21
+    val activity_version = "1.12.3"
 
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("androidx.activity:activity-ktx:${activity_version}")
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")

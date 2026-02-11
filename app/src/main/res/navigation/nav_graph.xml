@@ -23,6 +23,17 @@
     </fragment>
 
     <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.example.nutriragente.ui.login.ResetPasswordFragment"
+        android:label="Recuperar Senha">
+
+        <action
+            android:id="@+id/action_resetPassword_to_login"
+            app:destination="@id/loginFragment"/>
+
+    </fragment>
+
+    <fragment
         android:id="@+id/signupFragment"
         android:name="com.example.nutriragente.ui.login.SignupFragment"
         android:label="Cadastro">

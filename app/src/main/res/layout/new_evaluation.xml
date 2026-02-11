@@ -36,7 +36,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- CardView para Informações da Criança -->
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp">
 
-                <!-- O conteúdo do CardView deve estar em um único container (LinearLayout) -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

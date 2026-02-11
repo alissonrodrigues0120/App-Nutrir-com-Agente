@@ -1,7 +1,7 @@
 package com.example.nutriragente.data.database.repository
 
-import com.example.nutriragente.data.database.dao.CriancaDao
 import androidx.lifecycle.LiveData
+import com.example.nutriragente.data.database.dao.CriancaDao
 import com.example.nutriragente.data.database.entities.Crianca
 class CriancaRepository(private val criancadao: CriancaDao){
     suspend fun insertKids(crianca : Crianca) = criancadao.insert(crianca)

@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
@@ -17,6 +20,18 @@ class SignupFragment : Fragment(R.layout.activity_signup) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val systemBars = insets.getInsets(
+                WindowInsetsCompat.Type.displayCutout()
+            )
+            v.updatePadding(
+                top = systemBars.top,
+                left = systemBars.left,
+                right = systemBars.right
+            )
+            insets
+        }
 
         auth = FirebaseAuth.getInstance()
 
