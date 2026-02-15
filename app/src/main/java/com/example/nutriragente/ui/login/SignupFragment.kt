@@ -12,11 +12,11 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
-import com.google.firebase.auth.FirebaseAuth
+import com.example.nutriragente.ui.login.LogCasResViewModel
 
 class SignupFragment : Fragment(R.layout.activity_signup) {
 
-    private lateinit var auth: FirebaseAuth
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,7 +33,8 @@ class SignupFragment : Fragment(R.layout.activity_signup) {
             insets
         }
 
-        auth = FirebaseAuth.getInstance()
+        val logCasResViewModel = LogCasResViewModel()
+
 
         val nameEditText = view.findViewById<EditText>(R.id.signup_username)
         val emailEditText = view.findViewById<EditText>(R.id.signup_email)
@@ -58,20 +59,13 @@ class SignupFragment : Fragment(R.layout.activity_signup) {
                 return@setOnClickListener
             }
 
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(context, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
-                        findNavController()
-                            .navigate(R.id.action_signup_to_login)
-                    } else {
-                        Toast.makeText(
-                            context,
-                            "Erro: ${task.exception?.message}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+            logCasResViewModel.register(email, password) { success, message ->
+                if (success) {
+                    findNavController().navigate(R.id.action_signup_to_login)
+                } else {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 }
+            }
         }
 
         loginRedirect.setOnClickListener {

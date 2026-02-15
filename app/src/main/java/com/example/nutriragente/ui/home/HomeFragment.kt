@@ -1,6 +1,6 @@
 package com.example.nutriragente.ui.home
 
-import com.example.nutriragente.data.database.entities.Crianca
+import com.example.nutriragente.data.model.Crianca
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,18 +10,29 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.asLiveData
+import com.example.nutriragente.ui.home.HomeViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.FragmentHomeBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.flow.Flow
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val vm: HomeViewModel by viewModels()
+    private val auth = FirebaseAuth.getInstance()
+
+
+    private val userId = auth.currentUser?.uid as String
+    private val vm by lazy { HomeViewModel(requireActivity().application, userId) }
+
+
+
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(
@@ -130,5 +141,14 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_home_to_new_evaluation)
          }
         
+    }
+}
+
+private fun Flow<List<Crianca>>.observe(
+    viewLifecycleOwner: LifecycleOwner,
+    function: (List<Crianca>) -> Unit
+) {
+    return this.asLiveData().observe(viewLifecycleOwner) {
+        function(it)
     }
 }

@@ -12,11 +12,11 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
-import com.google.firebase.auth.FirebaseAuth
+import com.example.nutriragente.ui.login.LogCasResViewModel
 
 class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
 
-    private lateinit var auth: FirebaseAuth
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,7 +33,7 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
             insets
         }
 
-        auth = FirebaseAuth.getInstance()
+        val LogCasResViewModel = LogCasResViewModel()
 
         val emailEditText = view.findViewById<EditText>(R.id.email)
         val resetButton = view.findViewById<Button>(R.id.reset_button)
@@ -47,14 +47,15 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
                 return@setOnClickListener
             }
 
-            auth.sendPasswordResetEmail(email)
-                .addOnSuccessListener {
-                    Toast.makeText(context, "Link enviado para seu e-mail!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_resetPassword_to_login)
+            //
+            LogCasResViewModel.resetPassword(email) { success, message ->
+                if (success) {
+                    Toast.makeText(context, "E-mail de recuperação enviado", Toast.LENGTH_SHORT).show()
+                }else {
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                 }
-                .addOnFailureListener {
-                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
-                }
+            }
+
         }
 
         backToLogin.setOnClickListener {

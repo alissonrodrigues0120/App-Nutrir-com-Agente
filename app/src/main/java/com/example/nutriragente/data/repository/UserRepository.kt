@@ -1,4 +1,4 @@
-package com.example.nutriragente.data.remote
+package com.example.nutriragente.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
 

@@ -5,7 +5,6 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
     id("com.google.gms.google-services")
     id("com.google.devtools.ksp") version "2.0.21-1.0.27"
-    id("androidx.room") version "2.6.1" // Versão estável do plugin de Room
 }
 
 android {
@@ -21,9 +20,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    room {
-        schemaDirectory("$projectDir/schemas")
-    }
 
     buildTypes {
         release {
@@ -53,7 +49,6 @@ android {
 }
 
 dependencies {
-    val room_version = "2.6.1" // Use uma versão estável compatível com KSP 2.0.21
     val activity_version = "1.12.3"
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
@@ -62,11 +57,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
-
-    implementation("androidx.room:room-runtime:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    ksp("androidx.room:room-compiler:$room_version")
-
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
 
