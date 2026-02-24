@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
 import com.example.nutriragente.ui.login.LogCasResViewModel
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 class LoginFragment : Fragment(R.layout.activity_login) {
 
@@ -20,6 +23,15 @@ class LoginFragment : Fragment(R.layout.activity_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val app = FirebaseApp.initializeApp(requireContext())
+            ?: FirebaseApp.getInstance()
+
+        val settings = FirebaseFirestoreSettings.Builder()
+            .setPersistenceEnabled(true)
+            .build()
+
+        FirebaseFirestore.getInstance(app).firestoreSettings = settings
 
         ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
             val systemBars = insets.getInsets(

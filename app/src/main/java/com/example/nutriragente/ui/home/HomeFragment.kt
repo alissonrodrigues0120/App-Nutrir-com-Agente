@@ -1,35 +1,42 @@
 package com.example.nutriragente.ui.home
 
+import android.media.MediaCas
 import com.example.nutriragente.data.model.Crianca
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.asLiveData
-import com.example.nutriragente.ui.home.HomeViewModel
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
-import com.example.nutriragente.databinding.FragmentHomeBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.flow.Flow
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val auth = FirebaseAuth.getInstance()
-
-
     private val userId = auth.currentUser?.uid as String
-    private val vm by lazy { HomeViewModel(requireActivity().application, userId) }
+    private val db = FirebaseFirestore.getInstance(FirebaseApp.getInstance())
+    private lateinit var recyclerView_todas: RecyclerView
+    private lateinit var recyclerView_baixopeso: RecyclerView
+    private lateinit var recyclerView_sobrepeso: RecyclerView
+    private lateinit var CriancaList : MutableList<Crianca>
+    private lateinit var CriancaList_baixopeso : MutableList<Crianca>
+    private lateinit var CriancaList_sobrepeso : MutableList<Crianca>
+    private lateinit var adapter_todos: CriancaAdapter
+    private lateinit var adapter_baixopeso: CriancaAdapter
+    private lateinit var adapter_sobrepeso: CriancaAdapter
+
 
 
 
@@ -47,14 +54,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val Addfab = view.findViewById<FloatingActionButton>(R.id.fab_add)
         swipeRefreshLayout = view as SwipeRefreshLayout
-
-
         ViewCompat.setOnApplyWindowInsetsListener(Addfab) { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Apply the insets as a margin to the view. This solution sets
-            // only the bottom, left, and right dimensions, but you can apply whichever
-            // insets are appropriate to your layout. You can also update the view padding
-            // if that's more appropriate.
             v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
                 leftMargin = insets.left
                 bottomMargin = insets.bottom
@@ -66,74 +67,52 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             WindowInsetsCompat.CONSUMED
         }
 
+
+
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentHomeBinding.bind(view)
-        binding.recyclerCriancas.adapter = CriancaAdapter()
+
+        recyclerView_todas = view.findViewById(R.id.recyclerCriancas)
+        recyclerView_todas.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView_todas.setHasFixedSize(true)
+
+        recyclerView_baixopeso = view.findViewById(R.id.rvBaixopeso)
+        recyclerView_baixopeso.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView_baixopeso.setHasFixedSize(true)
+
+        recyclerView_sobrepeso = view.findViewById(R.id.rvSobrepeso)
+        recyclerView_sobrepeso.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView_sobrepeso.setHasFixedSize(true)
+
+        CriancaList = mutableListOf()
+
+        adapter_todos = CriancaAdapter(CriancaList)
+        recyclerView_todas.adapter = adapter_todos
+
+        CriancaList_baixopeso = mutableListOf()
+
+        adapter_baixopeso = CriancaAdapter(CriancaList_baixopeso)
+        recyclerView_baixopeso.adapter = adapter_baixopeso
+
+        CriancaList_sobrepeso = mutableListOf()
+
+        adapter_sobrepeso = CriancaAdapter(CriancaList_sobrepeso)
+        recyclerView_sobrepeso.adapter = adapter_sobrepeso
+
+
+        EventChangeListener()
+        EventChangeListenerBaixoPeso()
+        EventChangeListenerSobrepeso()
+
+        swipeRefreshLayout.isRefreshing = false
 
         swipeRefreshLayout.setOnRefreshListener {
-            vm.reloadData()
-        }
-
-        GraphHistory.initialize(requireContext())
-
-        // --- TEXTOS RESUMO ---
-        val txtTotal = view.findViewById<TextView>(R.id.txtTotalCriancas)
-        val txtIdeal = view.findViewById<TextView>(R.id.txtQtdIdeal)
-        val txtBaixo = view.findViewById<TextView>(R.id.txtQtdBaixoPeso)
-        val txtSobre = view.findViewById<TextView>(R.id.txtQtdSobrepeso)
-
-        // --- RECYCLER TODAS ---
-        val recyclerTodas = view.findViewById<RecyclerView>(R.id.recyclerCriancas)
-        val adapterTodas = CriancaAdapter()
-        recyclerTodas.adapter = adapterTodas
-
-        // --- RECYCLER BAIXO PESO ---
-        val recyclerBaixoPeso = view.findViewById<RecyclerView>(R.id.rvBaixopeso)
-        val adapterBaixoPeso = CriancaAdapter()
-        recyclerBaixoPeso.adapter = adapterBaixoPeso
-
-        // --- RECYCLER SOBREPESO ---
-        val recyclerSobrepeso = view.findViewById<RecyclerView>(R.id.rvSobrepeso)
-        val adapterSobrepeso = CriancaAdapter()
-        recyclerSobrepeso.adapter = adapterSobrepeso
-
-
-
-
-        vm.criancas.observe(viewLifecycleOwner) { list : List <Crianca>  ->
-
+            swipeRefreshLayout.isRefreshing = true
+            EventChangeListener()
+            EventChangeListenerBaixoPeso()
+            EventChangeListenerSobrepeso()
             swipeRefreshLayout.isRefreshing = false
-
-            adapterTodas.submitList(list)
-
-        // Filtra com tipos explícitos
-            val listaParaImc = list.filter { crianca : Crianca ->
-                crianca.idadeMeses >= 30
-            }
-
-            val pesoAdequado = listaParaImc.filter { crianca : Crianca ->
-                crianca.statusNutricional == "Peso Adequado"
-            }
-            val baixoPeso = listaParaImc.filter { crianca : Crianca ->
-                crianca.statusNutricional == "Magreza" ||
-                crianca.statusNutricional == "Magreza Acentuada"
-            }
-            val sobrepeso = listaParaImc.filter { crianca : Crianca ->
-                crianca.statusNutricional == "Sobrepeso" ||
-                crianca.statusNutricional.startsWith("Obesidade")
-            }
-
-            // Atualiza UI
-            txtTotal.text = "${list.size} crianças"
-            txtIdeal.text = pesoAdequado.size.toString()
-            txtBaixo.text = baixoPeso.size.toString()
-            txtSobre.text = sobrepeso.size.toString()
-
-            adapterBaixoPeso.submitList(baixoPeso)
-            adapterSobrepeso.submitList(sobrepeso)
-
-            
         }
+
 
 
 
@@ -142,13 +121,75 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
          }
         
     }
-}
+    private fun EventChangeListener() {
+        db.collection("users").document(userId).collection("crianca")
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    // Trate o erro (ex: mostrar Toast)
+                    return@addSnapshotListener
+                }
 
-private fun Flow<List<Crianca>>.observe(
-    viewLifecycleOwner: LifecycleOwner,
-    function: (List<Crianca>) -> Unit
-) {
-    return this.asLiveData().observe(viewLifecycleOwner) {
-        function(it)
+                // Limpa a lista antes de adicionar os novos dados
+                CriancaList.clear()
+
+                // Converte o snapshot inteiro para uma Lista de Objetos
+                // Isso é mais seguro e evita duplicatas
+                value?.toObjects(Crianca::class.java)?.let {
+                    CriancaList.addAll(it)
+                }
+
+                adapter_todos.notifyDataSetChanged()
+            }
+    }
+
+    private fun EventChangeListenerBaixoPeso() {
+        val categorias = listOf("Magreza", "Magreza Acentuada")
+        db.collection("users").document(userId).collection("crianca")
+            .whereIn("statusNutricional", categorias)
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    // Trate o erro (ex: mostrar Toast)
+                    return@addSnapshotListener
+                }
+
+                // Limpa a lista antes de adicionar os novos dados
+                CriancaList_baixopeso.clear()
+
+                // Converte o snapshot inteiro para uma Lista de Objetos
+                // Isso é mais seguro e evita duplicatas
+                value?.toObjects(Crianca::class.java)?.let {
+                    CriancaList_baixopeso.addAll(it)
+                }
+
+                adapter_baixopeso.notifyDataSetChanged()
+            }
+
+    }
+
+    private fun EventChangeListenerSobrepeso() {
+        val categorias = listOf("Sobrepeso", "Obesidade", "Obesidade Grave")
+        db.collection("users").document(userId).collection("crianca")
+            .whereIn("statusNutricional", categorias)
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    // Trate o erro (ex: mostrar Toast)
+                    return@addSnapshotListener
+                }
+
+                // Limpa a lista antes de adicionar os novos dados
+                CriancaList_sobrepeso.clear()
+
+                // Converte o snapshot inteiro para uma Lista de Objetos
+                // Isso é mais seguro e evita duplicatas
+                value?.toObjects(Crianca::class.java)?.let {
+                    CriancaList_sobrepeso.addAll(it)
+                }
+
+                adapter_sobrepeso.notifyDataSetChanged()
+            }
     }
 }
+
+
+
+

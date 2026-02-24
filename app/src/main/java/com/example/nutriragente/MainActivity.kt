@@ -23,28 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     
-    fun goToSignup() {
-        val navController = findNavController(R.id.nav_host_fragment)
-        navController.navigate(R.id.action_login_to_signup)
-    }
 
-
-
-    fun goToLogin() {
-        val navController = findNavController(R.id.nav_host_fragment)
-        navController.navigate(R.id.action_signup_to_login)
-    }
-
-    fun logintoHome() {
-        val navController = findNavController(R.id.nav_host_fragment)
-        navController.navigate(R.id.action_login_to_home)
-    }
-
-    fun hometoNewEvaluation() {
-        val navController = findNavController(R.id.nav_host_fragment)
-        navController.navigate(R.id.action_new_evaluation_to_home)
-
-    }
 
 
 }

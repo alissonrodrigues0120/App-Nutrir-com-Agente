@@ -4,7 +4,7 @@ import com.google.firebase.firestore.DocumentId
 
 data class Crianca (
     @DocumentId
-    val id: Int = 0,
+    val id: String = "",
     val nome: String,
     val idadeMeses: Int,
     val peso: Double,
@@ -17,6 +17,7 @@ data class Crianca (
     val statusNutricional: String
 
 ){
+    constructor() : this("", "", 0, 0.0, 0.0, "", "", 0.0, 0.0, "")
     // Converter para Map para o Firestore
     fun toMap(): Map<String, Any> {
         return mapOf(
@@ -36,7 +37,7 @@ data class Crianca (
     companion object {
         fun fromSnapshot(snapshot: com.google.firebase.firestore.DocumentSnapshot): Crianca {
             return Crianca(
-                id = snapshot.getLong("id")?.toInt() ?: 0,
+                id = snapshot.getString("id")?: "",
                 nome = snapshot.getString("nome") ?: "",
                 idadeMeses = snapshot.getLong("idadeMeses")?.toInt() ?: 0,
                 peso = snapshot.getDouble("peso") ?: 0.0,

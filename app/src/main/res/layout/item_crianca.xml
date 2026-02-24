@@ -1,74 +1,109 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:padding="12dp"
-              android:background="@drawable/custom_card_bg"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="8dp"
-              android:id = "@+id/item_crianca">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/custom_card_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor = "@color/gray"
+    android:layout_marginBottom="8dp"
+    android:id = "@+id/item_crianca">
 
-    <TextView
-        android:id="@+id/itemNome"
-        android:text="@string/nome"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="416dp"
+        android:layout_height="105dp">
 
         <TextView
-            android:id="@+id/itemIdade"
-            android:text="@string/idade"
-            android:textSize="14sp"
-            android:layout_width="0dp"
+            android:id="@+id/itemNome"
+            android:text="@string/nome"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.285" />
+
+        <TextView
+            android:id="@+id/itemidade"
+            android:text="@string/idade"
+            android:textColor="@color/black"
+            android:layout_marginStart="24dp"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemNome" />
 
         <TextView
             android:id="@+id/itemPeso"
             android:text="@string/peso"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:layout_marginStart="108dp"
             android:textSize="14sp"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            app:layout_constraintBottom_toBottomOf="@+id/itemidade"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/itemAltura"
             android:text="@string/altura"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:layout_marginStart="188dp"
             android:textSize="14sp"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/itemImc"
-            android:visibility="gone"
-            android:textSize="14sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/itemZscore"
-            android:visibility="gone"
-            android:textSize="14sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            app:layout_constraintBottom_toBottomOf="@+id/itemPeso"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/itemStatus"
+            android:text="@string/resultados_status_description_adequate"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemidade" />
+
+        <TextView
+            android:id="@+id/itemImc"
+            android:text="@string/resultados_status_description_adequate"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
             android:visibility="gone"
             android:textSize="14sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemStatus" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/itemZscore"
+            android:text="@string/resultados_status_description_adequate"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemImc" />
 
 
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -19,27 +19,7 @@ class CriancaRepository(private val userId: String?) {
 
 
     // Obter pacientes do usuário atual
-    fun getCriancas(): Flow<List<Crianca>> = callbackFlow {
-        val query = CriancaCollection
-            .orderBy("createdAt", Query.Direction.DESCENDING)
 
-        val listener = query.addSnapshotListener { snapshot, error ->
-            if (error != null) {
-                trySend(emptyList())
-                return@addSnapshotListener
-            }
-
-            snapshot?.let {
-                trySend(
-                    it.documents.map { doc ->
-                        Crianca.fromSnapshot(doc)
-                    }
-                )
-            }
-        }
-
-        awaitClose { listener.remove() }
-    }
 
 
 

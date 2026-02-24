@@ -68,8 +68,6 @@ class NewEvaluationFragment : Fragment(R.layout.new_evaluation) {
                 // Envia para o ViewModel
                 viewModel.salvarAvaliacao(nome, peso, alturaCm, idadeMeses, sexo, tipoAm)
 
-                // Navega de volta
-                findNavController().popBackStack()
 
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Erro nos dados informados", Toast.LENGTH_SHORT).show()
