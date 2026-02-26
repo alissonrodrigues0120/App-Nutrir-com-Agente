@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -54,22 +58,28 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val Addfab = view.findViewById<FloatingActionButton>(R.id.fab_add)
         swipeRefreshLayout = view as SwipeRefreshLayout
-        ViewCompat.setOnApplyWindowInsetsListener(Addfab) { v, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                leftMargin = insets.left
-                bottomMargin = insets.bottom
-                rightMargin = insets.right
-            }
-
-            // Return CONSUMED if you don't want want the window insets to keep passing
-            // down to descendant views.
-            WindowInsetsCompat.CONSUMED
-        }
-
-
 
         super.onViewCreated(view, savedInstanceState)
+
+        val window = requireActivity().window
+
+        // Configura a status bar
+        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_toolbar)
+
+        // Edge-to-edge
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        // Ajusta padding do conteúdo
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(
+                top = systemBars.top,
+                left = systemBars.left,
+                right = systemBars.right,
+                bottom = systemBars.bottom
+            )
+            insets
+        }
 
         recyclerView_todas = view.findViewById(R.id.recyclerCriancas)
         recyclerView_todas.layoutManager = LinearLayoutManager(requireContext())

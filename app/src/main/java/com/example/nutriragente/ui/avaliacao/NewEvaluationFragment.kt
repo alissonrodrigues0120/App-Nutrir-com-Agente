@@ -6,6 +6,11 @@ import android.view.View
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -22,6 +27,26 @@ class NewEvaluationFragment : Fragment(R.layout.new_evaluation) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val window = requireActivity().window
+
+        // Configura a status bar
+        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_toolbar)
+
+        // Edge-to-edge
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        // Ajusta padding do conteúdo
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(
+                top = systemBars.top,
+                left = systemBars.left,
+                right = systemBars.right,
+                bottom = systemBars.bottom
+            )
+            insets
+        }
 
         val etNome = view.findViewById<EditText>(R.id.et_nome)
         val etPeso = view.findViewById<EditText>(R.id.et_peso)
