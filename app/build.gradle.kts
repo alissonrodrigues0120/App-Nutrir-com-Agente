@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.lifecycle.viewmodel.ktx)
     val activity_version = "1.12.3"
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")

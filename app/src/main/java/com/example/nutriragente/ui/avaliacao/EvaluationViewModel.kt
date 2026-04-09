@@ -1,10 +1,14 @@
 package com.example.nutriragente.ui.avaliacao
 
 import android.app.Application
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
 import com.example.nutriragente.data.repository.CriancaRepository
 import com.example.nutriragente.ui.home.GraphHistory
@@ -18,6 +22,9 @@ class EvaluationViewModel(application: Application) : AndroidViewModel(applicati
     private val auth = FirebaseAuth.getInstance()
     private val userId = auth.currentUser?.uid
     
+    private val _navegacaoEvent = MutableLiveData<Pair<Int, Bundle>?>()
+    val navegacaoEvent: LiveData<Pair<Int, Bundle>?> = _navegacaoEvent
+
     init {
         repository = CriancaRepository(userId)
     }
@@ -28,40 +35,50 @@ class EvaluationViewModel(application: Application) : AndroidViewModel(applicati
         alturaCm: Double,
         idadeMeses: Int,
         sexo: String,
-        tipoAm: String
+        tipoAm: String,
+        dataNascimento: String
     ) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val alturaM = alturaCm / 100.0
-
-            // 1. Calcular IMC usando GraphHistory
             val imc = GraphHistory.calcularIMC(peso, alturaM)
-
-            // 2. Calcular Z-Score
             val zScore = GraphHistory.calcularEscoreZ(imc, idadeMeses, sexo)
-
-            // 3. Obter Classificação
             val status = GraphHistory.getClassificacao(zScore, idadeMeses)
 
-            // Cria o objeto para o Banco de Dados
             val crianca = Crianca(
                 nome = nome,
                 idadeMeses = idadeMeses,
                 peso = peso,
-                altura = alturaM, // Salve em metros para manter o padrão
+                altura = alturaM,
                 sexo = sexo,
                 tipoAm = tipoAm,
                 imc = imc,
                 imcZScore = zScore,
                 statusNutricional = status
-                // Se sua entidade Crianca tiver dataNascimento, adicione aqui
             )
 
-            repository.addCrianca(crianca)
-            repository.updateCrianca(crianca)
-
+            val documentId = repository.addCrianca(crianca)
 
             withContext(Dispatchers.Main) {
-                Toast.makeText(getApplication(), "Salvo: $status", Toast.LENGTH_LONG).show()
+                if (documentId != null) {
+                    Toast.makeText(getApplication(), "Salvo: $status", Toast.LENGTH_LONG).show()
+                    
+                    val bundle = Bundle().apply {
+                        putString("USER_ID", userId)
+                        putString("CHILD_ID", documentId)
+                        val partes = dataNascimento.split("/")
+                        val isoDate = if(partes.size == 3) "${partes[2]}-${partes[1]}-${partes[0]}" else dataNascimento
+                        putString("BIRTH_DATE", isoDate)
+                    }
+
+                    // Usando as ACTIONS definidas no nav_graph.xml
+                    val actionId = when {
+                        idadeMeses < 6 -> R.id.action_new_evaluation_to_form_sixmonth
+                        idadeMeses in 6..23 -> R.id.action_new_evaluation_to_form_sixtotwentythree
+                        else -> R.id.action_new_evaluation_to_form_twoyears
+                    }
+                    
+                    _navegacaoEvent.value = Pair(actionId, bundle)
+                }
             }
         } catch (e: Exception) {
             Log.e("EvaluationViewModel", "Erro: ${e.message}")
@@ -69,5 +86,9 @@ class EvaluationViewModel(application: Application) : AndroidViewModel(applicati
                 Toast.makeText(getApplication(), "Erro: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    fun resetNavegacao() {
+        _navegacaoEvent.value = null
     }
 }

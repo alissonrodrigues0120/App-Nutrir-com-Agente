@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
+import com.example.nutriragente.databinding.NewEvaluationBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalDate
 import java.time.Period
@@ -27,6 +28,12 @@ class NewEvaluationFragment : Fragment(R.layout.new_evaluation) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val binding = NewEvaluationBinding.bind(view)
+
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp() // Também VOLTA para a tela anterior
+        }
 
         val window = requireActivity().window
 
@@ -53,6 +60,8 @@ class NewEvaluationFragment : Fragment(R.layout.new_evaluation) {
         val etAltura = view.findViewById<EditText>(R.id.et_altura)
         val etDataNascimento = view.findViewById<EditText>(R.id.et_data_nascimento)
         val fabConfirm = view.findViewById<FloatingActionButton>(R.id.fab_confirm)
+
+        observeViewModel()
 
         // Configuração do DatePicker
         etDataNascimento.setOnClickListener {
@@ -90,12 +99,21 @@ class NewEvaluationFragment : Fragment(R.layout.new_evaluation) {
                     else -> "Artificial"
                 }
 
-                // Envia para o ViewModel
-                viewModel.salvarAvaliacao(nome, peso, alturaCm, idadeMeses, sexo, tipoAm)
+                // Envia para o ViewModel incluindo a data para navegação
+                viewModel.salvarAvaliacao(nome, peso, alturaCm, idadeMeses, sexo, tipoAm, dataStr)
 
 
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Erro nos dados informados", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.navegacaoEvent.observe(viewLifecycleOwner) { evento ->
+            evento?.let { (destino, bundle) ->
+                findNavController().navigate(destino, bundle)
+                viewModel.resetNavegacao()
             }
         }
     }

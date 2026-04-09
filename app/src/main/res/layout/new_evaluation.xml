@@ -409,7 +409,7 @@
                     android:id="@+id/fab_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/outline_check_24"
+                    android:src="@drawable/outline_arrow_forward_24"
                     app:tint="@color/white"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="24dp"

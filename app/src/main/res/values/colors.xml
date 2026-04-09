@@ -17,4 +17,7 @@
     <color name="warn_orange">#FFFFD599</color>
     <color name="color_text_black">#333333</color>
 
+    <!-- Cores para Alertas -->
+    <color name="yellow_alert">#FFF9C4</color>
+    <color name="pink_alert">#F8BBD0</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.nutriragente.data.model
 
 import com.google.firebase.firestore.DocumentId
+import java.io.Serializable
 
 data class Crianca (
     @DocumentId
@@ -16,7 +17,7 @@ data class Crianca (
     val imcZScore: Double,
     val statusNutricional: String
 
-){
+) : Serializable {
     constructor() : this("", "", 0, 0.0, 0.0, "", "", 0.0, 0.0, "")
     // Converter para Map para o Firestore
     fun toMap(): Map<String, Any> {
@@ -51,5 +52,3 @@ data class Crianca (
         }
     }
 }
-
-
