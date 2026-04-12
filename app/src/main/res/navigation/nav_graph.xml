@@ -102,7 +102,7 @@
 
     <fragment
         android:id="@+id/orientacoesFragment"
-        android:name="com.example.nutriragente.ui.orientacoes.OrientacoesFragment"
+        android:name="com.example.nutriragente.ui.avaliacao.OrientacoesFragment"
         android:label="Orientações" />
 
     <!-- Destinos dos Formulários -->

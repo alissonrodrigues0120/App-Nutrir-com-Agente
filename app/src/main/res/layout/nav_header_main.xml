@@ -15,17 +15,14 @@
     <ImageView
         android:id="@+id/logopink"
         android:layout_width="match_parent"
-        android:layout_height="298dp"
+        android:layout_height="250dp"
         android:layout_gravity="top"
         android:layout_marginTop="24dp"
-        android:src="@drawable/logopink"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/logopink" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="32dp" />
+        android:layout_height="16dp" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Large"
@@ -34,15 +31,15 @@
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:lineSpacingExtra="8sp"
-        android:padding="16dp"
+        android:padding="8dp"
         android:text="@string/objective_app"
         android:textAlignment="center"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sobreButton"
@@ -66,28 +63,26 @@
         android:textColor="@color/white"
         android:textAllCaps="false" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF5252"
+        android:text="Sair"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"/>
+
     <TextView
         style="@style/TextAppearance.AppCompat"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:lineSpacingExtra="8sp"
         android:padding="16dp"
         android:text="@string/version_app"
         android:textAlignment="center"
-        android:textSize="14dp" />
-
-
-
+        android:textSize="12dp" />
 
 </LinearLayout>
-
-
-
-
-
-
-
-
-

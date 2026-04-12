@@ -10,7 +10,6 @@ class LogCasResViewModel {
 
     fun resetPassword(email: String, onResult: (Boolean, String?) -> Unit) {
         userRepository.resetPassword(email, onResult)
-
     }
 
     fun login(email: String, password: String, onResult: (Boolean, String?) -> Unit) {
@@ -25,7 +24,7 @@ class LogCasResViewModel {
         return userRepository.getCurrentUserId()
     }
 
-
-
-
+    fun signOut() {
+        userRepository.logout()
+    }
 }

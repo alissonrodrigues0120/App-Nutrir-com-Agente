@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.FormType
+import com.example.nutriragente.ui.login.LogCasResViewModel
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -34,6 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val auth = FirebaseAuth.getInstance()
     private val userId = auth.currentUser?.uid as String
     private val db = FirebaseFirestore.getInstance(FirebaseApp.getInstance())
+    private val loginViewModel = LogCasResViewModel()
     
     private lateinit var recyclerView_todas: RecyclerView
     private lateinit var recyclerView_baixopeso: RecyclerView
@@ -83,6 +85,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val headerView = navView.getHeaderView(0)
         val btnSobre = headerView.findViewById<Button>(R.id.sobreButton)
         val btnSaberMais = headerView.findViewById<Button>(R.id.saberMaisButton)
+        val btnSignOut = headerView.findViewById<Button>(R.id.btn_sign_out)
 
         btnSobre.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_about)
@@ -92,6 +95,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         btnSaberMais.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_sabermais)
             drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        btnSignOut.setOnClickListener {
+            loginViewModel.signOut()
+            findNavController().navigate(R.id.action_splash_to_login) // Ajuste para sua rota de login real
         }
 
         val window = requireActivity().window
@@ -140,7 +148,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         recyclerView_pesoideal = view.findViewById(R.id.rvPesoideal)
         recyclerView_pesoideal.layoutManager = LinearLayoutManager(requireContext())
 
-        // Lógica de clique unificada
         val onCriancaClick: (Crianca) -> Unit = { crianca ->
             val formType = when {
                 crianca.idadeMeses < 6 -> FormType.UNDER_6M.name
