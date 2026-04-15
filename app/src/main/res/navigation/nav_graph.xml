@@ -9,10 +9,14 @@
         android:name="com.example.nutriragente.ui.login.SplashFragment">
         <action
             android:id="@+id/action_splash_to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splash_to_home"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -24,7 +28,9 @@
             app:destination="@id/signupFragment"/>
         <action
             android:id="@+id/action_login_to_home"
-            app:destination="@id/homeFragment"/>
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_login_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment"/>
@@ -64,6 +70,11 @@
         <action
             android:id="@+id/action_home_to_resultados"
             app:destination="@id/resultadosFragment" />
+        <action
+            android:id="@+id/action_home_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

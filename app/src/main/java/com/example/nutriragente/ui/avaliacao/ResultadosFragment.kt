@@ -8,9 +8,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
-import com.example.nutriragente.data.model.Forms
 import com.example.nutriragente.data.repository.FormRepository
 import com.example.nutriragente.databinding.ScreenResultadosBinding
+import com.example.nutriragente.util.setupEdgeToEdge
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 
@@ -23,8 +23,10 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = ScreenResultadosBinding.bind(view)
+        
+        // Corrige o alinhamento da tela (status bar e navigation bar)
+        setupEdgeToEdge(view)
 
-        // Receber dados (da Home ou do fim do Form)
         val crianca = arguments?.getSerializable("CRIANCA") as? Crianca
         val userId = arguments?.getString("USER_ID") ?: ""
         val childId = arguments?.getString("CHILD_ID") ?: ""
@@ -56,7 +58,6 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
         binding.tvPhysicalInfo.text = "${crianca.peso}kg | ${crianca.altura}m"
         binding.tvNutritionalStatus.text = crianca.statusNutricional
 
-        // Lógica de Alerta com a Enfermeira
         when {
             crianca.statusNutricional.contains("Sobrepeso", true) || 
             crianca.statusNutricional.contains("Obesidade", true) -> {
@@ -64,21 +65,18 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
                 binding.tvStatusTitle.text = "Atenção!"
                 binding.tvStatusDescription.text = "Cuidado! Sua criança está acima do peso adequado para a idade."
                 binding.ivDoctorResult.setImageResource(R.drawable.enfermeira_3)
-                binding.ivDoctorResult.visibility = View.VISIBLE
             }
             crianca.statusNutricional.contains("Magreza", true) -> {
                 binding.cardStatusResult.setCardBackgroundColor(requireContext().getColor(R.color.pink_alert))
                 binding.tvStatusTitle.text = "Atenção!"
                 binding.tvStatusDescription.text = "Cuidado! Sua criança está abaixo do peso adequado para a idade."
                 binding.ivDoctorResult.setImageResource(R.drawable.enfermeira_3)
-                binding.ivDoctorResult.visibility = View.VISIBLE
             }
             else -> {
                 binding.cardStatusResult.setCardBackgroundColor(requireContext().getColor(R.color.teal_700))
                 binding.tvStatusTitle.text = "Tudo certo!"
                 binding.tvStatusDescription.text = "Sua criança está com o peso adequado."
                 binding.ivDoctorResult.setImageResource(R.drawable.enfermeira_1)
-                binding.ivDoctorResult.visibility = View.VISIBLE
             }
         }
     }

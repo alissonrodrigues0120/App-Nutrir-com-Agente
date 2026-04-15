@@ -1,5 +1,7 @@
 package com.example.nutriragente.ui.home
 
+import android.graphics.Color
+import android.os.Build
 import com.example.nutriragente.data.model.Crianca
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +10,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,6 +22,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.FormType
 import com.example.nutriragente.ui.login.LogCasResViewModel
+import com.example.nutriragente.util.setupEdgeToEdge
+import com.example.nutriragente.util.setupEdgeToEdgeDrawer
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -66,6 +68,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val window = requireActivity().window
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        // Opcional: deixar barras transparentes para efeito "imersivo"
+        window.statusBarColor = Color.TRANSPARENT
+        window.navigationBarColor = Color.TRANSPARENT
+        // 3. CONTROLAR A COR DOS ÍCONES ← ESSENCIAL!
+        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+
+        // Status bar: ícones ESCUROS (para contraste sobre fundo claro)
+        windowInsetsController.isAppearanceLightStatusBars = true
+
+        // Navigation bar: ícones ESCUROS (Android 8.0+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            windowInsetsController.isAppearanceLightNavigationBars = true
+        }
+        setupEdgeToEdgeDrawer(
+            contentTargetId = R.id.homeFragment,  // ← SwipeRefreshLayout
+            navigationViewId = R.id.nav_view
+        )
 
         val Addfab = view.findViewById<FloatingActionButton>(R.id.fab_add)
         swipeRefreshLayout = view.findViewById(R.id.homeFragment)
@@ -99,22 +121,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         btnSignOut.setOnClickListener {
             loginViewModel.signOut()
-            findNavController().navigate(R.id.action_splash_to_login) // Ajuste para sua rota de login real
-        }
-
-        val window = requireActivity().window
-        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_toolbar)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.updatePadding(
-                top = systemBars.top,
-                left = systemBars.left,
-                right = systemBars.right,
-                bottom = systemBars.bottom
-            )
-            insets
+            // CORREÇÃO: Usa a action da Home para o Login que já limpa a pilha
+            findNavController().navigate(R.id.action_home_to_login)
         }
 
         setupRecyclerViews(view)
