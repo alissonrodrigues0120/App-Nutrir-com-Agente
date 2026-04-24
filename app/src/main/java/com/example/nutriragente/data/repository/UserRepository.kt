@@ -1,10 +1,13 @@
 package com.example.nutriragente.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserRepository {
-
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+@Singleton
+class UserRepository @Inject constructor(
+    private val auth: FirebaseAuth
+) {
 
     fun login(
         email: String,

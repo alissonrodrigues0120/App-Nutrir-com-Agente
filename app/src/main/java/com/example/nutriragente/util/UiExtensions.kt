@@ -2,6 +2,7 @@ package com.example.nutriragente.util
 
 import android.graphics.Color
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -9,6 +10,33 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import com.example.nutriragente.R
 import com.google.android.material.navigation.NavigationView
+
+/**
+ * Configura a janela para telas de autenticação (Login, Cadastro, Reset, Splash).
+ *
+ * Comportamento:
+ *  - Status bar: cor azul [R.color.blue_toolbar], ícones escuros
+ *  - Navigation bar: padrão do sistema
+ *  - Edge-to-edge ativo; padding do sistema aplicado automaticamente na view raiz
+ *
+ * Substitui 5 blocos idênticos de ~10 linhas espalhados pelos fragments de login.
+ * Chamada: `setupLoginWindow()` no início de [Fragment.onViewCreated].
+ */
+fun Fragment.setupLoginWindow() {
+    val window = requireActivity().window
+    window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_toolbar)
+    WindowCompat.setDecorFitsSystemWindows(window, false)
+    ViewCompat.setOnApplyWindowInsetsListener(requireView()) { v, insets ->
+        val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        v.updatePadding(
+            top    = systemBars.top,
+            bottom = systemBars.bottom,
+            left   = systemBars.left,
+            right  = systemBars.right
+        )
+        insets
+    }
+}
 
 /**
  * Aplica o modo tela cheia (Edge-to-Edge) e garante que o conteúdo

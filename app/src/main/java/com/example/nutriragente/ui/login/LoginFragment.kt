@@ -2,59 +2,39 @@ package com.example.nutriragente.ui.login
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
-import com.example.nutriragente.ui.login.LogCasResViewModel
+import com.example.nutriragente.util.setupLoginWindow
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.activity_login) {
 
-
+    private val viewModel: AuthViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val window = requireActivity().window
+        setupLoginWindow()
 
-        // Configura a status bar
-        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.blue_toolbar)
-
-        // Edge-to-edge
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-
-        // Ajusta padding do conteúdo
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.updatePadding(
-                top = systemBars.top,
-                left = systemBars.left,
-                right = systemBars.right,
-                bottom = systemBars.bottom
-            )
-            insets
-        }
-
-        val logCasResViewModel = LogCasResViewModel()
-
-
-        val emailEditText = view.findViewById<EditText>(R.id.login_email)
+        val emailEditText    = view.findViewById<EditText>(R.id.login_email)
         val passwordEditText = view.findViewById<EditText>(R.id.password)
-        val loginButton = view.findViewById<Button>(R.id.login_button)
-        val signupText = view.findViewById<TextView>(R.id.signup_redirect_text)
-        val forgotPasswordText = view.findViewById<TextView>(R.id.resetpassword_redirect_text)
+        val loginButton      = view.findViewById<Button>(R.id.login_button)
+        val signupText       = view.findViewById<TextView>(R.id.signup_redirect_text)
+        val forgotText       = view.findViewById<TextView>(R.id.resetpassword_redirect_text)
 
         loginButton.setOnClickListener {
-            val email = emailEditText.text.toString().trim()
+            val email    = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
@@ -62,21 +42,33 @@ class LoginFragment : Fragment(R.layout.activity_login) {
                 return@setOnClickListener
             }
 
-            logCasResViewModel.login(email, password) { success, message ->
-                if (success) {
-                    findNavController().navigate(R.id.action_login_to_home)
-                } else {
-                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-                }
-            }
+            viewModel.login(email, password)
         }
 
         signupText.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_signup)
         }
 
-        forgotPasswordText.setOnClickListener {
+        forgotText.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_resetPasswordFragment)
+        }
+
+        observeEvents()
+    }
+
+    private fun observeEvents() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.event.collect { event ->
+                    when (event) {
+                        is AuthViewModel.AuthEvent.LoginSuccess ->
+                            findNavController().navigate(R.id.action_login_to_home)
+                        is AuthViewModel.AuthEvent.Error ->
+                            Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
+                        else -> Unit
+                    }
+                }
+            }
         }
     }
 }
