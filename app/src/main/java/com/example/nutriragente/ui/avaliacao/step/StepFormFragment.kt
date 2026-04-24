@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
+import com.example.nutriragente.data.model.Crianca
 import com.example.nutriragente.data.model.FormType
 import com.example.nutriragente.databinding.FragmentStepFormBinding
 import com.example.nutriragente.ui.avaliacao.FormUiState
@@ -47,6 +48,11 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
     private var currentIndex = 0
     protected val answers = mutableMapOf<String, String>()
     private var alreadyRestored = false
+
+    // ── Dados recebidos do wizard de avaliação ──────────────────────────────
+    private var criancaArg: Crianca? = null
+    private var userIdArg: String = ""
+    private var childIdArg: String = ""
 
     // ── View Binding ────────────────────────────────────────────────────────
     private var _binding: FragmentStepFormBinding? = null
@@ -97,12 +103,15 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
     // ════════════════════════════════════════════════════════════════════════
 
     private fun setupViewModel() {
-        val userId      = arguments?.getString("USER_ID")      ?: ""
-        val childId     = arguments?.getString("CHILD_ID")     ?: ""
-        val birthStr    = arguments?.getString("BIRTH_DATE")   ?: ""
-        val birthDate   = if (birthStr.isNotEmpty()) LocalDate.parse(birthStr) else LocalDate.now()
+        userIdArg   = arguments?.getString("USER_ID")    ?: ""
+        childIdArg  = arguments?.getString("CHILD_ID")   ?: ""
+        val birthStr = arguments?.getString("BIRTH_DATE") ?: ""
+        val birthDate = if (birthStr.isNotEmpty()) LocalDate.parse(birthStr) else LocalDate.now()
 
-        val factory = FormViewModelFactory(userId, childId, getFormType(), birthDate)
+        @Suppress("DEPRECATION")
+        criancaArg = arguments?.getSerializable("CRIANCA") as? Crianca
+
+        val factory = FormViewModelFactory(userIdArg, childIdArg, getFormType(), birthDate)
         viewModel = ViewModelProvider(this, factory)[FormViewModel::class.java]
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -119,8 +128,7 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
                             }
                         }
                         is FormUiState.Saved -> {
-                            Toast.makeText(requireContext(), "Formulário salvo!", Toast.LENGTH_SHORT).show()
-                            findNavController().navigateUp()
+                            navigateToResultados()
                         }
                         is FormUiState.Error -> {
                             Toast.makeText(requireContext(), "Erro: ${state.message}", Toast.LENGTH_LONG).show()
@@ -130,6 +138,32 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
                 }
             }
         }
+    }
+
+    /**
+     * Ao terminar o formulário, navega para a tela de resultados passando
+     * os dados da criança (com classificação nutricional já calculada).
+     * O back-stack é limpo até new_evaluation (inclusive) para que o
+     * botão Voltar em Resultados leve direto ao Home.
+     */
+    private fun navigateToResultados() {
+        val actionId = when (getFormType()) {
+            com.example.nutriragente.data.model.FormType.UNDER_6M      ->
+                R.id.action_form_sixmonth_to_resultados
+            com.example.nutriragente.data.model.FormType.SIX_TO_23M   ->
+                R.id.action_form_sixtotwentythree_to_resultados
+            com.example.nutriragente.data.model.FormType.TWO_YEARS_PLUS ->
+                R.id.action_form_twoyears_to_resultados
+        }
+
+        val bundle = Bundle().apply {
+            putString("USER_ID",   userIdArg)
+            putString("CHILD_ID",  childIdArg)
+            putString("FORM_TYPE", getFormType().name)
+            criancaArg?.let { putSerializable("CRIANCA", it) }
+        }
+
+        findNavController().navigate(actionId, bundle)
     }
 
     private fun setupToolbar() {

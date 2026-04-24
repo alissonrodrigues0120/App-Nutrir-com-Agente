@@ -119,14 +119,32 @@
     <!-- Destinos dos Formulários -->
     <fragment
         android:id="@+id/consumo_crianca_sixmonth"
-        android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_sixmonth" />
+        android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_sixmonth">
+        <action
+            android:id="@+id/action_form_sixmonth_to_resultados"
+            app:destination="@id/resultadosFragment"
+            app:popUpTo="@id/new_evaluation"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/consumo_crianca_sixtotwentythree"
-        android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_sixtotwentythree" />
+        android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_sixtotwentythree">
+        <action
+            android:id="@+id/action_form_sixtotwentythree_to_resultados"
+            app:destination="@id/resultadosFragment"
+            app:popUpTo="@id/new_evaluation"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/consumo_twoyears"
-        android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_twoyears" />
+        android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_twoyears">
+        <action
+            android:id="@+id/action_form_twoyears_to_resultados"
+            app:destination="@id/resultadosFragment"
+            app:popUpTo="@id/new_evaluation"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

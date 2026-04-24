@@ -83,6 +83,7 @@ class EvaluationViewModel @Inject constructor(
                         putString("USER_ID",    userId)
                         putString("CHILD_ID",   documentId)
                         putString("BIRTH_DATE", isoDate)
+                        putSerializable("CRIANCA", crianca)
                     }
 
                     val actionId = when {
