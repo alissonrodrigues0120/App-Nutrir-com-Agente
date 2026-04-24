@@ -26,11 +26,17 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true       // R8 elimina código não usado e otimiza bytecode
+            isShrinkResources = true     // Remove recursos não referenciados do APK
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = false
+            // applicationIdSuffix = ".debug" — removido: o google-services.json só registra
+            // com.example.nutriragente; adicionar suffix exigiria um segundo client no Firebase Console.
         }
     }
 
@@ -65,6 +71,7 @@ dependencies {
     implementation("com.google.firebase:firebase-database:19.3.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("androidx.startup:startup-runtime:1.1.1")
     implementation("com.google.dagger:hilt-android:2.52")
     kapt("com.google.dagger:hilt-android-compiler:2.52")
 

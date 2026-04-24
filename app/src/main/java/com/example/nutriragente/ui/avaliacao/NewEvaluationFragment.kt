@@ -17,11 +17,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.NewEvaluationBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
+@AndroidEntryPoint
 class NewEvaluationFragment : Fragment(R.layout.new_evaluation) {
 
     private val viewModel: EvaluationViewModel by viewModels()

@@ -16,6 +16,27 @@
 
 
 
+        <!-- Remove o ContentProvider proprietário do Firebase (roda na main thread,
+             contribui para Davey frames no cold start). A inicialização passa a
+             ser feita pelo InitializationProvider do App Startup abaixo. -->
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="${applicationId}.firebaseinitprovider"
+            android:exported="false"
+            tools:node="remove" />
+
+        <!-- App Startup: consolida múltiplos ContentProviders em um único.
+             O FirebaseInitializer.kt registrado aqui substitui o provider removido acima. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="com.example.nutriragente.startup.FirebaseInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
         <activity
             android:name=".ui.avaliacao.FormsFragment_sixmonth"
             android:exported="false"

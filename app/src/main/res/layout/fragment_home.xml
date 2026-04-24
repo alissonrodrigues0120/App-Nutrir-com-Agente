@@ -29,7 +29,8 @@
                     android:background="@color/blue_toolbar"
                     app:navigationIcon="@drawable/baseline_menu_24"
                     app:title="Nutrir com aGente"
-                    app:titleTextColor="@android:color/white"/>
+                    app:titleTextColor="@android:color/white" />
+
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
@@ -45,7 +46,7 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Card Tina -->
+                    <!-- ① Card informativo com imagem (Tina) -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -70,9 +71,10 @@
                             android:layout_marginStart="8dp"
                             android:contentDescription="@string/ilustracao_tina"
                             android:src="@drawable/enfermeira_2" />
+
                     </LinearLayout>
 
-                    <!-- Cadastro resumo -->
+                    <!-- ② Resumo nutricional (logo abaixo do card informativo) -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -81,6 +83,7 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
+                        <!-- Total geral -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -95,26 +98,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="12dp"
                             android:text="0 crianças"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerCriancas"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:nestedScrollingEnabled="false" />
-
-                        <!-- Resumo IMC -->
+                        <!-- Contadores por categoria -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:gravity="center"
-                            android:padding="16dp">
+                            android:gravity="center">
 
-                            <!-- Ideal -->
+                            <!-- Peso Ideal -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -144,9 +141,10 @@
                                     android:text="0"
                                     android:textStyle="bold"
                                     android:textColor="@color/black" />
+
                             </LinearLayout>
 
-                            <!-- Baixo -->
+                            <!-- Baixo Peso -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -176,6 +174,7 @@
                                     android:text="0"
                                     android:textStyle="bold"
                                     android:textColor="@color/black" />
+
                             </LinearLayout>
 
                             <!-- Sobrepeso -->
@@ -208,11 +207,42 @@
                                     android:text="0"
                                     android:textStyle="bold"
                                     android:textColor="@color/black" />
+
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </LinearLayout>
 
-                    <!-- Seção Baixo Peso -->
+                    <!-- ③ Lista de todas as crianças em acompanhamento -->
+                    <!--
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/custom_card_bg"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Todas as crianças"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerCriancas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+
+                    </LinearLayout>
+                    -->
+
+                    <!-- ④ Crianças com baixo peso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -234,9 +264,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:nestedScrollingEnabled="false" />
+
                     </LinearLayout>
 
-                    <!-- Seção Peso Ideal -->
+                    <!-- ⑤ Crianças com peso ideal -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -258,9 +289,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:nestedScrollingEnabled="false" />
+
                     </LinearLayout>
 
-                    <!-- Seção Sobrepeso -->
+                    <!-- ⑥ Crianças com sobrepeso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -282,6 +314,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:nestedScrollingEnabled="false" />
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -292,14 +325,15 @@
                 android:id="@+id/fab_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/outline_add_24"
-                app:tint="@color/white"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="24dp"
+                android:contentDescription="@string/adicionar"
+                android:src="@drawable/outline_add_24"
                 app:backgroundTint="@color/blue_toolbar"
-                android:contentDescription="@string/adicionar" />
+                app:tint="@color/white" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <!-- Navigation Drawer -->
@@ -310,6 +344,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
         android:background="@color/blue_toolbar"
-        app:headerLayout="@layout/nav_header_main"/>
+        app:headerLayout="@layout/nav_header_main" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
