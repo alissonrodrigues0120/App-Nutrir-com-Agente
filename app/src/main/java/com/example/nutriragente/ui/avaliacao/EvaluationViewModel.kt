@@ -56,10 +56,10 @@ class EvaluationViewModel(application: Application) : AndroidViewModel(applicati
                 statusNutricional = status
             )
 
-            val documentId = repository.addCrianca(crianca)
+            val saveResult = repository.addCrianca(crianca)
 
             withContext(Dispatchers.Main) {
-                if (documentId != null) {
+                saveResult.onSuccess { documentId ->
                     Toast.makeText(getApplication(), "Salvo: $status", Toast.LENGTH_LONG).show()
                     
                     val bundle = Bundle().apply {
@@ -78,6 +78,8 @@ class EvaluationViewModel(application: Application) : AndroidViewModel(applicati
                     }
                     
                     _navegacaoEvent.value = Pair(actionId, bundle)
+                }.onFailure { exception ->
+                    Toast.makeText(getApplication(), "Erro ao salvar: ${exception.message}", Toast.LENGTH_LONG).show()
                 }
             }
         } catch (e: Exception) {

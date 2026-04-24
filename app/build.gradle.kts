@@ -1,9 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     kotlin("android") // A versão vem do root
+    kotlin("kapt")
     // Mude de 2.3.0 para 2.0.21 para não quebrar o KSP
     id("org.jetbrains.kotlin.plugin.serialization")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+    id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp") version "2.0.21-1.0.27"
 }
 
@@ -57,10 +60,13 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-database:19.3.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("com.google.dagger:hilt-android:2.52")
+    kapt("com.google.dagger:hilt-android-compiler:2.52")
 
 
     // Outras libs do seu libs.versions.toml

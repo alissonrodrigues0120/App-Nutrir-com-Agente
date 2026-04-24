@@ -9,8 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.GravityCompat
 import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -21,23 +19,24 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.FormType
-import com.example.nutriragente.ui.login.LogCasResViewModel
-import com.example.nutriragente.util.setupEdgeToEdge
 import com.example.nutriragente.util.setupEdgeToEdgeDrawer
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.AggregateSource
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val auth = FirebaseAuth.getInstance()
-    private val userId = auth.currentUser?.uid as String
-    private val db = FirebaseFirestore.getInstance(FirebaseApp.getInstance())
-    private val loginViewModel = LogCasResViewModel()
+    @Inject lateinit var auth: FirebaseAuth
+    @Inject lateinit var db: FirebaseFirestore
+    private var userId: String? = null
+    private val listeners = mutableListOf<ListenerRegistration>()
     
     private lateinit var recyclerView_todas: RecyclerView
     private lateinit var recyclerView_baixopeso: RecyclerView
@@ -69,6 +68,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val window = requireActivity().window
+        userId = auth.currentUser?.uid
+        if (userId == null) {
+            findNavController().navigate(R.id.action_home_to_login)
+            return
+        }
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         // Opcional: deixar barras transparentes para efeito "imersivo"
@@ -120,17 +124,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         btnSignOut.setOnClickListener {
-            loginViewModel.signOut()
+            auth.signOut()
             // CORREÇÃO: Usa a action da Home para o Login que já limpa a pilha
             findNavController().navigate(R.id.action_home_to_login)
         }
 
         setupRecyclerViews(view)
-        
-        EventChangeListener()
-        EventChangeListenerBaixoPeso()
-        EventChangeListenerSobrepeso()
-        EventChangeListenerPesoideal()
+        startListeners()
         EventChangeListenerNumbers()
 
         swipeRefreshLayout.isRefreshing = false
@@ -191,27 +191,40 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun refreshData() {
         swipeRefreshLayout.isRefreshing = true
-        EventChangeListener()
-        EventChangeListenerBaixoPeso()
-        EventChangeListenerSobrepeso()
-        EventChangeListenerPesoideal()
+        startListeners()
         EventChangeListenerNumbers()
         swipeRefreshLayout.isRefreshing = false
     }
 
+    private fun startListeners() {
+        stopListeners()
+        EventChangeListener()
+        EventChangeListenerBaixoPeso()
+        EventChangeListenerSobrepeso()
+        EventChangeListenerPesoideal()
+    }
+
+    private fun stopListeners() {
+        listeners.forEach { it.remove() }
+        listeners.clear()
+    }
+
     private fun EventChangeListener() {
-        db.collection("users").document(userId).collection("crianca")
+        val currentUserId = userId ?: return
+        val registration = db.collection("users").document(currentUserId).collection("crianca")
             .addSnapshotListener { value, error ->
                 if (error != null) return@addSnapshotListener
                 CriancaList.clear()
                 value?.toObjects(Crianca::class.java)?.let { CriancaList.addAll(it) }
                 adapter_todos.notifyDataSetChanged()
             }
+        listeners.add(registration)
     }
 
     private fun EventChangeListenerBaixoPeso() {
         val categorias = listOf("Magreza", "Magreza Acentuada")
-        db.collection("users").document(userId).collection("crianca")
+        val currentUserId = userId ?: return
+        val registration = db.collection("users").document(currentUserId).collection("crianca")
             .whereIn("statusNutricional", categorias)
             .addSnapshotListener { value, error ->
                 if (error != null) return@addSnapshotListener
@@ -219,11 +232,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 value?.toObjects(Crianca::class.java)?.let { CriancaList_baixopeso.addAll(it) }
                 adapter_baixopeso.notifyDataSetChanged()
             }
+        listeners.add(registration)
     }
 
     private fun EventChangeListenerSobrepeso() {
         val categorias = listOf("Sobrepeso", "Obesidade", "Obesidade Grave")
-        db.collection("users").document(userId).collection("crianca")
+        val currentUserId = userId ?: return
+        val registration = db.collection("users").document(currentUserId).collection("crianca")
             .whereIn("statusNutricional", categorias)
             .addSnapshotListener { value, error ->
                 if (error != null) return@addSnapshotListener
@@ -231,11 +246,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 value?.toObjects(Crianca::class.java)?.let { CriancaList_sobrepeso.addAll(it) }
                 adapter_sobrepeso.notifyDataSetChanged()
             }
+        listeners.add(registration)
     }
 
     private fun EventChangeListenerPesoideal() {
         val categorias = listOf("Peso Ideal")
-        db.collection("users").document(userId).collection("crianca")
+        val currentUserId = userId ?: return
+        val registration = db.collection("users").document(currentUserId).collection("crianca")
             .whereIn("statusNutricional", categorias)
             .addSnapshotListener { value, error ->
                 if (error != null) return@addSnapshotListener
@@ -243,6 +260,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 value?.toObjects(Crianca::class.java)?.let { CriancaList_pesoideal.addAll(it) }
                 adapter_pesoideal.notifyDataSetChanged()
             }
+        listeners.add(registration)
     }
 
     private fun EventChangeListenerNumbers(){
@@ -250,7 +268,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val categorias_baixopeso = listOf("Magreza", "Magreza Acentuada")
         val categorias_sobrepeso = listOf("Sobrepeso", "Obesidade", "Obesidade Grave")
 
-        val criancas = db.collection("users").document(userId).collection("crianca")
+        val currentUserId = userId ?: return
+        val criancas = db.collection("users").document(currentUserId).collection("crianca")
         
         criancas.whereIn("statusNutricional", categorias_pesoideal).count()
             .get(AggregateSource.SERVER).addOnSuccessListener {
@@ -270,5 +289,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         criancas.count().get(AggregateSource.SERVER).addOnSuccessListener {
             qtdtotal.text = "${it.count} crianças"
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        stopListeners()
+    }
+
+    override fun onDestroyView() {
+        stopListeners()
+        super.onDestroyView()
     }
 }

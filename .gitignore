@@ -15,3 +15,14 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Added by code-review-graph
+.code-review-graph/
+
+# Ferramentas de desenvolvimento local (não subir ao projeto)
+.claude/
+.cursor/
+.cursorrules
+.kotlin/
+.venv/
+.mcp.json
+app/temp

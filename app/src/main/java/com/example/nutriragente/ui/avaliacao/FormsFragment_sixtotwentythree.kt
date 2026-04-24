@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.NewEvaluationsixtotwentythreeBinding
 import com.example.nutriragente.data.model.FormType
@@ -102,7 +105,7 @@ class FormsFragment_sixtotwentythree : Fragment(R.layout.new_evaluationsixtotwen
     }
 
     private fun setupToolbar() {
-        binding.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
     private fun setupFab() {
@@ -111,10 +114,18 @@ class FormsFragment_sixtotwentythree : Fragment(R.layout.new_evaluationsixtotwen
 
     private fun observeState() {
         lifecycleScope.launch {
-            viewModel.uiState.collect { state ->
-                if (state is FormUiState.Saved) {
-                    Toast.makeText(requireContext(), "Salvo!", Toast.LENGTH_SHORT).show()
-                    requireActivity().onBackPressed()
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    when (state) {
+                        is FormUiState.Saved -> {
+                            Toast.makeText(requireContext(), "Salvo!", Toast.LENGTH_SHORT).show()
+                            findNavController().navigateUp()
+                        }
+                        is FormUiState.Error -> {
+                            Toast.makeText(requireContext(), "Erro: ${state.message}", Toast.LENGTH_LONG).show()
+                        }
+                        else -> Unit
+                    }
                 }
             }
         }

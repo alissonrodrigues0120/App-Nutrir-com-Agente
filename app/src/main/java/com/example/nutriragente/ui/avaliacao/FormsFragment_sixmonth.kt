@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.navigateUp
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.NewEvaluationsixmonthBinding
 import com.example.nutriragente.data.model.FormType
@@ -21,24 +21,14 @@ class FormsFragment_sixmonth : AppCompatActivity() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: FormViewModel
-    private val answers = mutableMapOf<String, String>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = NewEvaluationsixmonthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController(
-                this,
-                R.id.nav_host_fragment
-            ).navigateUp() // Também VOLTA para a tela anterior
-        }
-
-        // Receber dados da Intent
-        val userId = intent.getStringExtra(EXTRA_USER_ID) ?: ""
-        val childId = intent.getStringExtra(EXTRA_CHILD_ID) ?: ""
-        val birthDateStr = intent.getStringExtra(EXTRA_BIRTH_DATE) ?: ""
+        val userId = intent.getStringExtra(ARG_USER_ID) ?: ""
+        val childId = intent.getStringExtra(ARG_CHILD_ID) ?: ""
+        val birthDateStr = intent.getStringExtra(ARG_BIRTH_DATE) ?: ""
         val birthDate = if (birthDateStr.isNotEmpty()) LocalDate.parse(birthDateStr) else LocalDate.now()
 
         // Setup ViewModel
@@ -54,7 +44,7 @@ class FormsFragment_sixmonth : AppCompatActivity() {
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.setNavigationOnClickListener { finish() }
+        binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
     }
 
     private fun setupRadioGroups() {
@@ -100,15 +90,17 @@ class FormsFragment_sixmonth : AppCompatActivity() {
 
     private fun observeViewModel() {
         lifecycleScope.launch {
-            viewModel.uiState.collect { state ->
-                when (state) {
-                    is FormUiState.Ready -> restoreAnswers(state.responses)
-                    is FormUiState.Saved -> {
-                        Snackbar.make(binding.root, "Formulário salvo com sucesso!", Snackbar.LENGTH_SHORT).show()
-                        finish()
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    when (state) {
+                        is FormUiState.Ready -> restoreAnswers(state.responses)
+                        is FormUiState.Saved -> {
+                            Snackbar.make(binding.root, "Formulário salvo com sucesso!", Snackbar.LENGTH_SHORT).show()
+                            finish()
+                        }
+                        is FormUiState.Error -> Toast.makeText(this@FormsFragment_sixmonth, "Erro: ${state.message}", Toast.LENGTH_LONG).show()
+                        else -> Unit
                     }
-                    is FormUiState.Error -> Toast.makeText(this@FormsFragment_sixmonth, "Erro: ${state.message}", Toast.LENGTH_LONG).show()
-                    else -> {}
                 }
             }
         }
@@ -141,8 +133,8 @@ class FormsFragment_sixmonth : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_USER_ID = "extra_user_id"
-        const val EXTRA_CHILD_ID = "extra_child_id"
-        const val EXTRA_BIRTH_DATE = "extra_birth_date"
+        const val ARG_USER_ID = "USER_ID"
+        const val ARG_CHILD_ID = "CHILD_ID"
+        const val ARG_BIRTH_DATE = "BIRTH_DATE"
     }
 }
