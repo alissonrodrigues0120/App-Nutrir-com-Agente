@@ -117,7 +117,7 @@
         android:label="Orientações" />
 
     <!-- Destinos dos Formulários -->
-    <activity
+    <fragment
         android:id="@+id/consumo_crianca_sixmonth"
         android:name="com.example.nutriragente.ui.avaliacao.FormsFragment_sixmonth" />
 

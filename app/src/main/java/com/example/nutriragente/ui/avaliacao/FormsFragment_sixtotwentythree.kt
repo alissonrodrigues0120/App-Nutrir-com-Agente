@@ -1,138 +1,152 @@
 package com.example.nutriragente.ui.avaliacao
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import com.example.nutriragente.R
-import com.example.nutriragente.databinding.NewEvaluationsixtotwentythreeBinding
 import com.example.nutriragente.data.model.FormType
-import kotlinx.coroutines.launch
-import java.time.LocalDate
+import com.example.nutriragente.ui.avaliacao.step.FormStep
+import com.example.nutriragente.ui.avaliacao.step.StepFormFragment
 
+/**
+ * Formulário de consumo alimentar para crianças de 6 a 23 meses.
+ *
+ * 20 etapas, sendo 3 condicionais:
+ *  - "fruta_vezes"       → exibida apenas se fruta == "Sim"
+ *  - "comida_sal_vezes"  → exibida apenas se comida_sal == "Sim"
+ *  - "comida_oferecida"  → exibida apenas se comida_sal == "Sim"
+ *
+ * A lógica condicional é declarativa via [FormStep.condition]:
+ * o [StepFormFragment] filtra a lista de etapas a cada resposta
+ * sem nenhum show/hide manual de views.
+ */
+class FormsFragment_sixtotwentythree : StepFormFragment() {
 
-class FormsFragment_sixtotwentythree : Fragment(R.layout.new_evaluationsixtotwentythree) {
+    override fun getFormType() = FormType.SIX_TO_23M
+    override fun getFormTitle() = "Consumo Alimentar"
 
-    private var _binding: NewEvaluationsixtotwentythreeBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var viewModel: FormViewModel
-    private var userId = ""
-    private var childId = ""
-    private var birthDate = LocalDate.now()
+    override fun buildSteps() = listOf(
 
+        // ── Leite materno ──────────────────────────────────────────────────
+        FormStep(
+            key      = "leite_peito",
+            question = "Ontem a criança tomou leite do peito?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
 
-    companion object {
-        fun newInstance(userId: String, childId: String, birthDate: String) =
-            FormsFragment_sixtotwentythree().apply {
-                arguments = Bundle().apply {
-                    putString("USER_ID", userId)
-                    putString("CHILD_ID", childId)
-                    putString("BIRTH_DATE", birthDate)
-                }
-            }
-    }
+        // ── Fruta + condicional ────────────────────────────────────────────
+        FormStep(
+            key      = "fruta",
+            question = "Ontem a criança comeu fruta inteira, em pedaço ou amassada?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key       = "fruta_vezes",
+            question  = "Quantas vezes a criança comeu fruta?",
+            options   = listOf("1 vez", "2 vezes", "3 ou mais", "Não Sabe"),
+            condition = { it["fruta"] == "Sim" }
+        ),
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = NewEvaluationsixtotwentythreeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+        // ── Comida de sal + condicionais ───────────────────────────────────
+        FormStep(
+            key      = "comida_sal",
+            question = "Ontem a criança comeu comida de sal?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key       = "comida_sal_vezes",
+            question  = "Quantas vezes a criança comeu comida de sal?",
+            options   = listOf("1 vez", "2 vezes", "3 ou mais", "Não Sabe"),
+            condition = { it["comida_sal"] == "Sim" }
+        ),
+        FormStep(
+            key       = "comida_oferecida",
+            question  = "Como a comida de sal foi oferecida à criança?",
+            options   = listOf(
+                "Em pedaços",
+                "Amassada",
+                "Passada na peneira",
+                "No liquidificador",
+                "Só o caldo",
+                "Não Sabe"
+            ),
+            condition = { it["comida_sal"] == "Sim" }
+        ),
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        // ── Outros lácteos e cereais ───────────────────────────────────────
+        FormStep(
+            key      = "outro_leite",
+            question = "Ontem a criança tomou outro tipo de leite?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "mingau_leite",
+            question = "Ontem a criança comeu mingau com leite?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "iogurte",
+            question = "Ontem a criança comeu iogurte?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
 
-        arguments?.let {
-            userId = it.getString("USER_ID", "")
-            childId = it.getString("CHILD_ID", "")
-            val dateStr = it.getString("BIRTH_DATE", "")
-            birthDate = if (dateStr.isNotEmpty()) LocalDate.parse(dateStr) else LocalDate.now()
-        }
+        // ── Verduras e legumes ─────────────────────────────────────────────
+        FormStep(
+            key      = "legumes",
+            question = "Ontem a criança comeu legumes (cenoura, chuchu, abobrinha…)?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "vegetal_alaranjado",
+            question = "Ontem a criança comeu vegetal ou fruta de cor alaranjada (mamão, manga, cenoura…)?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "verdura_folha",
+            question = "Ontem a criança comeu verdura de folha (alface, couve, espinafre…)?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
 
-        val factory = FormViewModelFactory(userId, childId, FormType.SIX_TO_23M, birthDate)
-        viewModel = ViewModelProvider(this, factory)[FormViewModel::class.java]
+        // ── Proteínas ──────────────────────────────────────────────────────
+        FormStep(
+            key      = "carne_ovo",
+            question = "Ontem a criança comeu carne ou ovo?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "figado",
+            question = "Ontem a criança comeu fígado?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
 
-        setupToolbar()
-        setupComplexLogic() // Lógica condicional aqui
-        setupSimpleRadios()
-        setupFab()
-        observeState()
-    }
+        // ── Carboidratos e leguminosas ─────────────────────────────────────
+        FormStep(
+            key      = "feijao",
+            question = "Ontem a criança comeu feijão?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "arroz_batata",
+            question = "Ontem a criança comeu arroz, batata, inhame ou macarrão?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
 
-    private fun setupComplexLogic() {
-        // Pergunta Fruta -> Controla visibilidade de "Quantas vezes"
-        binding.rgFruta.setOnCheckedChangeListener { _, checkedId ->
-            val isSim = checkedId == R.id.rb_fruta_sim
-            // O XML não tem ID no LinearLayout pai, vamos assumir que você adicionou id="ll_fruta_quantas"
-            // Ou usamos binding direto se o layout tiver IDs nos grupos
-            binding.rgFrutaVezes.visibility = if (isSim) View.VISIBLE else View.GONE
-
-            viewModel.updateAnswer("fruta", if (isSim) "Sim" else (if(checkedId == R.id.rb_fruta_nao) "Não" else "Não Sabe"))
-        }
-
-        binding.rgFrutaVezes.setOnCheckedChangeListener { _, id ->
-            val valStr = when(id) {
-                R.id.rb_fruta_1vez -> "1 vez"
-                R.id.rb_fruta_2vezes -> "2 vezes"
-                R.id.rb_fruta_3oumais -> "3 vezes ou mais"
-                else -> "Não Sabe"
-            }
-            viewModel.updateAnswer("fruta_vezes", valStr)
-        }
-
-        // Pergunta Comida de Sal -> Controla visibilidade de "Quantas vezes" e "Como oferecida"
-        binding.rgComidaSal.setOnCheckedChangeListener { _, checkedId ->
-            val isSim = checkedId == R.id.rb_comida_sal_sim
-            binding.rgComidaSalVezes.visibility = if (isSim) View.VISIBLE else View.GONE
-            binding.rgComidaOferecida.visibility = if (isSim) View.VISIBLE else View.GONE
-            viewModel.updateAnswer("comida_sal", if(isSim) "Sim" else "Não") // Simplificado
-        }
-
-        binding.rgComidaSalVezes.setOnCheckedChangeListener { _, id ->
-            // Lógica similar para comida_sal_vezes
-            viewModel.updateAnswer("comida_sal_vezes", "valor_lido")
-        }
-    }
-
-    private fun setupSimpleRadios() {
-        // Configurar os outros RadioGroups (leite_peito, outro_leite, mingau, etc)
-        // Mesma lógica do Fragment 1
-    }
-
-    private fun setupToolbar() {
-        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-    }
-
-    private fun setupFab() {
-        binding.fabConfirm.setOnClickListener { viewModel.saveForm() }
-    }
-
-    private fun observeState() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect { state ->
-                    when (state) {
-                        is FormUiState.Saved -> {
-                            Toast.makeText(requireContext(), "Salvo!", Toast.LENGTH_SHORT).show()
-                            findNavController().navigateUp()
-                        }
-                        is FormUiState.Error -> {
-                            Toast.makeText(requireContext(), "Erro: ${state.message}", Toast.LENGTH_LONG).show()
-                        }
-                        else -> Unit
-                    }
-                }
-            }
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+        // ── Ultraprocessados ───────────────────────────────────────────────
+        FormStep(
+            key      = "hamburguer",
+            question = "Ontem a criança comeu hambúrguer ou embutidos (salsicha, linguiça, mortadela)?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "bebidas_adocadas",
+            question = "Ontem a criança bebeu bebidas adoçadas (refrigerante, suco de caixinha, refresco)?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "macarrao_instantaneo",
+            question = "Ontem a criança comeu macarrão instantâneo ou salgadinhos de pacote?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        ),
+        FormStep(
+            key      = "biscoito_recheado",
+            question = "Ontem a criança comeu biscoito recheado, doces ou guloseimas?",
+            options  = listOf("Sim", "Não", "Não Sabe")
+        )
+    )
 }

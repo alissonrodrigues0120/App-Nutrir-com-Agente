@@ -37,10 +37,8 @@
                 android:value="androidx.startup" />
         </provider>
 
-        <activity
-            android:name=".ui.avaliacao.FormsFragment_sixmonth"
-            android:exported="false"
-            android:theme="@style/Theme.NutrirAGente.NoActionBar" />
+        <!-- FormsFragment_sixmonth foi convertido de Activity para Fragment.
+             A entrada de <activity> foi removida. -->
 
         <activity
             android:name=".MainActivity"
