@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/blue_toolbar"
     android:gravity="top"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="?attr/actionBarSize"
+    android:clipToPadding="false"
+    android:paddingBottom="0dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:id="@+id/logopink"
         android:layout_width="match_parent"
-        android:layout_height="298dp"
+        android:layout_height="250dp"
         android:layout_gravity="top"
         android:layout_marginTop="24dp"
-        android:src="@drawable/logopink"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/logopink" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="32dp" />
+        android:layout_height="16dp" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Large"
@@ -34,21 +32,21 @@
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:lineSpacingExtra="8sp"
-        android:padding="16dp"
-        android:text="Auxiliarnos os Agentes Comunitários de Saúde com orientações de condutos alimentares adequadas para crianças de 0 a 2 anos."
+        android:padding="8dp"
+        android:text="@string/objective_app"
         android:textAlignment="center"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sobreButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/blue_toolbar"
         app:strokeColor="@android:color/white"
         app:strokeWidth="2dp"
         android:text="@string/sobre_o_aplicativo"
@@ -59,35 +57,34 @@
         android:id="@+id/saberMaisButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/blue_toolbar"
         app:strokeColor="@android:color/white"
         app:strokeWidth="2dp"
         android:text="@string/para_saber_mais"
         android:textColor="@color/white"
         android:textAllCaps="false" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF5252"
+        android:text="Sair"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="8dp"/>
+
     <TextView
         style="@style/TextAppearance.AppCompat"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:lineSpacingExtra="8sp"
         android:padding="16dp"
-        android:text="v. 0.0.1"
+        android:text="@string/version_app"
         android:textAlignment="center"
-        android:textSize="14dp" />
-
-
-
+        android:textSize="12dp"
+        android:layout_marginBottom="32dp"/>
 
 </LinearLayout>
-
-
-
-
-
-
-
-
-
