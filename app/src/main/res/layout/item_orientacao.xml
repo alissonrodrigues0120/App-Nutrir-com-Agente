@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <!-- O LinearLayout organiza o texto e a imagem verticalmente -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+        <!-- TextView para o título da orientação -->
+        <TextView
+            android:id="@+id/tv_orientacao_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:textColor="@color/color_text_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="@string/orientacoes_card_beneficios_crianca" />
+
+        <!-- ImageView para o ícone da orientação -->
+        <ImageView
+            android:id="@+id/iv_orientacao_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/bebe_fruta_icone"
+            android:contentDescription="@string/orientacoes_card_beneficios_crianca" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

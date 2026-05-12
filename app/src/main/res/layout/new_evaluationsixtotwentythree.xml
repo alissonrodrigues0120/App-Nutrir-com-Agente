@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/consumo_crianca_sixtotwentythree"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".ui.avaliacao.FormsFragment_sixtotwentythree">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Consumo Alimentar"
+        app:titleTextColor="@android:color/white"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CRIANÇAS DE 6 A 23 MESES"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Pergunta 1: Leite do peito -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A criança ontem tomou leite do peito?"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_leite_peito"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_leite_peito_sim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sim"
+                            android:layout_marginEnd="24dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_leite_peito_nao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não"
+                            android:layout_marginEnd="24dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_leite_peito_nao_sabe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não Sabe"/>
+                    </RadioGroup>
+
+                    <!-- Pergunta 2: Fruta -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ontem, a criança comeu fruta inteira, em pedaço ou amassada?"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_fruta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_sim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sim"
+                            android:layout_marginEnd="24dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_nao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não"
+                            android:layout_marginEnd="24dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_nao_sabe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não Sabe"/>
+                    </RadioGroup>
+
+                    <!-- Pergunta 3: Quantas vezes fruta -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se sim, quantas vezes?"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_fruta_vezes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_1vez"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1 vez"
+                            android:layout_marginEnd="16dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_2vezes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2 vezes"
+                            android:layout_marginEnd="16dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_3oumais"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 vezes ou mais"
+                            android:layout_marginEnd="16dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_fruta_nao_sabe_6_23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não Sabe"/>
+                    </RadioGroup>
+
+                    <!-- Pergunta 4: Comida de sal -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ontem a criança comeu comida de sal (de panela, papa ou sopa)?"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_comida_sal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_sim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sim"
+                            android:layout_marginEnd="24dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_nao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não"
+                            android:layout_marginEnd="24dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_nao_sabe_6_23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não Sabe"/>
+                    </RadioGroup>
+
+                    <!-- Pergunta 5: Quantas vezes comida de sal -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se sim, quantas vezes?"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_comida_sal_vezes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_1vez"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1 vez"
+                            android:layout_marginEnd="16dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_2vezes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2 vezes"
+                            android:layout_marginEnd="16dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_3oumais"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 vezes ou mais"
+                            android:layout_marginEnd="16dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_sal_nao_sabe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não Sabe"/>
+                    </RadioGroup>
+
+                    <!-- Pergunta 6: Como foi oferecida -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Se sim, essa comida foi oferecida:"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_comida_oferecida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="24dp">
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_pedacos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Em pedaços"
+                            android:layout_marginBottom="4dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_amassada"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Amassada"
+                            android:layout_marginBottom="4dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_peneira"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Passada na peneira"
+                            android:layout_marginBottom="4dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_liquidificada"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Liquidificada"
+                            android:layout_marginBottom="4dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_caldo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Só o caldo"
+                            android:layout_marginBottom="4dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_comida_nao_sabe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Não Sabe"/>
+                    </RadioGroup>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/blue_toolbar"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Título da seção de consumo -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ontem a criança consumiu:"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"
+                        android:background="#E3F6F5"
+                        android:padding="8dp"/>
+
+                    <!-- Item 1: Outro leite -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Outro leite que não o leite do peito"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_outro_leite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_outro_leite_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_outro_leite_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_outro_leite_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 2: Mingau com leite -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Mingau com leite"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_mingau"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_mingau_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_mingau_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_mingau_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 3: Iogurte -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Iogurte"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_iogurte"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_iogurte_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_iogurte_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_iogurte_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 4: Legumes -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Legumes (não considerar os utilizados como temperos, nem batata, mandioca/aipim/macaxeira, cará e inhame)"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_legumes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_legumes_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_legumes_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_legumes_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 5: Vegetal ou fruta cor alaranjada -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Vegetal ou fruta de cor alaranjada (abóbora ou jerimum, cenoura, mamão, manga) ou folhas verdes-escuras (couve, caruru, beldroega, bertalha, espinafre, mostarda)"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_vegetal_laranja"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_vegetal_laranja_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_vegetal_laranja_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_vegetal_laranja_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 6: Verdura de folha -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Verdura de folha (alface, acelga, repolho)"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_verdura_folha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_verdura_folha_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_verdura_folha_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_verdura_folha_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 7: Carne -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Carne (boi, frango, peixe, porco, miúdos, outras) ou ovo"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_carne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_carne_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_carne_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_carne_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 8: Fígado -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Fígado"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_figado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_figado_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_figado_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_figado_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 9: Feijão -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Feijão"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_feijao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_feijao_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_feijao_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_feijao_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 10: Arroz, batata, etc -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Arroz, batata, inhame, aipim/macaxeira/mandioca, farinha ou macarrão (sem ser instantâneo)"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_arroz_batata"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_arroz_batata_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_arroz_batata_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_arroz_batata_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 11: Hambúrguer -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hambúrguer e/ou embutidos (presunto, mortadela, salame, linguiça, salsicha)"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_hamburguer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_hamburguer_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_hamburguer_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_hamburguer_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 12: Bebidas adoçadas -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Bebidas adoçadas (refrigerante, suco de fruta, suco em pó, água de coco de caixinha, xaropes de guaraná/groselha, suco de fruta com adição de açúcar)"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_bebidas_adocadas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_bebidas_adocadas_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_bebidas_adocadas_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_bebidas_adocadas_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 13: Macarrão instantâneo -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Macarrão instantâneo, salgadinhos de pacote ou biscoitos salgados"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_macarrao_instantaneo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_macarrao_instantaneo_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_macarrao_instantaneo_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_macarrao_instantaneo_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- Item 14: Biscoito recheado -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp"
+                        android:padding="8dp"
+                        android:background="@drawable/bg_item_consumo">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Biscoito recheado, doces ou guloseimas (balas, pirulitos, chiclete, caramelo, gelatina)"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"/>
+
+                        <RadioGroup
+                            android:id="@+id/rg_biscoito_recheado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_biscoito_recheado_sim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sim"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_biscoito_recheado_nao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não"
+                                android:layout_marginEnd="16dp"/>
+
+                            <RadioButton
+                                android:id="@+id/rb_biscoito_recheado_nao_sabe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Não Sabe"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outline_arrow_forward_24"
+        app:tint="@color/white"
+        android:layout_margin="24dp"
+        app:backgroundTint="@color/blue_toolbar"
+        android:contentDescription="Confirmar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

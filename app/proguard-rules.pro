@@ -1,21 +1,47 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# ============================================================
+# Nutrir com a Gente — ProGuard / R8 rules
+# ============================================================
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# ── Crashlytics: preserva linha/arquivo para stack traces legíveis ──────────
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# ── Firestore: modelos usados com reflexão na deserialização ────────────────
+# Sem esse keep, o R8 remove campos e o Firestore retorna objetos vazios.
+-keep class com.example.nutriragente.data.model.** { *; }
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# ── kotlinx.serialization (LmsRepository — parsing do lms_tables.json) ─────
+-keepattributes *Annotation*, InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt
+-keepclassmembers class kotlinx.serialization.json.** {
+    *** Companion;
+}
+-keepclasseswithmembers class **$$serializer { *; }
+-keepclassmembers @kotlinx.serialization.Serializable class ** {
+    *** Companion;
+    *** INSTANCE;
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+# ── Hilt / Dagger ───────────────────────────────────────────────────────────
+-keep @dagger.hilt.android.lifecycle.HiltViewModel class * { *; }
+-keep class dagger.hilt.** { *; }
+-keep class javax.inject.** { *; }
+-keepclassmembers class * {
+    @javax.inject.Inject <init>(...);
+    @javax.inject.Inject <fields>;
+}
+
+# ── Firebase (regras complementares às do plugin google-services) ───────────
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.internal.** { *; }
+
+# ── App Startup ─────────────────────────────────────────────────────────────
+-keep class * implements androidx.startup.Initializer { *; }
+
+# ── Kotlin coroutines ────────────────────────────────────────────────────────
+-keepnames class kotlinx.coroutines.internal.MainDispatcherFactory {}
+-keepnames class kotlinx.coroutines.CoroutineExceptionHandler {}
+-keepclassmembernames class kotlinx.** {
+    volatile <fields>;
+}
