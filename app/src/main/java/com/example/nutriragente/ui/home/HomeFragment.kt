@@ -1,5 +1,6 @@
 package com.example.nutriragente.ui.home
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -23,6 +24,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
 import com.example.nutriragente.data.model.FormType
+import com.example.nutriragente.databinding.FragmentHomeBinding
+import com.example.nutriragente.databinding.ItemCriancaBinding
 import com.example.nutriragente.util.setupEdgeToEdgeDrawer
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -42,6 +45,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
 
     private var userId: String? = null
+
+    private lateinit var binding: ItemCriancaBinding
 
     // private lateinit var recyclerView_todas: RecyclerView  // lista completa comentada
     private lateinit var recyclerView_baixopeso: RecyclerView
@@ -79,7 +84,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             findNavController().navigate(R.id.action_home_to_login)
             return
         }
-
+ 
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
@@ -191,6 +196,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
+
+
+private fun showDeleteConfirmation(childId: String, childName: String) {
+    AlertDialog.Builder(requireContext())
+        .setTitle("Excluir registro")
+        .setMessage("Tem certeza que deseja excluir \"$childName\"?")
+        .setPositiveButton("Excluir") { _, _ ->
+            viewModel.deletarcrianca(childId)           
+        }
+        .setNegativeButton("Cancelar", null)
+        .show()
+}
+
     private fun setupRecyclerViews(view: View) {
         // lista completa comentada
         // recyclerView_todas = view.findViewById(R.id.recyclerCriancas)
@@ -220,21 +238,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             findNavController().navigate(R.id.action_home_to_resultados, bundle)
         }
 
+        val onDeletekid: (Crianca) -> Unit = { crianca -> 
+            showDeleteConfirmation(crianca.id, crianca.nome)
+        }
+
         // lista completa comentada
         // CriancaList = mutableListOf()
         // adapter_todos = CriancaAdapter(CriancaList, onCriancaClick)
         // recyclerView_todas.adapter = adapter_todos
 
         CriancaList_baixopeso = mutableListOf()
-        adapter_baixopeso = CriancaAdapter(CriancaList_baixopeso, onCriancaClick)
+        adapter_baixopeso = CriancaAdapter(CriancaList_baixopeso, onCriancaClick, onDeletekid)
         recyclerView_baixopeso.adapter = adapter_baixopeso
 
         CriancaList_sobrepeso = mutableListOf()
-        adapter_sobrepeso = CriancaAdapter(CriancaList_sobrepeso, onCriancaClick)
+        adapter_sobrepeso = CriancaAdapter(CriancaList_sobrepeso, onCriancaClick, onDeletekid)
         recyclerView_sobrepeso.adapter = adapter_sobrepeso
 
         CriancaList_pesoideal = mutableListOf()
-        adapter_pesoideal = CriancaAdapter(CriancaList_pesoideal, onCriancaClick)
+        adapter_pesoideal = CriancaAdapter(CriancaList_pesoideal, onCriancaClick, onDeletekid)
         recyclerView_pesoideal.adapter = adapter_pesoideal
     }
 

@@ -381,6 +381,9 @@
     <string name="ilustracao_tina">Ilustração Tina</string>
     <string name="criancas_em_acompanhamento">Crianças em Acompanhamento</string>
     <string name="reset">Informe seu e-mail cadastrado para receber o link de redefinição de senha.</string>
+    <string name="apagar">apagar</string>
+    <string name="zscore_value">0.00</string>
+    <string name="imc_value">0.00</string>
 
     <!-- Tela esquema alimentar -->
 

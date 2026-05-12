@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
 import com.example.nutriragente.data.repository.FormRepository
+import com.example.nutriragente.data.repository.CriancaRepository
 import com.example.nutriragente.databinding.ScreenResultadosBinding
 import com.example.nutriragente.util.setupEdgeToEdge
 import kotlinx.coroutines.flow.firstOrNull
@@ -17,12 +18,16 @@ import kotlinx.coroutines.launch
 class ResultadosFragment : Fragment(R.layout.screen_resultados) {
 
     private var _binding: ScreenResultadosBinding? = null
+
+    
+
     private val binding get() = _binding!!
     private lateinit var formRepository: FormRepository
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = ScreenResultadosBinding.bind(view)
+        _binding = ScreenResultadosBinding.bind(view) 
+
         
         // Corrige o alinhamento da tela (status bar e navigation bar)
         setupEdgeToEdge(view)

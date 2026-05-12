@@ -2,7 +2,9 @@ package com.example.nutriragente.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
+import com.example.nutriragente.data.repository.CriancaRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -10,6 +12,7 @@ import com.google.firebase.firestore.QuerySnapshot
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -23,13 +26,20 @@ data class Contadores(
     val sobrepeso: Int = 0
 )
 
+
+
+
+
+
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val db: FirebaseFirestore,
-    private val auth: FirebaseAuth
+    private val auth: FirebaseAuth,
+    private val repository: CriancaRepository 
 ) : ViewModel() {
 
     private val userId get() = auth.currentUser?.uid
+
 
     /**
      * ÚNICA query Firestore — fonte de verdade da Home.
@@ -53,6 +63,14 @@ class HomeViewModel @Inject constructor(
         started = SharingStarted.WhileSubscribed(5_000),
         initialValue = emptyList()
     )
+
+    //Deletar Criança
+    fun deletarcrianca(id : String){
+            viewModelScope.launch {
+                // Chama a função suspend dentro de uma coroutine ✅
+                repository.deletePatient(id)
+            }
+    }
 
     // ── Filtros derivados da mesma lista em memória ─────────────────────────
     // Nenhuma query adicional ao Firestore. Funciona offline automaticamente.
