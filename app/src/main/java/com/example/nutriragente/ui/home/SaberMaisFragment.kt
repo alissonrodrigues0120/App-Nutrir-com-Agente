@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.FragmentSabermaisBinding
+import com.example.nutriragente.util.setupEdgeToEdge
 
 class SaberMaisFragment : Fragment(R.layout.fragment_sabermais) {
 
@@ -15,6 +16,9 @@ class SaberMaisFragment : Fragment(R.layout.fragment_sabermais) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSabermaisBinding.bind(view)
+
+        setupEdgeToEdge(view)
+
 
         binding.toolbarParaSaberMais.setNavigationOnClickListener {
             findNavController().navigateUp()

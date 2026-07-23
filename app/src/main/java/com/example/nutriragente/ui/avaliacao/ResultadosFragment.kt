@@ -47,7 +47,10 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
         }
 
         binding.btnGoToOrientations.setOnClickListener {
-            findNavController().navigate(R.id.action_resultados_to_orientacoes)
+            val args = Bundle().apply {
+                putString("FORM_TYPE", formType)
+            }
+            findNavController().navigate(R.id.action_resultados_to_orientacoes, args)
         }
     }
 

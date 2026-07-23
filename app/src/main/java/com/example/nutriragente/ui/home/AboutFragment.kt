@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.AboutBinding
+import com.example.nutriragente.util.setupEdgeToEdge
 
 class AboutFragment : Fragment(R.layout.about) {
 
@@ -15,6 +16,9 @@ class AboutFragment : Fragment(R.layout.about) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = AboutBinding.bind(view)
+
+        // Corrige o alinhamento da tela (status bar e navigation bar)
+        setupEdgeToEdge(view)
 
         binding.toolbarAbout.setNavigationOnClickListener {
             findNavController().navigateUp()

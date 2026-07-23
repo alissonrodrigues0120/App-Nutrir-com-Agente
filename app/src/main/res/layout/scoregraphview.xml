@@ -1,0 +1,6 @@
+<com.example.nutriragente.ui.home.HistoryGraphCriancas android:id="@+id/scoreGraphView"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_margin="16dp"
+    android:background="#F9F9F9"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

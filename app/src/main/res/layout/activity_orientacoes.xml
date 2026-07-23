@@ -23,20 +23,34 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_orientacoes_subtitulo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Em construção"
-            android:textSize="24sp"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/black" />
+            tools:text="Orientações para 0 a 6 meses" />
 
-    </FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_orientacoes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:padding="10dp"
+            tools:listitem="@layout/item_orientacao_card"
+            tools:spanCount="2" />
+
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

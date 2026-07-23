@@ -23,6 +23,7 @@ import com.example.nutriragente.databinding.FragmentStepFormBinding
 import com.example.nutriragente.ui.avaliacao.FormUiState
 import com.example.nutriragente.ui.avaliacao.FormViewModel
 import com.example.nutriragente.ui.avaliacao.FormViewModelFactory
+import com.example.nutriragente.util.setupEdgeToEdge
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -70,6 +71,9 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentStepFormBinding.bind(view)
+
+        setupEdgeToEdge(view)
+
 
         savedInstanceState?.let {
             currentIndex = it.getInt(KEY_STEP, 0)

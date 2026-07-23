@@ -17,6 +17,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
 import com.example.nutriragente.databinding.FragmentNewEvaluationStepBinding
+import com.example.nutriragente.util.setupEdgeToEdge
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
@@ -66,6 +67,9 @@ class NewEvaluationFragment : Fragment(R.layout.fragment_new_evaluation_step) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentNewEvaluationStepBinding.bind(view)
+
+        setupEdgeToEdge(view)
+
 
         binding.toolbarEval.setNavigationOnClickListener { findNavController().navigateUp() }
 

@@ -111,10 +111,16 @@
             app:destination="@id/orientacoesFragment" />
     </fragment>
 
+    
     <fragment
-        android:id="@+id/orientacoesFragment"
-        android:name="com.example.nutriragente.ui.avaliacao.OrientacoesFragment"
-        android:label="Orientações" />
+            android:id="@+id/orientacoesFragment"
+            android:name="com.example.nutriragente.ui.avaliacao.OrientacoesFragment"
+            android:label="Orientações">
+            <argument
+                android:name="FORM_TYPE"
+                app:argType="string"
+                android:defaultValue="UNDER_6M" />
+    </fragment>
 
     <!-- Destinos dos Formulários -->
     <fragment
