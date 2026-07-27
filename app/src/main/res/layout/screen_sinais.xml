@@ -7,21 +7,9 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue_toolbar"
-        app:elevation="8dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/title_app"
-            app:titleTextColor="@android:color/white"/>
 
-    </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

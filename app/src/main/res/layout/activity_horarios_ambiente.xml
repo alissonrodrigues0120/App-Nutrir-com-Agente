@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_white">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Horários e ambiente adequado para alimentação"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="É recomendável oferecer a alimentação &lt;b&gt;sem rigidez de horários&lt;/b&gt;, com intervalos regulares para que a criança sinta a necessidade de se alimentar (fome), e de acordo com os horários da refeição da família. No entanto, é importante que o intervalo entre as &lt;b&gt;refeições seja regular de 2 a 3 horas&lt;/b&gt;." />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@android:drawable/ic_menu_recent_history"
+                android:contentDescription="Ilustração de relógio" />
+
+            <!-- Card de dica (menta) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_tip_mint"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tip_mint_text"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Algumas crianças precisam ser &lt;b&gt;estimuladas a comer, nunca forçadas&lt;/b&gt;. São desaconselháveis práticas nocivas de gratificação (&lt;b&gt;prêmios&lt;/b&gt;) ou coercitivas (&lt;b&gt;castigos&lt;/b&gt;) para conseguir que as crianças comam." />
+            </LinearLayout>
+
+            <!-- Card de alerta (laranja) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_tip_orange"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tip_orange_text"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="É desaconselhável que ela seja alimentada enquanto anda e brinca pela casa, e outros atrativos, como exposição às telas (televisão, celular, computador ou tablet) já que podem distraí-la, gerando desinteresse pela comida. Quando a criança come utilizando essas distrações, ela come de forma automática, isso pode causar &lt;b&gt;danos futuros&lt;/b&gt;, como perda de controle do mecanismo de fome e saciedade, além de &lt;b&gt;ganho excessivo ou perda de peso&lt;/b&gt;." />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

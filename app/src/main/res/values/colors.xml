@@ -29,6 +29,28 @@
     <color name="green_light">#90EE90</color>
     <color name="light_red">#FF474C</color>
 
+    <!-- Cores da AppBar -->
+    <color name="appbar_background">#22223B</color>
+    <color name="appbar_text">#FFFFFF</color>
+
+    <!-- Cores gerais -->
+    <color name="background_white">#FFFFFF</color>
+    <color name="text_primary">#2B2B2B</color>
+    <color name="text_bold">#000000</color>
+
+    <!-- Card de dica (verde/menta) -->
+    <color name="tip_mint_background">#B2E0DE</color>
+    <color name="tip_mint_text">#1B4B48</color>
+
+    <!-- Card de alerta (laranja) -->
+    <color name="tip_orange_background">#FFDDB0</color>
+    <color name="tip_orange_text">#7A4A00</color>
+
+    <!-- Card do ícone (pílula) -->
+    <color name="icon_card_background">#FFFFFF</color>
+    <color name="icon_card_border">#DDDDDD</color>
+    <color name="icon_pill">#8FD3E8</color>
+
 
     <!-- Cores para Alertas -->
     <color name="yellow_alert">#FFF9C4</color>

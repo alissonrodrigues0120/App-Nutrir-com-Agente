@@ -6,15 +6,7 @@
     android:orientation="vertical"
     android:background="#FFFFFF">
 
-    <!-- Top bar -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#2C2442"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/white"
-        app:navigationIcon="@drawable/ic_arrow_back" />
+
 
     <!-- Main content -->
     <ScrollView

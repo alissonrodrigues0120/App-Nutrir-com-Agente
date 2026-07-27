@@ -13,13 +13,7 @@
         android:background="@color/blue_toolbar"
         app:elevation="12dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/title_app"
-            app:titleTextColor="@android:color/white"/>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 

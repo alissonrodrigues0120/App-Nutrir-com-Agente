@@ -384,6 +384,8 @@
     <string name="apagar">apagar</string>
     <string name="zscore_value">0.00</string>
     <string name="imc_value">0.00</string>
+    <string name="group_food"><b>A criança pode e deve, desde o início, ser alimentada com a comida da família </b>, que deve ser preparada com temperos naturais (como cebola, alho, salsa, coentro e demais ervas e especiarias) e com uma quantidade mínima de sal.</string>
+    <string name="group_food_two"><b>Cereais, tubérculos</b> - Ex: arroz, aipim/mandioca/macaxeira, batata-doce, macarrão, batata, cará, farinhas, batata-baroa e inhame;\n\n• <b>Leguminosas</b> - Ex: feijões, lentilha, ervilha seca, soja e grão-de-bico;\n\n• <b>Legumes, verduras e frutas</b> - Ex: folhas verdes, laranja, abóbora/jerimum, banana, beterraba, abacate, quiabo, tomate, cenoura, melancia, tomate e manga;\n\n• <b>Carnes ou ovo</b> - Ex: frango, peixe, pato, boi, ovo, miúdos e vísceras.</string>
 
     <!-- Tela esquema alimentar -->
 

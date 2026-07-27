@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_white">
+
+    <!-- AppBar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/appbar_background"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:elevation="4dp"
+        android:paddingStart="4dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/appbar_text"
+            android:contentDescription="Voltar" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Nutrir com aGente"
+            android:textColor="@color/appbar_text"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alimentos ricos em Ferro e Vitaminas A e C"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Parágrafo introdutório -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="Os alimentos são importantes fontes de ferro e vitaminas, inseri-los na dieta da criança ajudará no crescimento e desenvolvimento adequado." />
+
+            <!-- Alimentos ricos em Ferro -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Alimentos ricos em Ferro:" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="&#8226; Carnes de gado;\n&#8226; Aves como frango ou galinha;\n&#8226; Peixes;\n&#8226; Fígado." />
+
+            <!-- Alimentos ricos em Vitamina A -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Alimentos ricos em Vitamina A:" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="&#8226; Fígado, gema de ovo e leite de vaca;\n&#8226; Frutas e legumes amarelo-alaranjados como manga, pitanga, mamão, caqui, abóbora, cenoura e batata-doce;\n&#8226; Vegetais amarelos e vegetais folhosos verdes como espinafre, couve e brócolis;\n&#8226; Óleos e frutas oleaginosas como buriti, pupunha, dendê e pequi." />
+
+            <!-- Alimentos ricos em Vitamina C -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Alimentos ricos em Vitamina C:" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="&#8226; Laranja, limão e abacaxi;\n&#8226; Tomate, acerola, goiaba, kiwi e manga." />
+
+            <!-- Parágrafo final -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="Os &lt;b&gt;alimentos ricos em vitamina C devem ser oferecidos junto à refeição principal&lt;/b&gt; ou após a refeição para &lt;b&gt;aumentar a absorção do ferro&lt;/b&gt;." />
+
+            <!-- Card de dica (menta) - vitamina D -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_tip_mint"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tip_mint_text"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="A exposição da criança ao sol é o &lt;b&gt;principal estímulo&lt;/b&gt; para a produção de vitamina D no organismo, uma vitamina muito importante para a formação dos ossos." />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/tip_mint_text"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Lembrando que a exposição solar deve ser cuidadosa, evitando as horas de maior intensidade (10h às 16h)." />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

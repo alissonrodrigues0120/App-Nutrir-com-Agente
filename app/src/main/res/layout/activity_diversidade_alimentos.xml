@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_white">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diversidade dos alimentos"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Obs: o texto abaixo replica o conteúdo mostrado na captura de tela original -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="Estes devem ser &lt;b&gt;amassados com o garfo&lt;/b&gt;, e desde o início devem ser &lt;b&gt;oferecidos de colher&lt;/b&gt;, iniciando com uma consistência pastosa (papas/purês) e, gradativamente, aumentar a consistência até chegar à alimentação da família." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="É importante lembrar que &lt;b&gt;não se deve misturar os alimentos&lt;/b&gt;, para que assim a criança possa conhecer o gosto de cada alimento." />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/boiled_egg"
+                android:contentDescription="Ilustração de ovo" />
+
+            <!-- Card de dica -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_tip_mint"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tip_mint_text"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="A introdução do &lt;b&gt;ovo cozido&lt;/b&gt; (clara e gema) pode ser introduzido ao completar &lt;b&gt;6 meses&lt;/b&gt;, mas é importante considerar a &lt;b&gt;história familiar de alergias alimentares&lt;/b&gt;." />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

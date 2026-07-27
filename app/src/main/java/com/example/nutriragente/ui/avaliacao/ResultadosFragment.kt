@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
+import com.example.nutriragente.data.model.OrientacaoType
 import com.example.nutriragente.data.repository.FormRepository
 import com.example.nutriragente.data.repository.CriancaRepository
 import com.example.nutriragente.databinding.ScreenResultadosBinding
@@ -47,8 +48,15 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
         }
 
         binding.btnGoToOrientations.setOnClickListener {
+            // A tela de Orientações usa uma classificação por idade própria
+            // (OrientacaoType), diferente do FormType do formulário de
+            // avaliação — por isso é recalculada aqui a partir da idade
+            // atual da criança, e enviada com a chave que a
+            // OrientacoesFragment realmente lê ("ORIENTACAO_TYPE").
+            val orientacaoType = crianca?.let { OrientacaoType.fromIdadeMeses(it.idadeMeses) }
+                ?: OrientacaoType.UNDER_6M
             val args = Bundle().apply {
-                putString("FORM_TYPE", formType)
+                putString("ORIENTACAO_TYPE", orientacaoType.name)
             }
             findNavController().navigate(R.id.action_resultados_to_orientacoes, args)
         }
@@ -89,20 +97,29 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
         }
     }
 
-    private fun carregarDadosFormulario(formType: String) {
+   private fun carregarDadosFormulario(formType: String) {
         lifecycleScope.launch {
             val form = formRepository.getFormByType(formType).firstOrNull()
             if (form != null) {
-                setupFormRecyclerView(form.responses)
+                // Passa também o formType para o setupFormRecyclerView
+                setupFormRecyclerView(form.responses, formType)
             }
         }
     }
 
-    private fun setupFormRecyclerView(responses: Map<String, String>) {
-        val adapter = FormResumoAdapter(responses.toList())
+    private fun setupFormRecyclerView(responses: Map<String, String>, formType: String) {
+        // Mapeia o Map original transformando a 'key' na pergunta completa
+        val respostasTraduzidas = responses.map { (key, answer) ->
+            val perguntaCompleta = FormDictionary.getQuestion(key, formType)
+            Pair(perguntaCompleta, answer)
+        }
+
+        // Passa a lista traduzida para o Adapter
+        val adapter = FormResumoAdapter(respostasTraduzidas)
         binding.rvFormResponses.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFormResponses.adapter = adapter
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

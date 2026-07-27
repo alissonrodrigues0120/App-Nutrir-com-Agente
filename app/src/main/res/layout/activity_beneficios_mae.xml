@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_white">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Benefícios para a mãe"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="O aleitamento materno protege a mãe contra inúmeras doenças como:" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:text="&#8226; Câncer de mama, útero e de ovário;\n&#8226; Obesidade, depressão pós-parto, aumento do colesterol, aumento da pressão arterial, dentre outras." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp"
+                android:text="Além disso, promove um melhor vínculo afetivo entre mãe e filho, melhorando a qualidade de vida de ambos." />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/beneficios_para_mae"
+                android:contentDescription="Ilustração de mãe amamentando" />
+
+            <!-- Linha com card de ícone + card de dica -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:gravity="top">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/bg_tip_mint"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tip_mint_text"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="O &lt;b&gt;aleitamento materno&lt;/b&gt; ajuda a evitar nova gravidez, &lt;b&gt;MAS&lt;/b&gt; outras práticas contraceptivas são indicadas após &lt;b&gt;6ª semana do parto&lt;/b&gt;." />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -33,13 +33,15 @@ class OrientacaoDetalheBottomSheet(
         view.findViewById<TextView>(R.id.tv_detalhe_title).text = topic.title
 
         val container = view.findViewById<ViewGroup>(R.id.container_detalhe_bullets)
-        val inflater = LayoutInflater.from(requireContext())
+        
+        container.removeAllViews()
 
-        topic.bullets.forEach { bullet ->
-            val bulletView = inflater.inflate(R.layout.item_orientacao_bullet, container, false)
-            bulletView.findViewById<TextView>(R.id.tv_bullet_text).text = bullet
-            container.addView(bulletView)
-        }
+        val viewInflada = layoutInflater.inflate(topic.layoutRes, container, false)
+
+
+        container.addView(viewInflada)
+
+
     }
 
     companion object {

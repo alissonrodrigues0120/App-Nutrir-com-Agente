@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nutriragente.R
-import com.example.nutriragente.data.model.FormType
+import com.example.nutriragente.data.model.OrientacaoType
 import com.example.nutriragente.data.repository.OrientacoesContentProvider
 import com.example.nutriragente.databinding.ActivityOrientacoesBinding
 import com.example.nutriragente.util.setupEdgeToEdge
@@ -15,7 +15,7 @@ import com.example.nutriragente.util.setupEdgeToEdge
  * Tela de Orientações: mostra um grid de tópicos de orientação nutricional
  * de acordo com a faixa etária da criança avaliada (0-6m, 6-23m ou 2 anos+).
  *
- * Recebe o argumento FORM_TYPE (nome do enum [FormType]) via Navigation
+ * Recebe o argumento OrientacaoType (nome do enum [OrientacaoType]) via Navigation
  * Component, geralmente encaminhado pela ResultadosFragment.
  */
 class OrientacoesFragment : Fragment(R.layout.activity_orientacoes) {
@@ -30,17 +30,17 @@ class OrientacoesFragment : Fragment(R.layout.activity_orientacoes) {
         setupEdgeToEdge(view)
 
 
-        val formType = parseFormType(arguments?.getString("FORM_TYPE"))
+        val orientacaoType = parseFormType(arguments?.getString("ORIENTACAO_TYPE"))
 
         setupToolbar()
-        setupOrientacoes(formType)
+        setupOrientacoes(orientacaoType)
     }
 
-    private fun parseFormType(raw: String?): FormType {
+    private fun parseFormType(raw: String?): OrientacaoType {
         return try {
-            if (raw.isNullOrBlank()) FormType.UNDER_6M else FormType.valueOf(raw)
+            if (raw.isNullOrBlank()) OrientacaoType.UNDER_6M else OrientacaoType.valueOf(raw)
         } catch (e: IllegalArgumentException) {
-            FormType.UNDER_6M
+            OrientacaoType.UNDER_6M
         }
     }
 
@@ -50,7 +50,7 @@ class OrientacoesFragment : Fragment(R.layout.activity_orientacoes) {
         }
     }
 
-    private fun setupOrientacoes(formType: FormType) {
+    private fun setupOrientacoes(formType: OrientacaoType) {
         binding.tvOrientacoesSubtitulo.text =
             "Orientações para ${OrientacoesContentProvider.subtituloPara(formType)}"
 

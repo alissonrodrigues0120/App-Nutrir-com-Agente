@@ -1,5 +1,8 @@
 package com.example.nutriragente.data.model
 
+import androidx.annotation.LayoutRes
+import androidx.annotation.DrawableRes
+
 /**
  * Representa um tópico de orientação nutricional (um "card" na tela
  * de Orientações), como "Benefícios da amamentação" ou "Grupos de alimentos".
@@ -10,6 +13,6 @@ package com.example.nutriragente.data.model
  */
 data class OrientacaoTopic(
     val title: String,
-    val iconRes: Int,
-    val bullets: List<String>
+    @DrawableRes val iconRes: Int,
+    @LayoutRes val layoutRes: Int
 )
