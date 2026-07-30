@@ -105,12 +105,12 @@ object OrientacoesContentProvider {
         ),
         OrientacaoTopic(
             title = "Horários e gratificações",
-            iconRes = R.drawable.ic_calendar,
+            iconRes = R.drawable.clock,
             layoutRes = R.layout.activity_horarios_ambiente
         ),
         OrientacaoTopic(
             title = "Calendário de puericultura",
-            iconRes = R.drawable.ic_calendar,
+            iconRes = R.drawable.calendario_style,
             layoutRes = R.layout.calendario1
         ),
         OrientacaoTopic(
@@ -151,7 +151,7 @@ object OrientacoesContentProvider {
         ),
         OrientacaoTopic(
             title = "Calendário de puericultura",
-            iconRes = R.drawable.ic_calendar,
+            iconRes = R.drawable.calendario_style,
             layoutRes = R.layout.calendario2
         ),
         OrientacaoTopic(
