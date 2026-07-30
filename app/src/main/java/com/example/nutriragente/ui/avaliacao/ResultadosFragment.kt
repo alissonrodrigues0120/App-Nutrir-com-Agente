@@ -24,6 +24,9 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
 
     private val binding get() = _binding!!
     private lateinit var formRepository: FormRepository
+    private var criancaAtual: Crianca? = null
+    private var userIdAtual: String = ""
+    private var childIdAtual: String = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,6 +40,10 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
         val userId = arguments?.getString("USER_ID") ?: ""
         val childId = arguments?.getString("CHILD_ID") ?: ""
         val formType = arguments?.getString("FORM_TYPE") ?: ""
+
+        criancaAtual = crianca
+        userIdAtual = userId
+        childIdAtual = childId
 
         formRepository = FormRepository(userId, childId, formType)
 
@@ -59,6 +66,19 @@ class ResultadosFragment : Fragment(R.layout.screen_resultados) {
                 putString("ORIENTACAO_TYPE", orientacaoType.name)
             }
             findNavController().navigate(R.id.action_resultados_to_orientacoes, args)
+        }
+
+        binding.btnAtualizarAvaliacao.setOnClickListener {
+            // Reabre o wizard de avaliação já preenchido com os dados atuais
+            // da criança, permitindo atualizar peso, altura, idade e refazer
+            // o formulário de consumo alimentar. Ao confirmar, o registro
+            // existente é atualizado (não é criado um novo).
+            val args = Bundle().apply {
+                putSerializable("CRIANCA", criancaAtual)
+                putString("USER_ID", userIdAtual)
+                putString("CHILD_ID", childIdAtual)
+            }
+            findNavController().navigate(R.id.action_resultados_to_atualizar, args)
         }
     }
 

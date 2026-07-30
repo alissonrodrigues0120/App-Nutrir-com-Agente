@@ -386,6 +386,18 @@
     <string name="imc_value">0.00</string>
     <string name="group_food"><b>A criança pode e deve, desde o início, ser alimentada com a comida da família </b>, que deve ser preparada com temperos naturais (como cebola, alho, salsa, coentro e demais ervas e especiarias) e com uma quantidade mínima de sal.</string>
     <string name="group_food_two"><b>Cereais, tubérculos</b> - Ex: arroz, aipim/mandioca/macaxeira, batata-doce, macarrão, batata, cará, farinhas, batata-baroa e inhame;\n\n• <b>Leguminosas</b> - Ex: feijões, lentilha, ervilha seca, soja e grão-de-bico;\n\n• <b>Legumes, verduras e frutas</b> - Ex: folhas verdes, laranja, abóbora/jerimum, banana, beterraba, abacate, quiabo, tomate, cenoura, melancia, tomate e manga;\n\n• <b>Carnes ou ovo</b> - Ex: frango, peixe, pato, boi, ovo, miúdos e vísceras.</string>
+    <string name="horario">É recomendável oferecer a alimentação <b> sem rigidez de horários </b>, com intervalos regulares para que a criança sinta a necessidade de se alimentar (fome), e de acordo com os horários da refeição da família. No entanto, é importante que o intervalo entre as <b>refeições seja regular de 2 a 3 horas</b>.</string>
+    <string name="horario_warn_1">Algumas crianças precisam ser <b>estimuladas a comer, nunca forçadas</b>. São desaconselháveis práticas nocivas de gratificação (<b>prêmios</b>) ou coercitivas para conseguir que as crianças comam.</string>
+    <string name="horario_warn_2">É desaconselhável que ela seja alimentada enquanto anda e brinca pela casa, e outros atrativos, como exposição às telas (televisão, celular, computador ou tablet) já que podem distraí-la, gerando desinteresse pela comida. Quando a criança come utilizando essas distrações, ela come de forma automática, isso pode causar <b>danos futuros</b>, como perda de controle do mecanismo de fome e saciedade, além de <b>ganho excessivo ou perda de peso</b>.</string>
+    <string name="consistencia_alimento">Estes devem ser <b>amassados com o garfo</b>, e desde o início devem ser <b>oferecidos de colher</b>, iniciando com uma consistência pastosa (papas/purês) e, gradativamente, aumentar a consistência até chegar à alimentação da família.</string>
+    <string name="cons_alimento2">É importante lembrar que <b>não se deve misturar os alimentos</b>, para que assim a criança possa conhecer o gosto de cada alimento</string>
+    <string name="cons_alimento3">O uso do <b>liquidificador e peneira</b>, é <b>totalmente contraindicado</b>, porque a criança está aprendendo a distinguir a consistência, sabores e cores dos novos alimentos, além de não estimular a mastigação.</string>
+    <string name="benef_mae"><b>aleitamento materno</b> ajuda a evitar nova gravidez, <b>MAS</b> outras práticas contraceptivas são indicadas após <b>6ª semana do parto</b>.</string>
+    <string name="benef_crianca">O aleitamento materno <b>evita</b> diarréia, infecções respiratórias, <b>diminui</b> os riscos de alergias, de hipertensão arterial, colesterol alto e diabetes. Além disso, <b>reduz</b> a chance de obesidade com uma melhor nutrição.</string>
+    <string name="benef_crianca2">Você sabia que o <b>aleitamento materno</b> tem efeitos <b>positivos</b> na inteligência e no desenvolvimento da cavidade bucal ?</string>
+    <string name="ferro">Os <b>alimentos ricos em vitamina C devem ser oferecidos junto à refeição principal</b> ou após a refeição para <b>aumentar a absorção do ferro</b>.</string>
+    <string name="ferro_2">A exposição da criança ao sol é o <b>principal estímulo</b> para a produção de vitamina D no organismo, uma vitamina muito importante para a formação dos ossos.</string>
+
 
     <!-- Tela esquema alimentar -->
 

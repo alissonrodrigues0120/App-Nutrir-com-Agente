@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.nutriragente.R
+import com.example.nutriragente.data.model.Crianca
 import com.example.nutriragente.databinding.FragmentNewEvaluationStepBinding
 import com.example.nutriragente.util.setupEdgeToEdge
 import com.google.android.material.button.MaterialButton
@@ -51,6 +52,12 @@ class NewEvaluationFragment : Fragment(R.layout.fragment_new_evaluation_step) {
     private var sexoSelecionado: String = ""          // "M" ou "F"
     private var tipoAmSelecionado: String = ""        // "Exclusivo", "Materno", etc.
 
+    // ── Modo de edição (chegando a partir do botão "Atualizar" em Resultados) ─
+    // Quando childIdParaAtualizar não é nulo/vazio, o formulário chegou
+    // pré-preenchido com os dados de uma criança já cadastrada e, ao
+    // confirmar, deve ATUALIZAR o registro existente em vez de criar um novo.
+    private var childIdParaAtualizar: String? = null
+
     private val aleitamentoOpcoes = listOf(
         "Aleitamento Materno Exclusivo"   to "Exclusivo",
         "Aleitamento Materno Predominante" to "Predominante",
@@ -79,7 +86,60 @@ class NewEvaluationFragment : Fragment(R.layout.fragment_new_evaluation_step) {
         setupImcPreview()
         setupNavButtons()
         observeViewModel()
+        preencherDadosParaEdicao()
         renderStep(animate = false)
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // Modo edição — pré-preenche o wizard com os dados de uma criança já
+    // cadastrada, recebidos a partir do botão "Atualizar" em Resultados.
+    // ════════════════════════════════════════════════════════════════════════
+
+    private fun preencherDadosParaEdicao() {
+        @Suppress("DEPRECATION")
+        val crianca = arguments?.getSerializable("CRIANCA") as? Crianca ?: return
+        val childId = arguments?.getString("CHILD_ID")
+        if (childId.isNullOrBlank()) return
+
+        childIdParaAtualizar = childId
+        binding.toolbarEval.title = "Atualizar Avaliação"
+
+        // Etapa 1 — Identificação
+        binding.etNome.setText(crianca.nome)
+        val dataNascimentoAproximada = LocalDate.now().minusMonths(crianca.idadeMeses.toLong())
+        binding.etDataNascimento.setText(
+            dataNascimentoAproximada.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+        )
+        if (crianca.sexo == "F") {
+            binding.btnFeminino.performClick()
+        } else if (crianca.sexo == "M") {
+            binding.btnMasculino.performClick()
+        }
+
+        // Etapa 2 — Medidas (altura salva em metros; campo é em cm)
+        binding.etPeso.setText(formatNumero(crianca.peso))
+        binding.etAltura.setText(formatNumero(crianca.altura * 100))
+        updateImcPreview()
+
+        // Etapa 3 — Aleitamento
+        val container = binding.containerAleitamento
+        for (i in 0 until container.childCount) {
+            val btn = container.getChildAt(i) as? MaterialButton ?: continue
+            val (_, valor) = aleitamentoOpcoes.getOrNull(i) ?: continue
+            if (valor == crianca.tipoAm) {
+                btn.performClick()
+                break
+            }
+        }
+    }
+
+    private fun formatNumero(valor: Double): String {
+        // Remove zeros à direita desnecessários (ex.: 12.0 -> 12, 12.5 -> 12.5)
+        return if (valor == valor.toLong().toDouble()) {
+            valor.toLong().toString()
+        } else {
+            valor.toString()
+        }
     }
 
     override fun onDestroyView() {
@@ -293,7 +353,8 @@ class NewEvaluationFragment : Fragment(R.layout.fragment_new_evaluation_step) {
                 idadeMeses    = idadeMeses,
                 sexo          = sexoSelecionado,
                 tipoAm        = tipoAm,
-                dataNascimento = dataStr
+                dataNascimento = dataStr,
+                childId       = childIdParaAtualizar
             )
         } catch (e: Exception) {
             toast("Verifique os dados informados")

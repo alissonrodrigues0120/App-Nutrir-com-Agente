@@ -109,7 +109,15 @@
         <action
             android:id="@+id/action_resultados_to_orientacoes"
             app:destination="@id/orientacoesFragment" />
+        <action
+            android:id="@+id/action_resultados_to_atualizar"
+            app:destination="@id/new_evaluation"
+            app:popUpTo="@id/resultadosFragment"
+            app:popUpToInclusive="true" />
     </fragment>
+
+
+
 
     
     <fragment
