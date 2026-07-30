@@ -45,7 +45,8 @@ class EvaluationViewModel @Inject constructor(
         idadeMeses: Int,
         sexo: String,
         tipoAm: String,
-        dataNascimento: String
+        dataNascimento: String,
+        childId: String? = null
     ) = viewModelScope.launch(Dispatchers.IO) {
         try {
             val alturaM = alturaCm / 100.0
@@ -56,7 +57,10 @@ class EvaluationViewModel @Inject constructor(
             val zScore = lmsRepository.calcularEscoreZ(imc, idadeMeses, sexo)
             val status = GraphHistory.getClassificacao(zScore, idadeMeses)
 
+            val isUpdate = !childId.isNullOrBlank()
+
             val crianca = Crianca(
+                id                = childId ?: "",
                 nome              = nome,
                 idadeMeses        = idadeMeses,
                 peso              = peso,
@@ -68,11 +72,19 @@ class EvaluationViewModel @Inject constructor(
                 statusNutricional = status
             )
 
-            val saveResult = repository.addCrianca(crianca)
+            // Se já existe um childId, é uma atualização de um cadastro
+            // existente (fluxo "Atualizar" a partir de Resultados);
+            // caso contrário, é um novo cadastro.
+            val saveResult = if (isUpdate) {
+                repository.updateCrianca(crianca).map { childId!! }
+            } else {
+                repository.addCrianca(crianca)
+            }
 
             withContext(Dispatchers.Main) {
                 saveResult.onSuccess { documentId ->
-                    Toast.makeText(getApplication(), "Salvo: $status", Toast.LENGTH_LONG).show()
+                    val mensagem = if (isUpdate) "Atualizado: $status" else "Salvo: $status"
+                    Toast.makeText(getApplication(), mensagem, Toast.LENGTH_LONG).show()
 
                     val partes  = dataNascimento.split("/")
                     val isoDate = if (partes.size == 3)

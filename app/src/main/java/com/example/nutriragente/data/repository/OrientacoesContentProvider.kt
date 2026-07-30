@@ -64,7 +64,7 @@ object OrientacoesContentProvider {
         ),
         OrientacaoTopic(
             title = "Calendário de Puericultura",
-            iconRes = R.drawable.enfermeira_1,
+            iconRes = R.drawable.calendario_style,
             layoutRes = R.layout.calendario
         ),
         OrientacaoTopic(
@@ -85,7 +85,7 @@ object OrientacoesContentProvider {
         ),
         OrientacaoTopic(
             title = "Esquema alimentar",
-            iconRes = R.drawable.bebe_comendo,
+            iconRes = R.drawable.esquema,
             layoutRes = R.layout.dietary_plan7
         ),
         OrientacaoTopic(
@@ -131,7 +131,7 @@ object OrientacoesContentProvider {
     private val topicosPrimeiraInfancia = listOf(
         OrientacaoTopic(
             title = "Esquema alimentar",
-            iconRes = R.drawable.bebe_andando,
+            iconRes = R.drawable.esquema,
             layoutRes = R.layout.dietary_plan12
         ),
         OrientacaoTopic(
@@ -156,7 +156,7 @@ object OrientacoesContentProvider {
         ),
         OrientacaoTopic(
             title = "Alimentos ricos em ferro e vitaminas",
-            iconRes = R.drawable.bebe_com_fruta,
+            iconRes = R.drawable.bebe_com_fruta_inteira,
             layoutRes = R.layout.vitamin_rich_foods
         )
     )

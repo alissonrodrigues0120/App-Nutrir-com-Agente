@@ -1,74 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background_white">
+    android:background="@color/gray">
 
-
-
-    <ScrollView
+    <!-- Barra superior -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/blue_toolbar"
+        app:elevation="12dp">
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="12dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Consistência do alimento"
-                android:textColor="@color/text_primary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:lineSpacingExtra="4dp"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp"
-                android:text="Estes devem ser &lt;b&gt;amassados com o garfo&lt;/b&gt;, e desde o início devem ser &lt;b&gt;oferecidos de colher&lt;/b&gt;, iniciando com uma consistência pastosa (papas/purês) e, gradativamente, aumentar a consistência até chegar à alimentação da família." />
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:lineSpacingExtra="4dp"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp"
-                android:text="É importante lembrar que &lt;b&gt;não se deve misturar os alimentos&lt;/b&gt;, para que assim a criança possa conhecer o gosto de cada alimento" />
-
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="24dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/vegetables"
-                android:contentDescription="Ilustração de legumes" />
-
-            <!-- Card de dica -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/bg_tip_mint"
-                android:padding="16dp">
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/tip_mint_text"
-                    android:textSize="14sp"
-                    android:lineSpacingExtra="4dp"
-                    android:text="O uso do &lt;b&gt;liquidificador e peneira&lt;/b&gt;, é &lt;b&gt;totalmente contraindicado&lt;/b&gt;, porque a criança está aprendendo a distinguir a consistência, sabores e cores dos novos alimentos, além de não estimular a mastigação." />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Título -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Consistência do alimento"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <!-- Texto 1 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:text="@string/consistencia_alimento" />
+
+                    <!-- Texto 2 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:text="@string/cons_alimento2" />
+
+                    <!-- Imagem / Ilustração -->
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginVertical="8dp"
+                        android:src="@drawable/vegetables"
+                        android:contentDescription="Ilustração de legumes" />
+
+                    <!-- Card de dica (menta) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_tip_mint"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/tip_mint_text"
+                            android:textSize="14sp"
+                            android:lineSpacingExtra="3dp"
+                            android:text="@string/cons_alimento3" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
