@@ -231,33 +231,28 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
         }
     }
 
-    // ── Escolha única (auto-avança 300 ms após seleção) ──────────────────
+    // ── Escolha única (apenas seleciona, sem auto-avanço) ──────────────────
 
     private fun buildSingleChoice(step: FormStep, savedAnswer: String?) {
         step.options.forEach { option ->
             val btn = createOptionButton(option, option == savedAnswer)
             btn.setOnClickListener {
+                // 1. Atualiza visualmente a seleção
                 deselectAll()
                 setButtonSelected(btn, true)
+
+                // 2. Salva a resposta localmente e no ViewModel
                 answers[step.key] = option
                 viewModel.updateAnswer(step.key, option)
-                recomputeVisibleSteps()
-                updateProgress()
 
-                // Auto-avança se não for a última etapa
-                if (currentIndex < visibleSteps.lastIndex) {
-                    btn.postDelayed({
-                        if (isAdded && _binding != null) {
-                            currentIndex++
-                            recomputeVisibleSteps()
-                            renderStep(animate = true, forward = true)
-                        }
-                    }, 320)
-                }
+                // Nota: O avanço agora fica 100% a cargo do botão "Próxima"
+                // configurado no método setupNavButtons()
             }
             binding.optionsContainer.addView(btn)
         }
     }
+
+
 
     // ── Múltipla escolha (checkboxes estilizados) ─────────────────────────
 

@@ -74,6 +74,7 @@
         android:clipToPadding="false"
         android:padding="20dp">
 
+        <!-- CORREÇÃO: O filho direto DEVE ser um LinearLayout, não outro NestedScrollView -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,7 +108,6 @@
                         android:layout_marginBottom="24dp" />
 
                     <!-- Opções inseridas dinamicamente -->
-                    <!-- NOTA: Sugere-se injetar MaterialCardViews aqui pelo código Kotlin -->
                     <LinearLayout
                         android:id="@+id/options_container"
                         android:layout_width="match_parent"
@@ -117,6 +117,11 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- DICA: Este espaço extra no final ajuda o usuário a rolar a tela para baixo sem que o teclado esconda a última opção -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
 
         </LinearLayout>
 
@@ -144,7 +149,7 @@
             android:text="Voltar"
             android:textColor="@color/blue_toolbar"
             android:visibility="invisible" />
-            
+
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"

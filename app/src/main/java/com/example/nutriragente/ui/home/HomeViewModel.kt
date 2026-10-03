@@ -2,9 +2,9 @@ package com.example.nutriragente.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.nutriragente.R
 import com.example.nutriragente.data.model.Crianca
 import com.example.nutriragente.data.repository.CriancaRepository
+import com.example.nutriragente.data.repository.FormRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -35,10 +35,14 @@ data class Contadores(
 class HomeViewModel @Inject constructor(
     private val db: FirebaseFirestore,
     private val auth: FirebaseAuth,
-    private val repository: CriancaRepository 
+    private val repository: CriancaRepository,
+    private val repositoryform : FormRepository
 ) : ViewModel() {
 
     private val userId get() = auth.currentUser?.uid
+
+
+
 
 
     /**
@@ -69,6 +73,7 @@ class HomeViewModel @Inject constructor(
             viewModelScope.launch {
                 // Chama a função suspend dentro de uma coroutine ✅
                 repository.deletePatient(id)
+                repositoryform.deleteForm(id)
             }
     }
 

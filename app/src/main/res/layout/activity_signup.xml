@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/signupFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_toolbar"
-    android:fitsSystemWindows="true"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    android:isScrollContainer="true"
+    tools:context=".ui.login.SignupFragment">
 
-    <androidx.cardview.widget.CardView
+    <!-- ALTERAÇÃO PRINCIPAL AQUI: android:gravity="top|center_horizontal" -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:backgroundTint="@color/blue_toolbar"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        android:gravity="top|center_horizontal"
+        android:orientation="vertical"
+        android:padding="40dp"
+        android:paddingBottom="100dp">
 
-        <ScrollView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/blue_toolbar"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +55,6 @@
                     android:textSize="36sp"
                     android:textStyle="bold" />
 
-                <!-- CAMPO DE E-MAIL -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,7 +77,6 @@
                         android:textColorHint="@color/Pearl" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- CAMPO DE USUÁRIO -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +99,6 @@
                         android:textColorHint="@color/Pearl" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- CAMPO DE SENHA -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -120,7 +123,6 @@
                         android:textColorHint="@color/Pearl" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- CAMPO DE CONFIRMAR SENHA -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -157,16 +159,20 @@
 
                 <TextView
                     android:id="@+id/login_redirect_text"
-                    android:layout_width="300dp"
+                    android:layout_width="193dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="8dp"
                     android:padding="8dp"
-                    android:text="Já tem uma conta? Faça o login"
+                    android:text="Possui conta? Faça o login"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" />
+
             </LinearLayout>
-        </ScrollView>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

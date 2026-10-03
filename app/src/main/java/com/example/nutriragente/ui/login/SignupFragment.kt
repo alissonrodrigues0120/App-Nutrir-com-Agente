@@ -6,6 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.NestedScrollView
+import com.example.nutriragente.databinding.ActivitySignupBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -24,6 +28,40 @@ class SignupFragment : Fragment(R.layout.activity_signup) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val binding = ActivitySignupBinding.bind(view)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.signupFragment) { v, insets ->
+            // Pega a altura do teclado (ime = Input Method Editor)
+            val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+
+            // Pega as insets do sistema (barras de navegação, status bar)
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            // Aplica o padding inferior dinamicamente: se o teclado abriu, usa a altura dele + margem
+            val bottomPadding = if (imeHeight > 0) imeHeight + 48 else systemBars.bottom
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomPadding)
+
+            // Retorna os insets originais para não quebrar outros componentes
+            WindowInsetsCompat.CONSUMED
+        }
+
+        // Função auxiliar para forçar a rolagem quando o teclado aparece
+        fun setupKeyboardScrollFix(editText: EditText, scrollView: NestedScrollView) {
+            editText.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    // Pequeno delay para esperar o teclado subir
+                    scrollView.postDelayed({
+                        scrollView.smoothScrollTo(0, editText.bottom)
+                    }, 300) // 300ms é o tempo médio do teclado subir
+                }
+            }
+        }
+
+        // Se for o fragment de cadastro, faça o mesmo para os 4 campos:
+        setupKeyboardScrollFix(binding.signupEmail, binding.signupFragment)
+        setupKeyboardScrollFix(binding.signupUsername, binding.signupFragment)
+        setupKeyboardScrollFix(binding.signupPassword, binding.signupFragment)
+        setupKeyboardScrollFix(binding.signupConfirmPassword, binding.signupFragment)
 
         setupLoginWindow()
 

@@ -6,6 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.nutriragente.databinding.ActivityLoginBinding
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -24,6 +28,37 @@ class LoginFragment : Fragment(R.layout.activity_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val binding = ActivityLoginBinding.bind(view) // ou FragmentSignupBinding
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.loginFragment) { v, insets ->
+            // Pega a altura do teclado (ime = Input Method Editor)
+            val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+
+            // Pega as insets do sistema (barras de navegação, status bar)
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            // Aplica o padding inferior dinamicamente: se o teclado abriu, usa a altura dele + margem
+            val bottomPadding = if (imeHeight > 0) imeHeight + 48 else systemBars.bottom
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomPadding)
+
+            // Retorna os insets originais para não quebrar outros componentes
+            WindowInsetsCompat.CONSUMED
+        }
+
+        // Função auxiliar para forçar a rolagem quando o teclado aparece
+        fun setupKeyboardScrollFix(editText: EditText, scrollView: NestedScrollView) {
+            editText.setOnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    // Pequeno delay para esperar o teclado subir
+                    scrollView.postDelayed({
+                        scrollView.smoothScrollTo(0, editText.bottom)
+                    }, 300) // 300ms é o tempo médio do teclado subir
+                }
+            }
+        }
+
+        setupKeyboardScrollFix(binding.loginEmail, binding.loginFragment) // Ajuste os IDs conforme seu XML
+        setupKeyboardScrollFix(binding.password, binding.loginFragment)
 
         setupLoginWindow()
 
