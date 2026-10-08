@@ -1,154 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="@color/gray">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_toolbar"
+        app:elevation="@dimen/appbar_elevation" />
 
-
-    <!-- Main content -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <LinearLayout style="@style/LinearContainer">
 
-            <!-- Title -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/scheme_title"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            <androidx.cardview.widget.CardView style="@style/CardNutrir">
 
-            <!-- Intro text -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="@string/intro_text"
-                android:textColor="#333333"
-                android:textSize="14sp" />
+                <LinearLayout style="@style/CardContent">
 
-            <!-- Items list -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:text="@string/items_list"
-                android:textColor="#333333"
-                android:textSize="14sp" />
+                    <!-- Título -->
+                    <TextView
+                        style="@style/TextTitle"
+                        android:text="@string/scheme_title" />
 
-            <!-- Illustration -->
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="@string/img_desc"
-                android:src="@drawable/pure_batata" />
+                    <!-- Intro text -->
+                    <TextView
+                        style="@style/TextBodySmall"
+                        android:layout_marginBottom="@dimen/spacing_sm"
+                        android:text="@string/intro_text" />
 
-            <!-- Blue card -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="12dp"
-                android:background="#D2E4F7"
-                android:orientation="vertical"
-                android:padding="12dp">
+                    <!-- Items list -->
+                    <TextView
+                        style="@style/TextBodySmall"
+                        android:layout_marginBottom="@dimen/spacing_md"
+                        android:text="@string/items_list" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:text="@string/blue_card_title"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    />
+                    <!-- Illustration -->
+                    <ImageView
+                        android:layout_width="@dimen/image_size_xs"
+                        android:layout_height="@dimen/image_size_xs"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/spacing_lg"
+                        android:contentDescription="@string/img_desc"
+                        android:src="@drawable/pure_batata" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/blue_card_text"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    <!-- Blue card -->
+                    <LinearLayout style="@style/SchemeBoxBlue">
 
-            <!-- Yellow card -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="#FFF1D4"
-                android:orientation="vertical"
-                android:padding="12dp">
+                        <TextView
+                            style="@style/SchemeTitle"
+                            android:text="@string/blue_card_title" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:text="@string/yellow_card_title"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    />
+                        <TextView
+                            style="@style/TextBodySmall"
+                            android:text="@string/blue_card_text" />
+                    </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text6m"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    <!-- Yellow card -->
+                    <LinearLayout style="@style/SchemeBoxYellow">
 
-            <!-- Cian card -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="#E0FFFF"
-                android:orientation="vertical"
-                android:padding="12dp">
+                        <TextView
+                            style="@style/SchemeTitle"
+                            android:text="@string/yellow_card_title" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:text="@string/cian_card_title"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
+                        <TextView
+                            style="@style/TextBodySmall"
+                            android:text="@string/text6m" />
+                    </LinearLayout>
 
-                    />
+                    <!-- Cyan card -->
+                    <LinearLayout style="@style/SchemeBoxCyan">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/papa_de_fruta"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
+                        <TextView
+                            style="@style/SchemeTitle"
+                            android:text="@string/cian_card_title" />
 
-                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/papa_salgada"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                        <TextView
+                            style="@style/TextBodySmall"
+                            android:text="@string/papa_de_fruta" />
+
+                        <TextView
+                            style="@style/TextBodySmall"
+                            android:text="@string/papa_salgada" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

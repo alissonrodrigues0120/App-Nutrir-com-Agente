@@ -1,13 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- ============================================================
+         Tipografia semântica
+         ============================================================ -->
+    <style name="TextAppearance.Nutrir" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <!-- Título principal da tela -->
+    <style name="TextTitle" parent="TextAppearance.Nutrir">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_xl</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_bold</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_md</item>
+    </style>
+
+    <style name="TextTitleLarge" parent="TextTitle">
+        <item name="android:textSize">@dimen/text_size_xxl</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_lg</item>
+    </style>
+
+    <!-- Título de seção (subtítulo em negrito) -->
+    <style name="TextSection" parent="TextAppearance.Nutrir">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_lg</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_bold</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sm</item>
+    </style>
+
+    <!-- Título de caixa interna (cards do esquema alimentar) -->
+    <style name="TextBoxTitle" parent="TextAppearance.Nutrir">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_bold</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_sm</item>
+    </style>
+
+    <!-- Corpo de texto padrão -->
+    <style name="TextBody" parent="TextAppearance.Nutrir">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+        <item name="android:textColor">@color/color_text_black</item>
+    </style>
+
+    <style name="TextBodyWrap" parent="TextBody">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <!-- Texto secundário / auxiliar -->
+    <style name="TextBodySmall" parent="TextBody">
+        <item name="android:textSize">@dimen/text_size_sm</item>
+    </style>
+
+    <style name="TextBodySmallWrap" parent="TextBodySmall">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="TextCaption" parent="TextBodySmall">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Itens de lista (bullets) -->
     <style name="ListItemTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#333333</item>
-        <item name="android:statusBarColor"> @color/blue_toolbar</item>
-        <item name ="android:navigationBarColor"> @color/blue_toolbar </item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:textColor">@color/color_text_black</item>
+        <item name="android:statusBarColor">@color/blue_toolbar</item>
+        <item name="android:navigationBarColor">@color/blue_toolbar</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_xs</item>
+    </style>
+
+    <!-- ============================================================
+         Containers
+         ============================================================ -->
+    <style name="LinearContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/padding_md</item>
+    </style>
+
+    <style name="CardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/padding_xl</item>
+    </style>
+
+    <!-- ============================================================
+         Cards
+         ============================================================ -->
+    <style name="CardNutrir">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/card_margin_bottom</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <!-- Card de destaque/chamada interna (sem elevação) -->
+    <style name="CalloutCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!-- Corpo de texto em negrito (subtítulos de conteúdo) -->
+    <style name="TextBodyBold" parent="TextBody">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_bold</item>
+    </style>
+
+    <!-- Texto de apoio / subtítulo sobre fundo neutro -->
+    <style name="TextSubtitle" parent="TextBody">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Título de caixa de esquema alimentar (pequeno, centralizado, em negrito) -->
+    <style name="SchemeTitle" parent="TextBodySmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_bold</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_xs</item>
+    </style>
+
+    <!-- Subtítulo interno de caixa de esquema alimentar -->
+    <style name="SchemeSubtitle" parent="TextBodySmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_bold</item>
+        <item name="android:layout_marginTop">@dimen/spacing_xs</item>
+    </style>
+
+    <!-- ============================================================
+         Imagens
+         ============================================================ -->
+    <style name="ImageCenter">
+        <item name="android:layout_width">@dimen/image_size_md</item>
+        <item name="android:layout_height">@dimen/image_size_md</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginVertical">@dimen/spacing_sm</item>
+    </style>
+
+    <style name="ImageCenterLarge" parent="ImageCenter">
+        <item name="android:layout_width">@dimen/image_size_lg</item>
+        <item name="android:layout_height">@dimen/image_size_lg</item>
+    </style>
+
+    <style name="ImageCenterSmall" parent="ImageCenter">
+        <item name="android:layout_width">@dimen/image_size_sm</item>
+        <item name="android:layout_height">@dimen/image_size_sm</item>
+    </style>
+
+    <!-- ============================================================
+         Caixas de dica e alerta
+         ============================================================ -->
+    <style name="TipBoxMint">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_lg</item>
+        <item name="android:background">@drawable/bg_tip_mint</item>
+        <item name="android:padding">@dimen/padding_lg</item>
+    </style>
+
+    <style name="TipTextMint">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/tip_mint_text</item>
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <style name="TipBoxOrange">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_lg</item>
+        <item name="android:background">@drawable/bg_tip_orange</item>
+        <item name="android:padding">@dimen/padding_lg</item>
+    </style>
+
+    <style name="TipTextOrange">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/tip_orange_text</item>
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <style name="AlertBoxBlue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_lg</item>
+        <item name="android:background">@color/warn_blue</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_lg</item>
+    </style>
+
+    <style name="AlertTextBlue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_black</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <style name="AlertTextBlueBold" parent="AlertTextBlue">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AlertBoxOrange">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_lg</item>
+        <item name="android:background">@color/warn_orange</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_lg</item>
+    </style>
+
+    <style name="AlertTextOrange">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_black</item>
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <style name="AlertBoxPink">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_lg</item>
+        <item name="android:background">@color/alert_pink_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_lg</item>
+    </style>
+
+    <style name="AlertTextPink">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/alert_pink_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <style name="AlertBoxLavender">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/spacing_lg</item>
+        <item name="android:background">@color/alert_lavender_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_lg</item>
+    </style>
+
+    <style name="AlertTextLavender">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/alert_lavender_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_sm</item>
+    </style>
+
+    <!-- Caixas de conteúdo dos planos alimentares -->
+    <style name="SchemeBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_md</item>
+        <item name="android:padding">@dimen/padding_md</item>
+    </style>
+
+    <style name="SchemeBoxBlue" parent="SchemeBox">
+        <item name="android:background">@color/box_blue</item>
+    </style>
+
+    <style name="SchemeBoxYellow" parent="SchemeBox">
+        <item name="android:background">@color/box_yellow</item>
+    </style>
+
+    <style name="SchemeBoxCyan" parent="SchemeBox">
+        <item name="android:background">@color/box_cyan</item>
+    </style>
+
+    <style name="SchemeBoxPink" parent="SchemeBox">
+        <item name="android:background">@color/box_pink</item>
+    </style>
+
+    <style name="SchemeBoxGold" parent="SchemeBox">
+        <item name="android:background">@color/box_gold</item>
     </style>
 
 </resources>

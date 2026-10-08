@@ -55,4 +55,25 @@
     <!-- Cores para Alertas -->
     <color name="yellow_alert">#FFF9C4</color>
     <color name="pink_alert">#F8BBD0</color>
+    <color name="info_cyan">#E0F7FA</color>
+
+    <!-- Tipografia -->
+    <color name="text_secondary">#555555</color>
+    <color name="text_dark">#222222</color>
+    <color name="text_medium">#444444</color>
+    <color name="text_slate">#37474F</color>
+
+    <!-- Caixas de conteúdo (scheme cards) -->
+    <color name="box_blue">#D2E4F7</color>
+    <color name="box_yellow">#FFF1D4</color>
+    <color name="box_cyan">#E0FFFF</color>
+    <color name="box_pink">#FFC0CB</color>
+    <color name="box_gold">#FFEA70</color>
+    <color name="box_teal">#D1F2F2</color>
+
+    <!-- Caixas de alerta pontuais -->
+    <color name="alert_pink_bg">#FCE4EC</color>
+    <color name="alert_pink_text">#C73E6B</color>
+    <color name="alert_lavender_bg">#F0F4FF</color>
+    <color name="alert_lavender_text">#3F51B5</color>
 </resources>

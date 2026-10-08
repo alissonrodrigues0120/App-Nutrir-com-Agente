@@ -27,6 +27,7 @@ import com.example.nutriragente.util.setupEdgeToEdge
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import java.util.HashMap
 
 /**
  * Base Fragment para todos os formulários de consumo alimentar.
@@ -185,6 +186,11 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
             }
         }
         binding.btnNext.setOnClickListener {
+            if (!isCurrentStepValid()) {
+                Toast.makeText(requireContext(), "Por favor, selecione uma opção para continuar", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (currentIndex < visibleSteps.lastIndex) {
                 currentIndex++
                 recomputeVisibleSteps()
@@ -229,6 +235,8 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
             StepType.SINGLE_CHOICE -> buildSingleChoice(step, savedAnswer)
             StepType.MULTI_CHOICE  -> buildMultiChoice(step, savedAnswer)
         }
+        // 3. NOVO: Atualiza estado do botão "Próxima"
+        updateNextButtonState()
     }
 
     // ── Escolha única (apenas seleciona, sem auto-avanço) ──────────────────
@@ -245,14 +253,12 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
                 answers[step.key] = option
                 viewModel.updateAnswer(step.key, option)
 
-                // Nota: O avanço agora fica 100% a cargo do botão "Próxima"
-                // configurado no método setupNavButtons()
+                // 3. NOVO: Atualiza estado do botão "Próxima"
+                updateNextButtonState()
             }
             binding.optionsContainer.addView(btn)
         }
     }
-
-
 
     // ── Múltipla escolha (checkboxes estilizados) ─────────────────────────
 
@@ -275,6 +281,10 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
                 val joined = selectedValues.joinToString(",")
                 answers[step.key] = joined
                 viewModel.updateAnswer(step.key, joined)
+
+                // 3. NOVO: Atualiza estado do botão "Próxima"
+                updateNextButtonState()
+
             }
             binding.optionsContainer.addView(btn)
         }
@@ -282,7 +292,7 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
 
     // ════════════════════════════════════════════════════════════════════════
     // UI helpers
-    // ════════════════════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════════════════
 
     private fun createOptionButton(text: String, selected: Boolean): MaterialButton {
         return MaterialButton(requireContext()).apply {
@@ -348,6 +358,22 @@ abstract class StepFormFragment : Fragment(R.layout.fragment_step_form) {
     // ════════════════════════════════════════════════════════════════════════
     // Extension helpers
     // ════════════════════════════════════════════════════════════════════════
+
+    private fun isCurrentStepValid(): Boolean {
+        if (visibleSteps.isEmpty()) return false
+        val currentStep = visibleSteps[currentIndex]
+        val answer = answers[currentStep.key]
+
+        // Para ambos os tipos (single/multi choice), uma resposta válida é não-nula e não vazia
+        return answer != null && !answer.isBlank()
+    }
+
+    private fun updateNextButtonState() {
+        val valid = isCurrentStepValid()
+        binding.btnNext.alpha = if (valid) 1f else 0.6f
+        // Mantém o botão habilitado para permitir mostrar o Toast ao clicar inválido
+        binding.btnNext.isEnabled = true
+    }
 
     private val Int.dp: Int
         get() = TypedValue.applyDimension(

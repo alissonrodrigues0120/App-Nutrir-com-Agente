@@ -2,7 +2,6 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray">
@@ -11,115 +10,72 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorSurface">
-
-
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:background="@color/blue_toolbar"
+        app:elevation="@dimen/appbar_elevation" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+        <LinearLayout style="@style/LinearContainer">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="16dp">
+            <androidx.cardview.widget.CardView style="@style/CardNutrir">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                <LinearLayout style="@style/CardContent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Deficiência de Ferro"
-                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                        android:textColor="@android:color/black" />
+                        style="@style/TextSection"
+                        android:text="Deficiência de Ferro" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:lineSpacingExtra="4dp"
-                        android:text="A falta de ferro pode provocar cansaço, fraqueza e falta de apetite. Para evitar a anemia, todas as crianças de 6 a 24 meses devem receber fontes extras de ferro de forma preventiva."
-                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+                        style="@style/TextBody"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:text="A falta de ferro pode provocar cansaço, fraqueza e falta de apetite. Para evitar a anemia, todas as crianças de 6 a 24 meses devem receber fontes extras de ferro de forma preventiva." />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Deficiência de Vitamina A"
-                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-                        android:textColor="@android:color/black" />
+                        style="@style/TextSection"
+                        android:layout_marginTop="@dimen/spacing_xxl"
+                        android:text="Deficiência de Vitamina A" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:lineSpacingExtra="4dp"
-                        android:text="A deficiência de vitamina A pode provocar problemas graves nos olhos da criança e levá-la à cegueira. Além de proteger a visão, a vitamina A diminui o risco de diarreia, de infecções respiratórias e ajuda no crescimento e desenvolvimento da criança.\n\nAs crianças de 6 meses a 5 anos que residem em área de risco para a deficiência de vitamina A devem ser suplementadas."
-                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+                        style="@style/TextBody"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:text="A deficiência de vitamina A pode provocar problemas graves nos olhos da criança e levá-la à cegueira. Além de proteger a visão, a vitamina A diminui o risco de diarreia, de infecções respiratórias e ajuda no crescimento e desenvolvimento da criança.\n\nAs crianças de 6 meses a 5 anos que residem em área de risco para a deficiência de vitamina A devem ser suplementadas." />
 
                     <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="24dp"
+                        style="@style/ImageCenterLarge"
+                        android:layout_marginTop="@dimen/spacing_xxl"
                         android:contentDescription="Ilustração de criança recebendo suplemento"
                         android:src="@drawable/vitamina_a" />
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        style="@style/CalloutCard"
+                        android:layout_marginTop="@dimen/spacing_xxl"
                         app:cardBackgroundColor="@color/warn_orange"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="2dp">
+                        app:cardElevation="@dimen/elevation_sm">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="16dp">
+                            android:padding="@dimen/padding_lg">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                style="@style/TextBoxTitle"
                                 android:layout_gravity="center_horizontal"
-                                android:text="Suplementação"
-                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/black" />
+                                android:text="Suplementação" />
 
                             <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:lineSpacingExtra="5dp"
-                                android:text="@string/supplementation_details_12_to_59_months_html"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-                                android:textColor="#37474F" />
+                                style="@style/TextBodySmall"
+                                android:layout_marginTop="@dimen/spacing_lg"
+                                android:text="@string/supplementation_details_12_to_59_months_html" />
 
                             <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:text="@string/footer_supplementation_bold_html"
+                                style="@style/TextBodySmall"
+                                android:layout_marginTop="@dimen/spacing_lg"
                                 android:textAlignment="center"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-                                android:textColor="#37474F" />
+                                android:text="@string/footer_supplementation_bold_html" />
 
                         </LinearLayout>
 

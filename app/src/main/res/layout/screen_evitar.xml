@@ -2,86 +2,61 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray">
 
-
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_toolbar"
+        app:elevation="@dimen/appbar_elevation" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+        <LinearLayout style="@style/LinearContainer">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@android:color/white">
+                style="@style/CardNutrir"
+                app:cardBackgroundColor="@color/background_white">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                <LinearLayout style="@style/CardContent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="24dp"
-                        android:text="@string/titulo_alimentos_a_evitar"
-                        android:textColor="@android:color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
+                        style="@style/TextTitleLarge"
+                        android:text="@string/titulo_alimentos_a_evitar" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:lineSpacingExtra="4dp"
-                        android:text="@string/alerta_evitar_industrializados"
-                        android:textSize="16sp" />
+                        style="@style/TextBodyWrap"
+                        android:layout_marginBottom="@dimen/spacing_lg"
+                        android:text="@string/alerta_evitar_industrializados" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:lineSpacingExtra="4dp"
-                        android:text="@string/dica_uso_moderado_sal"
-                        android:textSize="16sp" />
-
+                        style="@style/TextBodyWrap"
+                        android:layout_marginBottom="@dimen/spacing_lg"
+                        android:text="@string/dica_uso_moderado_sal" />
 
                     <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/image_size_xs"
+                        android:layout_height="@dimen/image_size_xs"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="24dp"
+                        android:layout_marginTop="@dimen/spacing_lg"
+                        android:layout_marginBottom="@dimen/spacing_xxl"
                         android:src="@drawable/sorvete"
                         android:contentDescription="@string/ilustracao_sorvete" />
 
+                    <LinearLayout style="@style/AlertBoxBlue">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/warn_blue"
-                        android:gravity="center"
-                        android:padding="16dp"
-                        android:lineSpacingExtra="4dp"
-                        android:text="@string/alerta_mel_contraindicado"
-                        android:textColor="@color/color_text_black"
-                        android:textSize="15sp" />
+                        <TextView
+                            style="@style/AlertTextBlue"
+                            android:textSize="@dimen/text_size_body_small"
+                            android:text="@string/alerta_mel_contraindicado" />
+                    </LinearLayout>
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>

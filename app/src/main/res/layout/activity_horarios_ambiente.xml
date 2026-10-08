@@ -11,94 +11,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue_toolbar"
-        app:elevation="12dp">
-
-    </com.google.android.material.appbar.AppBarLayout>
+        app:elevation="@dimen/appbar_elevation" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+        <LinearLayout style="@style/LinearContainer">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
+            <androidx.cardview.widget.CardView style="@style/CardNutrir">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                <LinearLayout style="@style/CardContent">
 
                     <!-- Título -->
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:text="Horários e ambiente adequado para alimentação"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        style="@style/TextTitle"
+                        android:text="Horários e ambiente adequado para alimentação" />
 
-                    <!-- Texto Informativo -->
+                    <!-- Texto informativo -->
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:lineSpacingExtra="3dp"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        style="@style/TextBody"
+                        android:layout_marginBottom="@dimen/spacing_lg"
                         android:text="@string/horario" />
 
                     <!-- Imagem / Ilustração -->
                     <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/image_size_xs"
+                        android:layout_height="@dimen/image_size_xs"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginVertical="8dp"
+                        android:layout_marginVertical="@dimen/spacing_sm"
                         android:src="@android:drawable/ic_menu_recent_history"
                         android:contentDescription="Ilustração de relógio" />
 
                     <!-- Card de dica (menta) -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/bg_tip_mint"
-                        android:padding="16dp">
+                    <LinearLayout style="@style/TipBoxMint">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/tip_mint_text"
-                            android:textSize="14sp"
-                            android:lineSpacingExtra="3dp"
+                            style="@style/TipTextMint"
                             android:text="@string/horario_warn_1" />
                     </LinearLayout>
 
                     <!-- Card de alerta (laranja) -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/bg_tip_orange"
-                        android:padding="16dp">
+                    <LinearLayout style="@style/TipBoxOrange">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/tip_orange_text"
-                            android:textSize="14sp"
-                            android:lineSpacingExtra="3dp"
+                            style="@style/TipTextOrange"
                             android:text="@string/horario_warn_2" />
                     </LinearLayout>
 

@@ -309,17 +309,48 @@ class NewEvaluationFragment : Fragment(R.layout.fragment_new_evaluation_step) {
     private fun validateCurrentStep(): Boolean {
         return when (currentStep) {
             1 -> {
+                val nome = binding.etNome.text.toString()
+                val trimmed = nome.trim()
                 when {
-                    binding.etNome.text.isNullOrBlank() -> {
+                    trimmed.isBlank() -> {
                         toast("Informe o nome da criança"); false
                     }
-                    binding.etDataNascimento.text.isNullOrBlank() -> {
-                        toast("Informe a data de nascimento"); false
+                    !trimmed.contains(' ') -> {
+                        toast("O nome deve incluir o sobrenome (ex: João Silva)"); false
                     }
-                    sexoSelecionado.isEmpty() -> {
-                        toast("Selecione o sexo da criança"); false
+                    else -> {
+                        val parts = trimmed.split("\\s+".toRegex()).filter { it.isNotBlank() }
+                        if (parts.size < 2) {
+                            toast("O nome deve incluir o sobrenome (ex: João Silva)"); false
+                        } else {
+                            val hasNonLetter = parts.any { part ->
+                                part.any { !Character.isLetter(it) }
+                            }
+                            if (hasNonLetter) {
+                                toast("O nome deve conter apenas letras (sem números ou símbolos)"); false
+                            } else {
+                                // Verifica se o primeiro caractere do nome e do sobrenome estão em maiúsculo
+                                val primeiroNome = parts[0]
+                                val sobrenome = parts[1]
+
+                                val nomeComecaMinusculo = primeiroNome.isNotEmpty() && primeiroNome.first().isLowerCase()
+                                val sobrenomeComecaMinusculo = sobrenome.isNotEmpty() && sobrenome.first().isLowerCase()
+
+                                if (nomeComecaMinusculo || sobrenomeComecaMinusculo) {
+                                    val mensagens = mutableListOf<String>()
+                                    if (nomeComecaMinusculo) mensagens.add("O primeiro caractere do nome deve ser maiúsculo")
+                                    if (sobrenomeComecaMinusculo) mensagens.add("O primeiro caractere do sobrenome deve ser maiúsculo")
+                                    toast(mensagens.joinToString(" e ")); false
+                                } else if (binding.etDataNascimento.text.isNullOrBlank()) {
+                                    toast("Informe a data de nascimento"); false
+                                } else if (sexoSelecionado.isEmpty()) {
+                                    toast("Selecione o sexo da criança"); false
+                                } else {
+                                    true
+                                }
+                            }
+                        }
                     }
-                    else -> true
                 }
             }
             2 -> {
@@ -373,6 +404,26 @@ class NewEvaluationFragment : Fragment(R.layout.fragment_new_evaluation_step) {
     // ════════════════════════════════════════════════════════════════════════
     // Helpers
     // ════════════════════════════════════════════════════════════════════════
+
+    private fun isValidFullName(name: String?): Boolean {
+        if (name == null || name.isBlank()) return false
+
+        val trimmed = name.trim()
+
+        // Deve ter pelo menos um espaço para o sobrenome
+        if (!trimmed.contains(' ')) return false
+
+        // Divide por espaços e remove partes vazias
+        val parts = trimmed.split("\\s+".toRegex()).filter { it.isNotBlank() }
+
+        // Precisa de pelo menos duas partes (nome e sobrenome)
+        if (parts.size < 2) return false
+
+        // Cada parte deve conter apenas letras
+        return parts.all { part ->
+            part.all { Character.isLetter(it) }
+        }
+    }
 
     private fun calcularIdadeEmMeses(dataNascimento: String): Int {
         val formatter  = DateTimeFormatter.ofPattern("dd/MM/yyyy")

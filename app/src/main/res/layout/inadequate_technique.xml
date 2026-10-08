@@ -1,117 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2">
+    android:background="@color/gray">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_toolbar"
+        app:elevation="@dimen/appbar_elevation" />
 
-
-    <!-- Conteúdo rolável -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+        <LinearLayout style="@style/LinearContainer">
 
-            <!-- Card branco com sombra e canto arredondado -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:cardUseCompatPadding="true">
+            <androidx.cardview.widget.CardView style="@style/CardNutrir">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
+                <LinearLayout style="@style/CardContent">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                    <!-- Título da página -->
+                    <TextView
+                        android:id="@+id/tvTitulo"
+                        style="@style/TextTitle"
+                        android:text="Técnica inadequada de amamentação" />
 
-                        <!-- Título da página -->
-                        <TextView
-                            android:id="@+id/tvTitulo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Técnica inadequada de amamentação"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="#000000"
-                            android:layout_marginBottom="12dp"/>
+                    <TextView
+                        android:id="@+id/tv_TextoPrincipal"
+                        style="@style/TextBody"
+                        android:layout_marginBottom="@dimen/spacing_md"
+                        android:text="@string/ntecnica"
+                        tools:ignore="DuplicateIds" />
 
-                        <TextView
-                            android:id="@+id/tv_TextoPrincipal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/ntecnica"
-                            android:textSize="16sp"
-                            android:textColor="#333333"
-                            android:lineSpacingExtra="2dp"
-                            android:layout_marginBottom="12dp"
-                            tools:ignore="DuplicateIds" />
+                    <TextView
+                        android:id="@+id/tvTextoPrincipal"
+                        style="@style/TextBodySmall"
+                        android:layout_marginBottom="@dimen/spacing_md"
+                        android:layout_marginStart="@dimen/spacing_lg"
+                        android:text="@string/ntecnica2" />
+
+                    <ImageView
+                        android:id="@+id/feeding_child_image"
+                        android:layout_width="@dimen/image_size_md"
+                        android:layout_height="@dimen/image_size_md"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="@dimen/spacing_sm"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/mae_com_dor" />
+
+                    <LinearLayout style="@style/SchemeBoxYellow">
 
                         <TextView
-                            android:id="@+id/tvTextoPrincipal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/ntecnica2"
-                            android:textSize="14sp"
-                            android:textColor="#333333"
-                            android:lineSpacingExtra="2dp"
-                            android:layout_marginBottom="12dp"
-                            android:gravity="left"
-                            android:layout_marginStart="18dp" />
+                            android:id="@+id/tv_1_TextoPrincipal"
+                            style="@style/TextBody"
+                            android:gravity="center"
+                            android:text="@string/ntecnica3" />
+                    </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/feeding_child_image"
-                            android:layout_width="160dp"
-                            android:layout_height="160dp"
-                            android:src="@drawable/mae_com_dor"
-                            android:layout_gravity="center"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:layout_marginTop="6dp"
-                            android:layout_marginBottom="6dp"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:background="#FFF1D4"
-                            android:orientation="vertical"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:id="@+id/tv_1_TextoPrincipal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/ntecnica3"
-                                android:textSize="16sp"
-                                android:textColor="#333333"
-                                android:lineSpacingExtra="2dp"
-                                android:layout_marginBottom="12dp"
-                                android:gravity="center" />
-
-                        </LinearLayout>
-
-                    </LinearLayout> <!-- fechamento do segundo LinearLayout -->
-                </LinearLayout> <!-- fechamento do LinearLayout com padding -->
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
